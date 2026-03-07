@@ -13,13 +13,13 @@ Plugin tracker cho Claude Code để gửi telemetry của Skill về **CLIProxy
 Plugin này vẫn dùng ID cài đặt:
 
 ```text
-cliproxy-skill-tracker
+claude-skill-tracker
 ```
 
 Điều này giúp lệnh cũ vẫn chạy được:
 
 ```claude
-/plugin install cliproxy-skill-tracker
+/plugin install claude-skill-tracker
 ```
 
 ## Cấu trúc repo
