@@ -43,9 +43,35 @@ function hashInt(str) {
  * a message object.  We scan for `usage` blocks (token counts) and
  * `tool_use` content blocks (tool call count).
  *
- * To attribute metrics to the *current* skill call (not the whole
- * session), we look backwards from the end and stop at the previous
- * assistant turn boundary — giving us approximate per-turn metrics.
+ * ## Timing limitation
+ *
+ * This hook fires on `PostToolUse` for the `Skill` tool, which triggers
+ * immediately after the Skill tool returns its expanded prompt text —
+ * BEFORE Claude actually executes the skill content.  As a result:
+ *
+ * - For skills that only expand a prompt (most skills): the transcript
+ *   at hook-fire time contains the assistant turn that *called* the
+ *   Skill tool, not the skill's actual execution. Metrics will reflect
+ *   the tiny turn that said "I'll use Skill" rather than the real work.
+ *
+ * - For skills that trigger external API calls within the same turn
+ *   (e.g. image-generator calling an MCP tool synchronously): those
+ *   calls complete before PostToolUse fires, so their tokens are visible
+ *   in the transcript and will be captured correctly.
+ *
+ * ## Turn isolation strategy
+ *
+ * To avoid counting the entire session's tokens, we walk backwards to
+ * find the last two `assistant` entries and sum metrics only in that
+ * window — approximating "the current skill turn".
+ *
+ * ## Transcript message format
+ *
+ * Claude Code uses two variants:
+ *   - Flat:   { role: "assistant", usage: {...}, model: "..." }
+ *   - Nested: { type: "assistant", message: { model: "...", usage: {...} } }
+ *
+ * Both are handled below.
  */
 function parseTranscriptMetrics(transcriptPath) {
   const defaults = {
@@ -115,17 +141,20 @@ function parseTranscriptMetrics(transcriptPath) {
       }
     }
 
-    // Model
-    if (entry.model && typeof entry.model === 'string') model = entry.model;
+    // Model — Claude Code uses two formats:
+    //   flat:   { role: "assistant", model: "claude-sonnet-4-6" }
+    //   nested: { type: "assistant", message: { model: "claude-sonnet-4-6" } }
+    const entryModel = entry.message?.model || entry.model;
+    if (typeof entryModel === 'string' && entryModel) model = entryModel;
 
-    // Token usage
+    // Token usage — same two format variants as model above
     const usage = entry.usage || entry.message?.usage;
     if (usage) {
       if (usage.input_tokens) inputTokens += usage.input_tokens;
       if (usage.output_tokens) outputTokens += usage.output_tokens;
     }
 
-    // Tool calls — from content blocks
+    // Tool calls — from content blocks (flat or nested)
     const content = entry.content || entry.message?.content;
     if (Array.isArray(content)) {
       for (const block of content) {

@@ -10,13 +10,11 @@ Plugin tracker cho Claude Code để gửi telemetry của Skill về **CLIProxy
 
 ## Plugin ID (giữ tương thích)
 
-Plugin này vẫn dùng ID cài đặt:
+Plugin này dùng ID cài đặt:
 
 ```text
 claude-skill-tracker
 ```
-
-Điều này giúp lệnh cũ vẫn chạy được:
 
 ```claude
 /plugin install claude-skill-tracker
@@ -25,7 +23,6 @@ claude-skill-tracker
 ## Cấu trúc repo
 
 ```text
-.claude-plugin/plugin.json      # plugin manifest
 hooks/hooks.json                # đăng ký PostToolUse hook cho Skill
 scripts/on-skill-use.mjs        # script gửi event telemetry
 package.json
@@ -47,6 +44,29 @@ Event gửi lên bao gồm:
 - `status`, `error_type`, `error_message`, `attempt_no`
 - `project_dir`, `machine_id`, `event_uid`
 
+## Giới hạn đã biết (Known Limitations)
+
+### Token metrics thường bằng 0 hoặc rất nhỏ
+
+Hook `PostToolUse` trên `Skill` fires **ngay sau khi Skill tool trả về prompt text** — tức là TRƯỚC khi Claude thực sự thực thi nội dung skill đó. Transcript tại thời điểm hook chạy chỉ chứa:
+
+```
+[...các turn trước]
+[assistant] → calls Skill tool   ← captured window
+[tool_result] = "# Simplify: ..."
+                                  ← hook fires here
+[assistant] → executes skill      ← CHƯA có trong transcript
+```
+
+Vì vậy:
+
+- **Hầu hết skills**: `tokens_used` phản ánh turn nhỏ mà Claude dùng để gọi Skill tool, không phải công việc thực tế của skill.
+- **Skills gọi external API trong cùng 1 turn** (vd: `image-generator` dùng MCP tool): những calls đó hoàn thành trước khi hook fires → token được capture chính xác.
+
+### Model thường bị NULL (đã fix v1.0.1)
+
+Claude Code lưu model trong transcript theo format `entry.message.model` (nested), không phải `entry.model` (flat). Bug này đã được fix — model sẽ được đọc đúng từ cả hai format.
+
 ## Cấu hình endpoint
 
 Biến môi trường:
@@ -61,7 +81,7 @@ Mặc định nếu không set:
 http://localhost:8417/api/collector/skill-events
 ```
 
-Ví dụ:
+Ví dụ override:
 
 ```bash
 export CLIPROXY_COLLECTOR_URL="https://your-dashboard-domain/api/collector/skill-events"
@@ -71,7 +91,8 @@ export CLIPROXY_COLLECTOR_URL="https://your-dashboard-domain/api/collector/skill
 
 - Script dùng Node.js built-ins (không phụ thuộc package ngoài)
 - Thiết kế fail-safe: lỗi network/parse sẽ không làm hỏng phiên Claude Code
-- Hook timeout hiện tại: `8s`
+- Hook timeout: `8s`
+- `event_uid` = SHA1 của `machine_id|session_id|skill_name|tool_use_id|attempt_no` — dùng cho upsert idempotent
 
 ## Kiểm tra nhanh
 
