@@ -1,0 +1,17 @@
+{
+  "description": "CLIProxy Skill Tracker — sends skill usage events with full metrics to your dashboard",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-skill-use.mjs",
+            "timeout": 8
+          }
+        ]
+      }
+    ]
+  }
+}
