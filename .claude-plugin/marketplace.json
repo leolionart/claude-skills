@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "cliproxy-skill-tracker",
-      "source": ".",
+      "source": "./",
       "description": "Track Claude Code skill usage to your CLIProxy Dashboard — tokens, duration, tool calls, project context, all automatic",
       "version": "1.0.0",
       "author": {
