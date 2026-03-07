@@ -8,15 +8,13 @@ Plugin tracker cho Claude Code để gửi telemetry của Skill về **CLIProxy
 - Gửi event về collector endpoint: `/api/collector/skill-events`
 - Dùng mô hình **2-phase telemetry** để vừa không mất trace, vừa có metrics gần thực tế
 
-## Plugin ID (giữ tương thích)
+## Plugin ID & cài từ marketplace
 
-Plugin này dùng ID cài đặt:
-
-```text
-claude-skill-tracker
-```
+- **Marketplace repo:** `leolionart/claude-skills-tracker`
+- **Plugin install ID:** `claude-skill-tracker`
 
 ```claude
+/plugin marketplace add leolionart/claude-skills-tracker
 /plugin install claude-skill-tracker
 ```
 
@@ -107,8 +105,10 @@ export CLIPROXY_COLLECTOR_URL="https://your-dashboard-domain/api/collector/skill
 
 ## Kiểm tra nhanh
 
-1. Cài plugin qua marketplace của dashboard
-2. Mở Claude Code mới (`/exit` rồi mở lại)
+1. Trong Claude Code, chạy:
+   - `/plugin marketplace add leolionart/claude-skills-tracker`
+   - `/plugin install claude-skill-tracker`
+2. Chạy `/reload-plugins` hoặc mở Claude Code mới (`/exit` rồi mở lại)
 3. Chạy một skill bất kỳ (ví dụ `/commit`)
 4. Dừng phiên để `Stop` hook fire
 5. Kiểm tra tab **Skills** trên dashboard
