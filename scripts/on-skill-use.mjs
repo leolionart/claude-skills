@@ -1,16 +1,9 @@
 #!/usr/bin/env node
 /**
- * PostToolUse hook for Skill tool.
+ * PostToolUse hook for Skill tool (Phase 1: skeleton event).
  *
- * Reads Claude Code's stdin JSON payload, parses the session transcript
- * to extract token/duration metrics, and POSTs the skill event to the
- * CLIProxy collector endpoint.
- *
- * Zero external dependencies — uses only Node.js built-ins.
- *
- * Environment:
- *   CLIPROXY_COLLECTOR_URL — full endpoint URL
- *     default: http://localhost:8417/api/collector/skill-events
+ * Sends an early event as soon as Skill is called so trace identity is never lost,
+ * even if the session stops before final enrichment.
  */
 
 import { readFileSync } from 'node:fs';
@@ -37,41 +30,10 @@ function hashInt(str) {
 }
 
 /**
- * Parse a Claude Code transcript JSONL to extract metrics.
+ * Parse a Claude Code transcript JSONL to extract coarse metrics.
  *
- * The transcript is a newline-delimited JSON file where each line is
- * a message object.  We scan for `usage` blocks (token counts) and
- * `tool_use` content blocks (tool call count).
- *
- * ## Timing limitation
- *
- * This hook fires on `PostToolUse` for the `Skill` tool, which triggers
- * immediately after the Skill tool returns its expanded prompt text —
- * BEFORE Claude actually executes the skill content.  As a result:
- *
- * - For skills that only expand a prompt (most skills): the transcript
- *   at hook-fire time contains the assistant turn that *called* the
- *   Skill tool, not the skill's actual execution. Metrics will reflect
- *   the tiny turn that said "I'll use Skill" rather than the real work.
- *
- * - For skills that trigger external API calls within the same turn
- *   (e.g. image-generator calling an MCP tool synchronously): those
- *   calls complete before PostToolUse fires, so their tokens are visible
- *   in the transcript and will be captured correctly.
- *
- * ## Turn isolation strategy
- *
- * To avoid counting the entire session's tokens, we walk backwards to
- * find the last two `assistant` entries and sum metrics only in that
- * window — approximating "the current skill turn".
- *
- * ## Transcript message format
- *
- * Claude Code uses two variants:
- *   - Flat:   { role: "assistant", usage: {...}, model: "..." }
- *   - Nested: { type: "assistant", message: { model: "...", usage: {...} } }
- *
- * Both are handled below.
+ * Phase 1 runs very early (right after Skill tool returns prompt text),
+ * so metrics may still be low/empty. That's expected.
  */
 function parseTranscriptMetrics(transcriptPath) {
   const defaults = {
@@ -94,14 +56,11 @@ function parseTranscriptMetrics(transcriptPath) {
   const lines = raw.trim().split('\n').filter(Boolean);
   if (lines.length === 0) return defaults;
 
-  // Parse all entries (cheap — transcripts are usually < 1 MB)
   const entries = [];
   for (const line of lines) {
     try { entries.push(JSON.parse(line)); } catch { /* skip */ }
   }
 
-  // Walk backwards to find the last two assistant messages.
-  // Everything between them approximates the current skill turn.
   let lastAssistantIdx = -1;
   let prevAssistantIdx = -1;
 
@@ -118,7 +77,6 @@ function parseTranscriptMetrics(transcriptPath) {
     }
   }
 
-  // If we can't isolate a turn, fall back to the last entry only
   const startIdx = prevAssistantIdx >= 0 ? prevAssistantIdx + 1 : Math.max(0, entries.length - 5);
 
   let inputTokens = 0;
@@ -131,7 +89,6 @@ function parseTranscriptMetrics(transcriptPath) {
   for (let i = startIdx; i < entries.length; i++) {
     const entry = entries[i];
 
-    // Timestamps
     const ts = entry.timestamp || entry.createdAt || entry.created_at;
     if (ts) {
       const t = new Date(ts).getTime();
@@ -141,20 +98,15 @@ function parseTranscriptMetrics(transcriptPath) {
       }
     }
 
-    // Model — Claude Code uses two formats:
-    //   flat:   { role: "assistant", model: "claude-sonnet-4-6" }
-    //   nested: { type: "assistant", message: { model: "claude-sonnet-4-6" } }
     const entryModel = entry.message?.model || entry.model;
     if (typeof entryModel === 'string' && entryModel) model = entryModel;
 
-    // Token usage — same two format variants as model above
     const usage = entry.usage || entry.message?.usage;
     if (usage) {
       if (usage.input_tokens) inputTokens += usage.input_tokens;
       if (usage.output_tokens) outputTokens += usage.output_tokens;
     }
 
-    // Tool calls — from content blocks (flat or nested)
     const content = entry.content || entry.message?.content;
     if (Array.isArray(content)) {
       for (const block of content) {
@@ -228,8 +180,15 @@ function extractEventMetrics(payload, transcriptMetrics) {
   };
 }
 
+function toIsoOrNow(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return new Date().toISOString();
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return new Date().toISOString();
+  return d.toISOString();
+}
+
 /**
- * POST events to the collector.  Fire-and-forget with a timeout.
+ * POST events to the collector. Fire-and-forget with timeout.
  */
 function postEvents(events) {
   return new Promise((resolve) => {
@@ -251,7 +210,7 @@ function postEvents(events) {
           timeout: 5000,
         },
         (res) => {
-          res.resume(); // drain
+          res.resume();
           resolve();
         },
       );
@@ -282,11 +241,9 @@ async function main() {
 
   if (!skillName || !sessionId) return;
 
-  // Derive project name from cwd (last directory component)
   const cwd = String(data.cwd || '').trim();
   const projectDir = cwd ? basename(cwd) : '';
 
-  // Parse transcript for metrics and merge with hook payload metrics
   const transcriptMetrics = parseTranscriptMetrics(data.transcript_path);
   const metrics = extractEventMetrics(data, transcriptMetrics);
 
@@ -322,7 +279,12 @@ async function main() {
   const attemptNo = Number.isFinite(attemptNoRaw) && attemptNoRaw > 0 ? Math.floor(attemptNoRaw) : 1;
 
   const toolUseId = String(data.tool_use_id || '').trim() || null;
-  const triggeredAt = new Date().toISOString();
+  const triggeredAt = toIsoOrNow(
+    data?.timestamp
+    || data?.created_at
+    || data?.createdAt
+  );
+
   const eventUidBase = [
     MACHINE_ID,
     sessionId,
@@ -351,7 +313,7 @@ async function main() {
     tool_calls: metrics.toolCalls,
     duration_ms: metrics.durationMs,
     model: metrics.model,
-    is_skeleton: false,
+    is_skeleton: true,
     project_dir: projectDir,
   };
 

@@ -1,5 +1,5 @@
 {
-  "description": "CLIProxy Skill Tracker — sends skill usage events with full metrics to your dashboard",
+  "description": "CLIProxy Skill Tracker — sends 2-phase skill telemetry (skeleton + final enrich) to your dashboard",
   "hooks": {
     "PostToolUse": [
       {
@@ -9,6 +9,17 @@
             "type": "command",
             "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-skill-use.mjs",
             "timeout": 8
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-stop.mjs",
+            "timeout": 10
           }
         ]
       }

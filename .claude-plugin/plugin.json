@@ -1,6 +1,6 @@
 {
   "name": "claude-skill-tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Track Claude Code skill usage to your CLIProxy Dashboard — tokens, duration, tool calls, all automatic",
   "author": {
     "name": "leolionart"
