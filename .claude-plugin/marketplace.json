@@ -1,0 +1,26 @@
+{
+  "name": "claude-skills-tracker",
+  "owner": {
+    "name": "leolionart",
+    "email": "art.leolion@gmail.com"
+  },
+  "metadata": {
+    "description": "Marketplace for Claude Skills Tracker plugin",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "cliproxy-skill-tracker",
+      "source": ".",
+      "description": "Track Claude Code skill usage to your CLIProxy Dashboard — tokens, duration, tool calls, project context, all automatic",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["analytics", "skills", "monitoring", "tracking"],
+      "category": "analytics",
+      "strict": true
+    }
+  ]
+}
