@@ -123,6 +123,15 @@ function extractSkillCalls(entries) {
   return calls;
 }
 
+function hasSkillToolUse(entry) {
+  const blocks = getContentBlocks(entry);
+  for (const block of blocks) {
+    if (block?.type !== 'tool_use') continue;
+    if (String(block?.name || '').trim() === 'Skill') return true;
+  }
+  return false;
+}
+
 function findExecutionWindow(entries, callIdx) {
   let executionAssistantIdx = -1;
   for (let i = callIdx + 1; i < entries.length; i++) {
@@ -137,16 +146,17 @@ function findExecutionWindow(entries, callIdx) {
     return { start: callIdx, endExclusive: entries.length };
   }
 
-  let nextAssistantIdx = entries.length;
+  let nextSkillCallAssistantIdx = entries.length;
   for (let i = executionAssistantIdx + 1; i < entries.length; i++) {
     const role = entries[i]?.role || entries[i]?.type;
-    if (role === 'assistant') {
-      nextAssistantIdx = i;
+    if (role !== 'assistant') continue;
+    if (hasSkillToolUse(entries[i])) {
+      nextSkillCallAssistantIdx = i;
       break;
     }
   }
 
-  return { start: executionAssistantIdx, endExclusive: nextAssistantIdx };
+  return { start: executionAssistantIdx, endExclusive: nextSkillCallAssistantIdx };
 }
 
 function extractMetricsFromWindow(entries, start, endExclusive) {
