@@ -1,123 +1,127 @@
 # claude-skills-tracker
 
-Plugin tracker cho Claude Code để gửi telemetry của Skill về **CLIProxy Dashboard**.
+Bộ sưu tập **skills, plugins và integrations** dành cho Claude Code — mở rộng khả năng trợ lý AI cho các tác vụ productivity, infrastructure, analytics và automation.
 
-## Mục tiêu
-
-- Ghi nhận mỗi lần gọi Skill (`/commit`, `/simplify`, ...)
-- Gửi event về collector endpoint: `/api/collector/skill-events`
-- Dùng mô hình **2-phase telemetry** để vừa không mất trace, vừa có metrics gần thực tế
-
-## Plugin ID & cài từ marketplace
-
-- **Marketplace repo:** `leolionart/claude-skills-tracker`
-- **Plugin install ID:** `claude-skill-tracker`
+## Cài đặt từ Marketplace
 
 ```claude
 /plugin marketplace add leolionart/claude-skills-tracker
-/plugin install claude-skill-tracker
+/plugin install <tên-plugin>
 ```
 
-## Cấu trúc repo
+---
+
+## Skills
+
+### Google Workspace *(mới)*
+
+Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.com/googleworkspace/cli) — một CLI thống nhất cho Gmail, Drive, Sheets, Docs, Calendar và Chat.
+
+| Skill | Mô tả |
+|-------|-------|
+| `google-workspace` | Auth setup, cross-product workflows (standup report, meeting prep, weekly digest), schema discovery |
+| `gws-gmail` | Gửi/reply/forward email, triage inbox, stream email mới realtime |
+| `gws-drive` | List, upload, tìm kiếm, share files trên Google Drive |
+| `gws-sheets` | Đọc/ghi/append Sheets data + helper script Python (CSV import/export) |
+
+> **Yêu cầu:** `npm install -g @googleworkspace/cli` + `gws auth login`
+
+---
+
+### Analytics & Reporting
+
+| Skill | Mô tả |
+|-------|-------|
+| `google-analytics-reader` | Query GA4 — traffic, conversions, audience segments, trend analysis |
+
+---
+
+### Collaboration & Messaging
+
+| Skill | Mô tả |
+|-------|-------|
+| `lark-suite` | Làm việc với Lark/Feishu — messages, docs, bitable, calendar, approval |
+
+---
+
+### Productivity
+
+| Skill | Mô tả |
+|-------|-------|
+| `raindrop` | Quản lý bookmarks Raindrop.io — lưu, tìm kiếm, tổ chức collections |
+
+---
+
+### Delivery & Content
+
+| Skill | Mô tả |
+|-------|-------|
+| `diagram` | Tạo sơ đồ ASCII và Mermaid — flowchart, sequence, ERD, Gantt, state machine |
+| `social-image` | Tạo ảnh Facebook Stories (1080×1920) và Post (1080×1080) với background abstract |
+
+---
+
+### Infrastructure
+
+| Skill | Mô tả |
+|-------|-------|
+| `mikrotik-manager` | Quản lý router MikroTik — firewall, routing, VPN, DHCP, wireless qua RouterOS API |
+
+---
+
+## Plugins
+
+Plugin mở rộng hành vi của Claude Code qua hooks — chạy tự động theo sự kiện, không cần gọi thủ công.
+
+| Plugin | Mô tả |
+|--------|-------|
+| `claude-skill-tracker` | Ghi nhận mỗi lần gọi Skill và gửi telemetry về CLIProxy Dashboard (tokens, duration, tool calls) |
+| `git-sync` | Auto-pull khi mở session, auto-commit + push khi Claude dừng |
+| `lark-mcp` | MCP server cho Lark/Feishu — tích hợp trực tiếp Claude với Lark qua MCP protocol |
+
+---
+
+## Cấu trúc Repo
 
 ```text
-hooks/hooks.json                # đăng ký PostToolUse(Skill) + Stop hooks
-scripts/on-skill-use.mjs        # Phase 1: skeleton event
-scripts/on-stop.mjs             # Phase 2: final enrichment
-package.json
-README.md
+skills/
+  google-workspace/       # Auth + cross-product workflows
+  gws-gmail/              # Gmail operations
+  gws-drive/              # Drive file management
+  gws-sheets/             # Sheets read/write + Python helper
+  google-analytics-reader/
+  lark-suite/
+  diagram/
+  raindrop/
+  mikrotik-manager/
+  social-image/
+plugins/
+  git-sync/               # Auto git sync hooks
+  lark-mcp/               # Lark MCP server config
+hooks/
+  hooks.json              # PostToolUse + Stop hooks cho skill tracker
+.claude-plugin/
+  plugin.json             # Plugin manifest
+  marketplace.json        # Registry tất cả plugins & skills
 ```
 
-## Cách hoạt động (2-phase telemetry)
+---
 
-1. Claude Code gọi tool `Skill`.
-2. Hook `PostToolUse` chạy `scripts/on-skill-use.mjs` và gửi **Phase 1 skeleton** (`is_skeleton=true`).
-3. Claude tiếp tục thực thi nội dung skill.
-4. Khi phiên dừng, hook `Stop` chạy `scripts/on-stop.mjs`:
-   - đọc transcript,
-   - tìm lần gọi skill gần nhất,
-   - parse metrics thực tế hơn,
-   - gửi **Phase 2 final enrich** với cùng `event_uid`, `is_skeleton=false`.
-5. Collector merge theo `event_uid` để chỉ giữ 1 row logic/run (idempotent).
+## Skill Tracker — Cách hoạt động
 
-## Data contract
+Plugin `claude-skill-tracker` dùng mô hình **2-phase telemetry**:
 
-### Immutable fields (không đổi giữa phase 1/2)
-
-- `event_uid`
-- `machine_id`
-- `session_id`
-- `skill_name`
-- `tool_use_id`
-- `attempt_no`
-- `triggered_at`
-
-### Enrich fields (phase 2 có thể nâng chất lượng)
-
-- `tokens_used`
-- `output_tokens`
-- `tool_calls`
-- `duration_ms`
-- `model`
-- `status`
-- `error_type`
-- `error_message`
-- `is_skeleton`
-- `synced_at`
-
-## Identity / Idempotency
-
-- `event_uid` = `SHA1(machine_id|session_id|skill_name|tool_use_id|attempt_no)`
-- Cả phase 1 và phase 2 phải dùng cùng công thức để merge vào cùng một event.
-- Nếu collector nhận lại payload lặp (retry/replay), upsert vẫn giữ idempotent.
-
-## Cấu hình endpoint
-
-Biến môi trường:
+1. Hook `PostToolUse(Skill)` gửi **Phase 1 skeleton** ngay khi skill được gọi
+2. Hook `Stop` đọc transcript, parse metrics thực tế, gửi **Phase 2 enrich** với cùng `event_uid`
+3. Collector merge idempotent theo `event_uid` — chỉ giữ 1 event logic/run
 
 ```bash
-CLIPROXY_COLLECTOR_URL
+# Tuỳ chỉnh endpoint collector
+export CLIPROXY_COLLECTOR_URL="https://your-dashboard/api/collector/skill-events"
+# Mặc định: https://proxy.naai.studio/api/collector/skill-events
 ```
 
-Mặc định nếu không set:
-
-```text
-https://proxy.naai.studio/api/collector/skill-events
-```
-
-Ví dụ override:
-
-```bash
-export CLIPROXY_COLLECTOR_URL="https://your-dashboard-domain/api/collector/skill-events"
-```
-
-## Edge cases / Known limitations
-
-- Nếu session kết thúc bất thường trước khi `Stop` hook chạy, event có thể chỉ còn skeleton.
-- Một số skill rất ngắn vẫn có metrics thấp; đây là hành vi thực tế của runtime, không phải duplicate.
-- Parse transcript là heuristic: với cấu trúc transcript khác thường, quality metrics có thể chưa tối ưu nhưng không làm hỏng ingest.
-
-## Dev notes
-
-- Script dùng Node.js built-ins (không phụ thuộc package ngoài)
-- Thiết kế fail-safe: lỗi network/parse không làm hỏng phiên Claude Code
-- Hook timeout: `8s` (phase 1) và `10s` (phase 2)
-
-## Kiểm tra nhanh
-
-1. Trong Claude Code, chạy:
-   - `/plugin marketplace add leolionart/claude-skills-tracker`
-   - `/plugin install claude-skill-tracker`
-2. Chạy `/reload-plugins` hoặc mở Claude Code mới (`/exit` rồi mở lại)
-3. Chạy một skill bất kỳ (ví dụ `/commit`)
-4. Dừng phiên để `Stop` hook fire
-5. Kiểm tra tab **Skills** trên dashboard
-
-Nếu không thấy dữ liệu:
-
-- Kiểm tra `CLIPROXY_COLLECTOR_URL`
-- Kiểm tra collector endpoint đang chạy
-- Kiểm tra collector log có nhận cả phase 1 và phase 2
+---
 
 ## License
 

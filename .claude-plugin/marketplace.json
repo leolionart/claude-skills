@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Skill tracker, Lark MCP integration, and a collection of productivity skills for Claude Code",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
@@ -117,6 +117,54 @@
       "license": "MIT",
       "keywords": ["social-media", "facebook", "image-generation", "quote", "pillow"],
       "category": "delivery"
+    },
+    {
+      "name": "google-workspace",
+      "source": "./skills/google-workspace",
+      "description": "Google Workspace CLI auth setup and cross-product workflows — standup reports, meeting prep, weekly digests using the gws CLI.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["google-workspace", "gws", "gmail", "drive", "sheets", "calendar", "workflow"],
+      "category": "productivity"
+    },
+    {
+      "name": "gws-gmail",
+      "source": "./skills/gws-gmail",
+      "description": "Send, reply, triage and stream Gmail via gws CLI — full threading support, inbox triage, and realtime NDJSON streaming.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["gmail", "email", "google-workspace", "gws"],
+      "category": "productivity"
+    },
+    {
+      "name": "gws-drive",
+      "source": "./skills/gws-drive",
+      "description": "Manage Google Drive files via gws CLI — list, upload, search, share, and manage permissions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["google-drive", "drive", "google-workspace", "gws", "files"],
+      "category": "productivity"
+    },
+    {
+      "name": "gws-sheets",
+      "source": "./skills/gws-sheets",
+      "description": "Read, write, and manage Google Sheets via gws CLI — includes Python helper script for CSV import/export and formatted table output.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["google-sheets", "sheets", "spreadsheet", "google-workspace", "gws"],
+      "category": "productivity"
     }
   ]
 }
