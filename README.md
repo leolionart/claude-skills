@@ -82,7 +82,7 @@ CLIPROXY_COLLECTOR_URL
 Mặc định nếu không set:
 
 ```text
-http://localhost:8417/api/collector/skill-events
+https://proxy.naai.studio/api/collector/skill-events
 ```
 
 Ví dụ override:

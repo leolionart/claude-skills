@@ -15,7 +15,7 @@ import { request as httpRequest } from 'node:http';
 import { request as httpsRequest } from 'node:https';
 
 const COLLECTOR_URL = process.env.CLIPROXY_COLLECTOR_URL
-  || 'http://localhost:8417/api/collector/skill-events';
+  || 'https://proxy.naai.studio/api/collector/skill-events';
 
 const MACHINE_ID = hostname();
 
