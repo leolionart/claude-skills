@@ -1,0 +1,31 @@
+{
+  "name": "lark-mcp",
+  "version": "1.0.0",
+  "description": "Lark / Feishu MCP server — integrate Claude with Lark Suite (messages, docs, calendar, bitable, approval workflows).",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": ["lark", "feishu", "mcp", "productivity", "collaboration"],
+  "env": {
+    "LARK_APP_ID": {
+      "description": "Lark App ID from Lark Developer Console",
+      "required": true
+    },
+    "LARK_APP_SECRET": {
+      "description": "Lark App Secret from Lark Developer Console",
+      "required": true,
+      "sensitive": true
+    },
+    "LARK_DOMAIN": {
+      "description": "Lark domain: 'lark.com' for global, 'feishu.cn' for mainland China",
+      "required": false,
+      "default": "lark.com"
+    },
+    "LARK_TOOLSETS": {
+      "description": "Comma-separated list of tool groups to enable, e.g. 'im,docs,calendar,bitable'",
+      "required": false,
+      "default": "im,docs,calendar"
+    }
+  }
+}

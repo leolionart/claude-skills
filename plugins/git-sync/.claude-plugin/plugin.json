@@ -1,0 +1,11 @@
+{
+  "name": "git-sync",
+  "version": "1.0.0",
+  "description": "Auto-sync git repo on session start/end — pulls latest (main + submodules) when Claude starts, auto-commits and pushes all changes when Claude stops.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": ["git", "sync", "auto-commit", "workflow", "productivity"],
+  "hooks": "./hooks/hooks.json"
+}

@@ -1,0 +1,18 @@
+{
+  "lark-mcp": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@larksuiteoapi/lark-mcp",
+      "mcp",
+      "-a",
+      "${LARK_APP_ID}",
+      "-s",
+      "${LARK_APP_SECRET}",
+      "--domain",
+      "${LARK_DOMAIN}",
+      "-t",
+      "${LARK_TOOLSETS}"
+    ]
+  }
+}

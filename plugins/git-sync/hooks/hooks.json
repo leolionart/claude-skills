@@ -1,0 +1,29 @@
+{
+  "description": "git-sync — pull on session start, auto-commit + push on session end",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/scripts/on-session-start.sh",
+            "timeout": 30,
+            "statusMessage": "Syncing git repo..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/scripts/on-stop.sh",
+            "timeout": 30,
+            "statusMessage": "Committing and pushing changes..."
+          }
+        ]
+      }
+    ]
+  }
+}
