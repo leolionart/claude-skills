@@ -165,6 +165,90 @@
       "license": "MIT",
       "keywords": ["google-sheets", "sheets", "spreadsheet", "google-workspace", "gws"],
       "category": "productivity"
+    },
+    {
+      "name": "save-and-release",
+      "source": "./skills/save-and-release",
+      "description": "Save your work safely, push it when ready, and prepare clear release notes when it's time to ship.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["git", "commit", "push", "release", "release-notes"],
+      "category": "delivery"
+    },
+    {
+      "name": "set-up-docker-app-updates",
+      "source": "./skills/set-up-docker-app-updates",
+      "description": "Set up a Docker app so new versions can be built, published, and rolled out with a simple, repeatable update flow.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["docker", "updates", "github-actions", "ghcr", "deployment"],
+      "category": "delivery"
+    },
+    {
+      "name": "set-up-macos-app-updates",
+      "source": "./skills/set-up-macos-app-updates",
+      "description": "Set up a macOS app to show its current version and let users know when an update is available.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["macos", "app-updates", "version-check", "release", "desktop-app"],
+      "category": "delivery"
+    },
+    {
+      "name": "taste-skill",
+      "source": "./skills/taste-skill",
+      "description": "Main frontend design skill for premium-looking UI — layout, typography, spacing, motion, and anti-generic design rules.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["frontend", "design", "ui", "ux", "motion"],
+      "category": "delivery"
+    },
+    {
+      "name": "redesign-skill",
+      "source": "./skills/redesign-skill",
+      "description": "Upgrade an existing website or app without rebuilding from scratch — audit weak design patterns and improve them safely.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["redesign", "frontend", "ui", "audit", "design"],
+      "category": "delivery"
+    },
+    {
+      "name": "minimalist-skill",
+      "source": "./skills/minimalist-skill",
+      "description": "Create clean editorial-style interfaces with warm monochrome palettes, strong typography, flat grids, and subtle motion.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["minimalist", "editorial", "frontend", "ui", "design"],
+      "category": "delivery"
+    },
+    {
+      "name": "soft-skill",
+      "source": "./skills/soft-skill",
+      "description": "Add premium visual polish to frontend work with higher-end spacing, surfaces, motion, and interface composition.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": ["frontend", "visual-design", "motion", "premium-ui", "design"],
+      "category": "delivery"
     }
   ]
 }

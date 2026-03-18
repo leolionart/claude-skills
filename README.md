@@ -61,6 +61,27 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 ---
 
+### Frontend Design
+
+| Skill | Mô tả |
+|-------|-------|
+| `taste-skill` | Skill thiết kế frontend chính — tăng chất lượng layout, typography, spacing, motion và cảm giác cao cấp |
+| `redesign-skill` | Nâng cấp giao diện sẵn có mà không cần viết lại từ đầu — audit các điểm nhìn generic rồi cải thiện từng bước |
+| `minimalist-skill` | Tạo giao diện tối giản kiểu editorial/workspace — nhiều khoảng thở, monochrome ấm, bento grid, pastel nhẹ |
+| `soft-skill` | Đẩy visual polish lên mức premium agency — cấu trúc card, animation, spacing và nhịp điệu thị giác tinh tế hơn |
+
+---
+
+### Release & App Updates
+
+| Skill | Mô tả |
+|-------|-------|
+| `save-and-release` | Lưu thay đổi, đẩy branch lên remote, chuẩn bị checklist phát hành và release notes |
+| `set-up-docker-app-updates` | Thiết lập một lần để app Docker có thể build/publish version mới và rollout update an toàn |
+| `set-up-macos-app-updates` | Thiết lập một lần để app macOS hiển thị version hiện tại và báo khi có bản cập nhật |
+
+---
+
 ### Infrastructure
 
 | Skill | Mô tả |
@@ -95,6 +116,13 @@ skills/
   raindrop/
   mikrotik-manager/
   social-image/
+  save-and-release/
+  set-up-docker-app-updates/
+  set-up-macos-app-updates/
+  taste-skill/
+  redesign-skill/
+  minimalist-skill/
+  soft-skill/
 plugins/
   git-sync/               # Auto git sync hooks
   lark-mcp/               # Lark MCP server config
