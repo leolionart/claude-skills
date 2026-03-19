@@ -71,7 +71,144 @@ To actively combat generic AI designs, systematically implement these high-end c
 * **Layout Transitions:** Always utilize Framer Motion's `layout` and `layoutId` props for smooth re-ordering, resizing, and shared element transitions across state changes.
 * **Staggered Orchestration:** Do not mount lists or grids instantly. Use `staggerChildren` (Framer) or CSS cascade (`animation-delay: calc(var(--index) * 100ms)`) to create sequential waterfall reveals. **CRITICAL:** For `staggerChildren`, the Parent (`variants`) and Children MUST reside in the identical Client Component tree. If data is fetched asynchronously, pass the data as props into a centralized Parent Motion wrapper.
 
-## 5. PERFORMANCE GUARDRAILS
+## 5. SHARED DESIGN TAXONOMY & DIRECTION LOGIC
+Use this taxonomy to diagnose interfaces with precise visual language instead of vague adjectives like “modern”, “premium”, or “clean”. The goal is to name the design language, select the right one for the product context, and avoid contradictory style mixing.
+
+### A. Shared Design Taxonomy
+
+#### Layout systems
+- `Swiss`
+- `modular layouts`
+- `canon grid`
+- `diagonal layout`
+- `asymmetry`
+- `broken grid layouts`
+- `floating`
+
+#### Surface and depth treatments
+- `subtle colored shadows`
+- `semi-flat depth`
+- `dynamic gradients`
+- `duotone`
+
+#### Color and mood
+- `muted colors`
+- `material colors`
+- `80s/90s palettes`
+- `highly-detailed vintage`
+
+#### Illustration and imagery
+- `lineart`
+- `hand-drawn lineart`
+- `isometric`
+- `abstract geometrical`
+- `tailored illustrations`
+- `authentic photography`
+- `hero image`
+- `flat lay`
+
+#### Historical and stylistic references
+- `Bauhaus`
+- `Mondrianism`
+- `suprematism`
+- `dada graphic design`
+- `optical art`
+- `expressionism`
+
+#### Experimental / opt-in only
+Only use these if the product, brand, or brief explicitly supports them:
+- `glitch`
+- `ruined effect`
+- `futuristic neon`
+- `skeuomorphism`
+
+### B. Taxonomy Usage Rules
+- Choose exactly **1 primary design language** for the page or system.
+- Add at most **1-2 supporting visual treatments**.
+- Add **1 imagery mode**.
+- Always name a short **avoid list**.
+- Do not mix contradictory styles without explicit justification.
+- Historical references like `Bauhaus` or `Mondrianism` are directional influences, not decorative stickers.
+
+### C. Style Selection Heuristics
+
+#### B2B SaaS / dashboards
+Prefer:
+- `Swiss`
+- `modular layouts`
+- `muted colors`
+- `lineart`
+- `subtle colored shadows`
+
+Avoid by default:
+- `glitch`
+- `futuristic neon`
+- excessive `broken grid`
+- decorative gradients without structural purpose
+
+#### Editorial / portfolio / cultural products
+Prefer:
+- `asymmetry`
+- bold typography
+- `authentic photography`
+- selective `duotone`
+- `expressionism` or `Bauhaus` references when justified
+
+Avoid by default:
+- rigid enterprise grids
+- generic floating SaaS cards
+
+#### Startup landing pages
+Prefer:
+- `floating`
+- `dynamic gradients`
+- `tailored illustrations`
+- `abstract geometrical`
+- muted but energetic palettes
+
+Avoid by default:
+- over-dense dashboard layouts
+- random style mixing
+
+#### Technical explainers / developer tools / educational products
+Prefer:
+- `geometric`
+- `lineart`
+- `isometric`
+- `material colors`
+- clean grid discipline
+
+Avoid by default:
+- noisy textures
+- heavy visual gimmicks
+- art references that reduce clarity
+
+### D. Output Contract for Design Taste Calls
+When evaluating or steering a design, structure the recommendation like this:
+
+```md
+## Visual read
+- Current style signals:
+- Dominant tone:
+- What feels disciplined:
+- What feels generic or mismatched:
+
+## Recommended direction
+- Primary design language:
+- Supporting treatments:
+- Imagery mode:
+- Keywords to lean into:
+- Keywords to avoid:
+
+## Practical taste adjustments
+- Layout:
+- Typography:
+- Color:
+- Illustration / imagery:
+- Effects / depth:
+```
+
+## 6. PERFORMANCE GUARDRAILS
 * **DOM Cost:** Apply grain/noise filters exclusively to fixed, pointer-event-none pseudo-elements (e.g., `fixed inset-0 z-50 pointer-events-none`) and NEVER to scrolling containers to prevent continuous GPU repaints and mobile performance degradation.
 * **Hardware Acceleration:** Never animate `top`, `left`, `width`, or `height`. Animate exclusively via `transform` and `opacity`.
 * **Z-Index Restraint:** NEVER spam arbitrary `z-50` or `z-10` unprompted. Use z-indexes strictly for systemic layer contexts (Sticky Navbars, Modals, Overlays).

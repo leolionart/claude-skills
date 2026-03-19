@@ -156,6 +156,106 @@ When upgrading a project, pull from these high-impact techniques to replace gene
 - **Grain and noise overlays.** A fixed, pointer-events-none overlay with subtle noise to break digital flatness.
 - **Colored, tinted shadows.** Shadows that carry the hue of the background rather than using generic black.
 
+## Design Direction Matrix
+
+Use this matrix to convert product context into a deliberate redesign system. Do not recommend random visual upgrades. Choose a primary design language, then layer in only the minimum supporting treatments needed to create identity and coherence.
+
+### 1. Calm enterprise clarity
+Use for:
+- B2B SaaS
+- dashboards
+- trust-first interfaces
+- operations-heavy products
+
+Primary direction:
+- `Swiss`
+- `modular layouts`
+
+Supporting treatments:
+- `muted colors`
+- `subtle colored shadows`
+- `lineart`
+
+Avoid:
+- `glitch`
+- `futuristic neon`
+- decorative gradients with no structural role
+
+### 2. Expressive editorial technology
+Use for:
+- portfolio sites
+- thought leadership products
+- creative studios
+- brand-forward marketing pages
+
+Primary direction:
+- `asymmetry`
+- `broken grid layouts`
+
+Supporting treatments:
+- bold typography
+- `authentic photography`
+- selective `duotone`
+
+Avoid:
+- rigid dashboard card repetition
+- default enterprise iconography
+- generic centered hero sections
+
+### 3. Airy modern startup
+Use for:
+- startup landing pages
+- onboarding flows
+- product marketing sites
+- feature storytelling sections
+
+Primary direction:
+- `floating`
+- `dynamic gradients`
+
+Supporting treatments:
+- `abstract geometrical`
+- `tailored illustrations`
+- soft depth
+
+Avoid:
+- over-dense enterprise layout patterns
+- too many accent colors
+- random style mixing
+
+### 4. Structured technical explainer
+Use for:
+- developer tools
+- educational products
+- technical documentation interfaces
+- workflow explainers
+
+Primary direction:
+- `modular layouts`
+- `geometric`
+
+Supporting treatments:
+- `lineart`
+- `isometric`
+- `material colors`
+
+Avoid:
+- ornamental textures
+- expressive art references that reduce clarity
+- heavy decorative motion without information value
+
+## Transformation Rules
+
+When redesigning, convert weak patterns into stronger visual systems:
+
+- If the interface feels like generic card-based SaaS, increase grid discipline and reduce arbitrary floating containers.
+- If the interface feels flat but lifeless, add typographic contrast and subtle depth before adding decorative effects.
+- If the interface feels visually noisy, reduce accent colors, simplify imagery modes, and unify the layout logic.
+- If the interface feels over-designed, remove effects before adding new ones.
+- If the interface lacks identity, choose one recognizable primary design language instead of stacking many small tricks.
+- If the product is content-heavy, improve rhythm and hierarchy before introducing experimental visuals.
+- If the product is trust-sensitive, favor restraint, consistency, and legibility over novelty.
+
 ## Fix Priority
 
 Apply changes in this order for maximum visual impact with minimum risk:
