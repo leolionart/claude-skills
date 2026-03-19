@@ -1,0 +1,16 @@
+{
+  "name": "redesign-skill",
+  "version": "1.0.0",
+  "description": "Upgrade an existing website or app without rebuilding from scratch — audit weak design patterns and improve them safely.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "redesign",
+    "frontend",
+    "ui",
+    "audit",
+    "design"
+  ]
+}

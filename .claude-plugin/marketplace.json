@@ -18,7 +18,12 @@
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["analytics", "skills", "monitoring", "tracking"],
+      "keywords": [
+        "analytics",
+        "skills",
+        "monitoring",
+        "tracking"
+      ],
       "category": "analytics",
       "strict": true
     },
@@ -31,7 +36,12 @@
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["git", "sync", "auto-commit", "workflow"],
+      "keywords": [
+        "git",
+        "sync",
+        "auto-commit",
+        "workflow"
+      ],
       "category": "productivity"
     },
     {
@@ -43,211 +53,317 @@
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["lark", "feishu", "mcp", "productivity", "collaboration"],
+      "keywords": [
+        "lark",
+        "feishu",
+        "mcp",
+        "productivity",
+        "collaboration"
+      ],
       "category": "integration"
     },
     {
       "name": "diagram",
-      "source": "./skills/diagram",
+      "source": "./plugins/diagram",
       "description": "Generate ASCII and Mermaid diagrams — flowcharts, sequence diagrams, architecture, Gantt, ERDs, state machines. Auto-selects format based on context.",
       "version": "2.1.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["diagram", "mermaid", "ascii", "visualization", "flowchart"],
+      "keywords": [
+        "diagram",
+        "mermaid",
+        "ascii",
+        "visualization",
+        "flowchart"
+      ],
       "category": "delivery"
     },
     {
       "name": "raindrop",
-      "source": "./skills/raindrop",
+      "source": "./plugins/raindrop",
       "description": "Manage Raindrop.io bookmarks — save, search, organize collections and tags via Raindrop API.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["raindrop", "bookmarks", "productivity"],
+      "keywords": [
+        "raindrop",
+        "bookmarks",
+        "productivity"
+      ],
       "category": "productivity"
     },
     {
       "name": "mikrotik-manager",
-      "source": "./skills/mikrotik-manager",
+      "source": "./plugins/mikrotik-manager",
       "description": "Manage MikroTik routers — configure firewall rules, routing, VPN, DHCP, wireless, and diagnose network issues via RouterOS API.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["mikrotik", "routeros", "networking", "firewall", "vpn"],
+      "keywords": [
+        "mikrotik",
+        "routeros",
+        "networking",
+        "firewall",
+        "vpn"
+      ],
       "category": "infrastructure"
     },
     {
       "name": "google-analytics-reader",
-      "source": "./skills/google-analytics-reader",
+      "source": "./plugins/google-analytics-reader",
       "description": "Query Google Analytics 4 reports — traffic, events, conversions, audience segments. Outputs structured summaries and trend analysis.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["google-analytics", "ga4", "analytics", "reporting"],
+      "keywords": [
+        "google-analytics",
+        "ga4",
+        "analytics",
+        "reporting"
+      ],
       "category": "analytics"
     },
     {
       "name": "lark-suite",
-      "source": "./skills/lark-suite",
-      "description": "Work with Lark / Feishu — send messages, manage docs, query bitable records, handle calendar events and approval workflows.",
+      "source": "./plugins/lark-suite",
+      "description": "Work with Lark / Feishu — send messages, manage docs, query bitable records, handle calendar events and approval workflows. Requires the lark-mcp plugin for full runtime integration.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["lark", "feishu", "messaging", "docs", "bitable"],
+      "keywords": [
+        "lark",
+        "feishu",
+        "messaging",
+        "docs",
+        "bitable"
+      ],
       "category": "productivity"
     },
     {
       "name": "social-image",
-      "source": "./skills/social-image",
+      "source": "./plugins/social-image",
       "description": "Generate Facebook Stories (1080×1920) and Post (1080×1080) images with abstract wave/mesh backgrounds and centered title + excerpt/quote content.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["social-media", "facebook", "image-generation", "quote", "pillow"],
+      "keywords": [
+        "social-media",
+        "facebook",
+        "image-generation",
+        "quote",
+        "pillow"
+      ],
       "category": "delivery"
     },
     {
       "name": "google-workspace",
-      "source": "./skills/google-workspace",
+      "source": "./plugins/google-workspace",
       "description": "Google Workspace CLI auth setup and cross-product workflows — standup reports, meeting prep, weekly digests using the gws CLI.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["google-workspace", "gws", "gmail", "drive", "sheets", "calendar", "workflow"],
+      "keywords": [
+        "google-workspace",
+        "gws",
+        "gmail",
+        "drive",
+        "sheets",
+        "calendar",
+        "workflow"
+      ],
       "category": "productivity"
     },
     {
       "name": "gws-gmail",
-      "source": "./skills/gws-gmail",
+      "source": "./plugins/gws-gmail",
       "description": "Send, reply, triage and stream Gmail via gws CLI — full threading support, inbox triage, and realtime NDJSON streaming.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["gmail", "email", "google-workspace", "gws"],
+      "keywords": [
+        "gmail",
+        "email",
+        "google-workspace",
+        "gws"
+      ],
       "category": "productivity"
     },
     {
       "name": "gws-drive",
-      "source": "./skills/gws-drive",
+      "source": "./plugins/gws-drive",
       "description": "Manage Google Drive files via gws CLI — list, upload, search, share, and manage permissions.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["google-drive", "drive", "google-workspace", "gws", "files"],
+      "keywords": [
+        "google-drive",
+        "drive",
+        "google-workspace",
+        "gws",
+        "files"
+      ],
       "category": "productivity"
     },
     {
       "name": "gws-sheets",
-      "source": "./skills/gws-sheets",
+      "source": "./plugins/gws-sheets",
       "description": "Read, write, and manage Google Sheets via gws CLI — includes Python helper script for CSV import/export and formatted table output.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["google-sheets", "sheets", "spreadsheet", "google-workspace", "gws"],
+      "keywords": [
+        "google-sheets",
+        "sheets",
+        "spreadsheet",
+        "google-workspace",
+        "gws"
+      ],
       "category": "productivity"
     },
     {
       "name": "save-and-release",
-      "source": "./skills/save-and-release",
+      "source": "./plugins/save-and-release",
       "description": "Save your work safely, push it when ready, and prepare clear release notes when it's time to ship.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["git", "commit", "push", "release", "release-notes"],
+      "keywords": [
+        "git",
+        "commit",
+        "push",
+        "release",
+        "release-notes"
+      ],
       "category": "delivery"
     },
     {
       "name": "set-up-docker-app-updates",
-      "source": "./skills/set-up-docker-app-updates",
+      "source": "./plugins/set-up-docker-app-updates",
       "description": "Set up a Docker app so new versions can be built, published, and rolled out with a simple, repeatable update flow.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["docker", "updates", "github-actions", "ghcr", "deployment"],
+      "keywords": [
+        "docker",
+        "updates",
+        "github-actions",
+        "ghcr",
+        "deployment"
+      ],
       "category": "delivery"
     },
     {
       "name": "set-up-macos-app-updates",
-      "source": "./skills/set-up-macos-app-updates",
+      "source": "./plugins/set-up-macos-app-updates",
       "description": "Set up a macOS app to show its current version and let users know when an update is available.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["macos", "app-updates", "version-check", "release", "desktop-app"],
+      "keywords": [
+        "macos",
+        "app-updates",
+        "version-check",
+        "release",
+        "desktop-app"
+      ],
       "category": "delivery"
     },
     {
       "name": "taste-skill",
-      "source": "./skills/taste-skill",
+      "source": "./plugins/taste-skill",
       "description": "Main frontend design skill for premium-looking UI — layout, typography, spacing, motion, and anti-generic design rules.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["frontend", "design", "ui", "ux", "motion"],
+      "keywords": [
+        "frontend",
+        "design",
+        "ui",
+        "ux",
+        "motion"
+      ],
       "category": "delivery"
     },
     {
       "name": "redesign-skill",
-      "source": "./skills/redesign-skill",
+      "source": "./plugins/redesign-skill",
       "description": "Upgrade an existing website or app without rebuilding from scratch — audit weak design patterns and improve them safely.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["redesign", "frontend", "ui", "audit", "design"],
+      "keywords": [
+        "redesign",
+        "frontend",
+        "ui",
+        "audit",
+        "design"
+      ],
       "category": "delivery"
     },
     {
       "name": "minimalist-skill",
-      "source": "./skills/minimalist-skill",
+      "source": "./plugins/minimalist-skill",
       "description": "Create clean editorial-style interfaces with warm monochrome palettes, strong typography, flat grids, and subtle motion.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["minimalist", "editorial", "frontend", "ui", "design"],
+      "keywords": [
+        "minimalist",
+        "editorial",
+        "frontend",
+        "ui",
+        "design"
+      ],
       "category": "delivery"
     },
     {
       "name": "soft-skill",
-      "source": "./skills/soft-skill",
+      "source": "./plugins/soft-skill",
       "description": "Add premium visual polish to frontend work with higher-end spacing, surfaces, motion, and interface composition.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
       },
       "license": "MIT",
-      "keywords": ["frontend", "visual-design", "motion", "premium-ui", "design"],
+      "keywords": [
+        "frontend",
+        "visual-design",
+        "motion",
+        "premium-ui",
+        "design"
+      ],
       "category": "delivery"
     }
   ]

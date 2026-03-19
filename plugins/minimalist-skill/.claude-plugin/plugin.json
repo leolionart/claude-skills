@@ -1,0 +1,16 @@
+{
+  "name": "minimalist-skill",
+  "version": "1.0.0",
+  "description": "Create clean editorial-style interfaces with warm monochrome palettes, strong typography, flat grids, and subtle motion.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "minimalist",
+    "editorial",
+    "frontend",
+    "ui",
+    "design"
+  ]
+}

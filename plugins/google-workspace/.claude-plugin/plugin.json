@@ -1,0 +1,18 @@
+{
+  "name": "google-workspace",
+  "version": "1.0.0",
+  "description": "Google Workspace CLI auth setup and cross-product workflows — standup reports, meeting prep, weekly digests using the gws CLI.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "google-workspace",
+    "gws",
+    "gmail",
+    "drive",
+    "sheets",
+    "calendar",
+    "workflow"
+  ]
+}

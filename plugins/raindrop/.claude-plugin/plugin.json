@@ -1,0 +1,14 @@
+{
+  "name": "raindrop",
+  "version": "1.0.0",
+  "description": "Manage Raindrop.io bookmarks — save, search, organize collections and tags via Raindrop API.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "raindrop",
+    "bookmarks",
+    "productivity"
+  ]
+}

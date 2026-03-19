@@ -1,0 +1,16 @@
+{
+  "name": "mikrotik-manager",
+  "version": "1.0.0",
+  "description": "Manage MikroTik routers — configure firewall rules, routing, VPN, DHCP, wireless, and diagnose network issues via RouterOS API.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mikrotik",
+    "routeros",
+    "networking",
+    "firewall",
+    "vpn"
+  ]
+}

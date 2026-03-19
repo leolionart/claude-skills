@@ -13,6 +13,9 @@ Bộ sưu tập **skills, plugins và integrations** dành cho Claude Code — m
 
 ## Skills
 
+> `skills/` chứa source content gốc. Marketplace publish các installable wrapper dưới `plugins/`, không publish trực tiếp từng thư mục skill.
+
+
 ### Google Workspace *(mới)*
 
 Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.com/googleworkspace/cli) — một CLI thống nhất cho Gmail, Drive, Sheets, Docs, Calendar và Chat.
@@ -40,7 +43,7 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 | Skill | Mô tả |
 |-------|-------|
-| `lark-suite` | Làm việc với Lark/Feishu — messages, docs, bitable, calendar, approval |
+| `lark-suite` | Làm việc với Lark/Feishu — messages, docs, bitable, calendar, approval. Cần `lark-mcp` để có runtime integration đầy đủ |
 
 ---
 
@@ -105,11 +108,11 @@ Plugin mở rộng hành vi của Claude Code qua hooks — chạy tự động 
 ## Cấu trúc Repo
 
 ```text
-skills/
-  google-workspace/       # Auth + cross-product workflows
-  gws-gmail/              # Gmail operations
-  gws-drive/              # Drive file management
-  gws-sheets/             # Sheets read/write + Python helper
+skills/                   # Source content gốc cho từng skill
+  google-workspace/
+  gws-gmail/
+  gws-drive/
+  gws-sheets/
   google-analytics-reader/
   lark-suite/
   diagram/
@@ -123,14 +126,24 @@ skills/
   redesign-skill/
   minimalist-skill/
   soft-skill/
-plugins/
-  git-sync/               # Auto git sync hooks
-  lark-mcp/               # Lark MCP server config
+plugins/                  # Installable plugin roots được marketplace publish
+  git-sync/
+  lark-mcp/
+  diagram/
+    .claude-plugin/plugin.json
+    skills/diagram/
+  raindrop/
+    .claude-plugin/plugin.json
+    skills/raindrop/
+  mikrotik-manager/
+    .claude-plugin/plugin.json
+    skills/mikrotik-manager/
+  ...
 hooks/
   hooks.json              # PostToolUse + Stop hooks cho skill tracker
 .claude-plugin/
-  plugin.json             # Plugin manifest
-  marketplace.json        # Registry tất cả plugins & skills
+  plugin.json             # Root plugin manifest
+  marketplace.json        # Registry tất cả installable plugins
 ```
 
 ---

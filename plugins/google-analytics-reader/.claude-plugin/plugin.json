@@ -1,0 +1,15 @@
+{
+  "name": "google-analytics-reader",
+  "version": "1.0.0",
+  "description": "Query Google Analytics 4 reports — traffic, events, conversions, audience segments. Outputs structured summaries and trend analysis.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "google-analytics",
+    "ga4",
+    "analytics",
+    "reporting"
+  ]
+}

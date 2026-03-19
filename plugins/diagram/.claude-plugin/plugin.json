@@ -1,0 +1,16 @@
+{
+  "name": "diagram",
+  "version": "2.1.0",
+  "description": "Generate ASCII and Mermaid diagrams — flowcharts, sequence diagrams, architecture, Gantt, ERDs, state machines. Auto-selects format based on context.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "diagram",
+    "mermaid",
+    "ascii",
+    "visualization",
+    "flowchart"
+  ]
+}

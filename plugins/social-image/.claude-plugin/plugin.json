@@ -1,0 +1,16 @@
+{
+  "name": "social-image",
+  "version": "1.0.0",
+  "description": "Generate Facebook Stories (1080×1920) and Post (1080×1080) images with abstract wave/mesh backgrounds and centered title + excerpt/quote content.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "social-media",
+    "facebook",
+    "image-generation",
+    "quote",
+    "pillow"
+  ]
+}

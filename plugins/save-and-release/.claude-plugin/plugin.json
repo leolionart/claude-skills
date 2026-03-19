@@ -1,0 +1,16 @@
+{
+  "name": "save-and-release",
+  "version": "1.0.0",
+  "description": "Save your work safely, push it when ready, and prepare clear release notes when it's time to ship.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "git",
+    "commit",
+    "push",
+    "release",
+    "release-notes"
+  ]
+}

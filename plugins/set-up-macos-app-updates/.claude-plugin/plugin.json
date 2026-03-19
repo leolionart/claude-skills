@@ -1,0 +1,16 @@
+{
+  "name": "set-up-macos-app-updates",
+  "version": "1.0.0",
+  "description": "Set up a macOS app to show its current version and let users know when an update is available.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "macos",
+    "app-updates",
+    "version-check",
+    "release",
+    "desktop-app"
+  ]
+}

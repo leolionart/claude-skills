@@ -1,0 +1,16 @@
+{
+  "name": "gws-drive",
+  "version": "1.0.0",
+  "description": "Manage Google Drive files via gws CLI — list, upload, search, share, and manage permissions.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "google-drive",
+    "drive",
+    "google-workspace",
+    "gws",
+    "files"
+  ]
+}

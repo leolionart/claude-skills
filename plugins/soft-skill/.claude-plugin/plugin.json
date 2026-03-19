@@ -1,0 +1,16 @@
+{
+  "name": "soft-skill",
+  "version": "1.0.0",
+  "description": "Add premium visual polish to frontend work with higher-end spacing, surfaces, motion, and interface composition.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "visual-design",
+    "motion",
+    "premium-ui",
+    "design"
+  ]
+}

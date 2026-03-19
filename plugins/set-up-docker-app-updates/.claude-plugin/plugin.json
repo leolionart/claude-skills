@@ -1,0 +1,16 @@
+{
+  "name": "set-up-docker-app-updates",
+  "version": "1.0.0",
+  "description": "Set up a Docker app so new versions can be built, published, and rolled out with a simple, repeatable update flow.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "docker",
+    "updates",
+    "github-actions",
+    "ghcr",
+    "deployment"
+  ]
+}

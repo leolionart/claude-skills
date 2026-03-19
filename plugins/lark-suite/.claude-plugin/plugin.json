@@ -1,0 +1,16 @@
+{
+  "name": "lark-suite",
+  "version": "1.0.0",
+  "description": "Work with Lark / Feishu — send messages, manage docs, query bitable records, handle calendar events and approval workflows. Requires the lark-mcp plugin for full runtime integration.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "lark",
+    "feishu",
+    "messaging",
+    "docs",
+    "bitable"
+  ]
+}
