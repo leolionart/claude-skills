@@ -1,7 +1,7 @@
 {
   "name": "redesign-skill",
   "version": "1.0.0",
-  "description": "Upgrade an existing website or app without rebuilding from scratch — audit weak design patterns and improve them safely.",
+  "description": "Audit-first redesign skill for existing websites and apps. Reuses the same design brain as design-ui, but focuses on low-risk, stack-preserving upgrades.",
   "author": {
     "name": "leolionart"
   },

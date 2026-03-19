@@ -83,12 +83,30 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 ### Frontend Design
 
+#### Recommended
+
 | Skill | Mô tả |
 |-------|-------|
-| `taste-skill` | Skill thiết kế frontend chính — tăng chất lượng layout, typography, spacing, motion và cảm giác cao cấp |
-| `redesign-skill` | Nâng cấp giao diện sẵn có mà không cần viết lại từ đầu — audit các điểm nhìn generic rồi cải thiện từng bước |
-| `minimalist-skill` | Tạo giao diện tối giản kiểu editorial/workspace — nhiều khoảng thở, monochrome ấm, bento grid, pastel nhẹ |
-| `soft-skill` | Đẩy visual polish lên mức premium agency — cấu trúc card, animation, spacing và nhịp điệu thị giác tinh tế hơn |
+| `design-ui` | Lựa chọn mặc định cho frontend/UI design — tạo mới, polish, style direction, và refinement theo mode như `minimalist editorial`, `premium polish`, `structured technical` |
+| `redesign-skill` | Workflow audit-first để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk |
+
+#### Which one should I use?
+
+| Tình huống | Skill nên dùng |
+|------------|-----------------|
+| Tạo mới hoặc cải thiện UI nói chung | `design-ui` |
+| Muốn style minimal/editorial | `design-ui` + nói rõ mode `minimalist editorial` |
+| Muốn giao diện premium/polished | `design-ui` + nói rõ mode `premium polish` |
+| Muốn giao diện kỹ thuật, rõ ràng, modular | `design-ui` + nói rõ mode `structured technical` |
+| Muốn redesign project hiện có, giữ stack/chức năng | `redesign-skill` |
+
+#### Legacy compatibility
+
+| Skill | Mô tả |
+|-------|-------|
+| `taste-skill` | Legacy compatibility entry — giữ tương thích cách gọi cũ, map sang `design-ui` mode mặc định |
+| `minimalist-skill` | Legacy compatibility entry — map sang `design-ui` với preset `minimalist editorial` |
+| `soft-skill` | Legacy compatibility entry — map sang `design-ui` với preset `premium polish` |
 
 ---
 
@@ -139,6 +157,7 @@ skills/                   # Source content gốc cho từng skill
   save-and-release/
   set-up-docker-app-updates/
   set-up-macos-app-updates/
+  design-ui/
   taste-skill/
   redesign-skill/
   minimalist-skill/

@@ -1,7 +1,7 @@
 {
   "name": "taste-skill",
   "version": "1.0.0",
-  "description": "Main frontend design skill for premium-looking UI — layout, typography, spacing, motion, and anti-generic design rules.",
+  "description": "Legacy compatibility wrapper for the old taste-skill entry. Prefer design-ui for new frontend design work; this maps to design-ui default high-agency mode.",
   "author": {
     "name": "leolionart"
   },

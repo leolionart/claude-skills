@@ -295,9 +295,9 @@
       "category": "delivery"
     },
     {
-      "name": "taste-skill",
-      "source": "./plugins/taste-skill",
-      "description": "Main frontend design skill for premium-looking UI — layout, typography, spacing, motion, and anti-generic design rules.",
+      "name": "design-ui",
+      "source": "./plugins/design-ui",
+      "description": "Canonical frontend design skill for new UI work, polish passes, style direction, and mode-based refinement including minimalist and premium presets.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
@@ -308,6 +308,13 @@
         "design",
         "ui",
         "ux",
+        "frontend design",
+        "ui design",
+        "taste",
+        "minimalist",
+        "editorial",
+        "premium",
+        "premium-ui",
         "motion"
       ],
       "category": "delivery"
@@ -315,7 +322,7 @@
     {
       "name": "redesign-skill",
       "source": "./plugins/redesign-skill",
-      "description": "Upgrade an existing website or app without rebuilding from scratch — audit weak design patterns and improve them safely.",
+      "description": "Audit-first redesign skill for existing websites and apps. Reuses the same design brain as design-ui, but focuses on low-risk, stack-preserving upgrades.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
@@ -326,14 +333,34 @@
         "frontend",
         "ui",
         "audit",
-        "design"
+        "design",
+        "upgrade"
+      ],
+      "category": "delivery"
+    },
+    {
+      "name": "taste-skill",
+      "source": "./plugins/taste-skill",
+      "description": "Legacy compatibility wrapper for the old taste-skill entry. Prefer design-ui for new frontend design work; this maps to design-ui default high-agency mode.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": [
+        "frontend",
+        "design",
+        "ui",
+        "ux",
+        "motion",
+        "legacy"
       ],
       "category": "delivery"
     },
     {
       "name": "minimalist-skill",
       "source": "./plugins/minimalist-skill",
-      "description": "Create clean editorial-style interfaces with warm monochrome palettes, strong typography, flat grids, and subtle motion.",
+      "description": "Legacy compatibility wrapper for minimalist-skill. Prefer design-ui for new work; this maps to design-ui minimalist editorial mode.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
@@ -344,14 +371,15 @@
         "editorial",
         "frontend",
         "ui",
-        "design"
+        "design",
+        "legacy"
       ],
       "category": "delivery"
     },
     {
       "name": "soft-skill",
       "source": "./plugins/soft-skill",
-      "description": "Add premium visual polish to frontend work with higher-end spacing, surfaces, motion, and interface composition.",
+      "description": "Legacy compatibility wrapper for soft-skill. Prefer design-ui for new work; this maps to design-ui premium polish mode.",
       "version": "1.0.0",
       "author": {
         "name": "leolionart"
@@ -362,7 +390,8 @@
         "visual-design",
         "motion",
         "premium-ui",
-        "design"
+        "design",
+        "legacy"
       ],
       "category": "delivery"
     },

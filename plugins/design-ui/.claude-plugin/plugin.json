@@ -1,0 +1,30 @@
+{
+  "name": "design-ui",
+  "version": "1.0.0",
+  "description": "Canonical frontend design skill for new UI work, polish passes, style direction, and mode-based refinement including minimalist and premium presets.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "design",
+    "ui",
+    "ux",
+    "frontend design",
+    "ui design",
+    "taste",
+    "minimalist",
+    "editorial",
+    "premium-ui",
+    "premium",
+    "motion",
+    "swiss",
+    "bauhaus",
+    "broken grid",
+    "asymmetry",
+    "lineart",
+    "isometric",
+    "duotone"
+  ]
+}
