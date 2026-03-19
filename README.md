@@ -1,11 +1,11 @@
-# claude-skills-tracker
+# aitran-skills
 
 Bộ sưu tập **skills, plugins và integrations** dành cho Claude Code — mở rộng khả năng trợ lý AI cho các tác vụ productivity, infrastructure, analytics và automation.
 
 ## Cài đặt từ Marketplace
 
 ```claude
-/plugin marketplace add leolionart/claude-skills-tracker
+/plugin marketplace add leolionart/aitran-skills
 /plugin install <tên-plugin>
 ```
 
