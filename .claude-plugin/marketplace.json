@@ -1,11 +1,11 @@
 {
-  "name": "claude-skills-tracker",
+  "name": "aitran-skills",
   "owner": {
     "name": "leolionart",
     "email": "art.leolion@gmail.com"
   },
   "metadata": {
-    "description": "Skill tracker, Lark MCP integration, and a collection of productivity skills for Claude Code",
+    "description": "Collection of Claude Code skills and plugins — tracker, integrations, and productivity workflows",
     "version": "1.3.0"
   },
   "plugins": [
