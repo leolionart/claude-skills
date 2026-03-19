@@ -5,7 +5,7 @@ Bộ sưu tập **skills, plugins và integrations** dành cho Claude Code — m
 ## Cài đặt từ Marketplace
 
 ```claude
-/plugin marketplace add leolionart/aitran-skills
+/plugin marketplace add leolionart/claude-skills
 /plugin install <tên-plugin>
 ```
 
