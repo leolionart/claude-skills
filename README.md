@@ -39,6 +39,23 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 ---
 
+### Automation
+
+| Skill | Mô tả |
+|-------|-------|
+| `mcp-to-cli` | Generate standalone CLIs or make one-off tool calls from MCP servers using mcporter. Use when the user wants to convert an MCP into a compiled CLI, inspect available MCP tools, import MCP definitions from Claude Code/Cursor/Codex, authenticate remote HTTP MCPs, or call MCP tools without registering the server in Claude Code. |
+
+---
+
+### Atlassian Workflow
+
+| Skill | Mô tả |
+|-------|-------|
+| `jira-task-manager` | Create and manage Jira tasks for the AI project, assign tasks to correct team members, assign to sprints, and link to appropriate Epics. Use when user wants to create, update, or manage Jira tickets. |
+| `confluence-publishing` | Publish markdown deliverables to Confluence with compliant formatting, metadata syncing, and automation hooks. Use when the user wants to publish a document to Confluence, update an existing Confluence page, sync local markdown to Confluence, or mentions push to Confluence, đăng lên Confluence, or cập nhật trang Confluence. |
+
+---
+
 ### Collaboration & Messaging
 
 | Skill | Mô tả |

@@ -1,0 +1,10 @@
+{
+  "name": "jira-task-manager",
+  "version": "1.0.0",
+  "description": "Create and manage Jira tasks for the AI project, assign tasks to correct team members, assign to sprints, and link to appropriate Epics. Use when user wants to create, update, or manage Jira tickets.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": ["jira", "atlassian", "sprint", "epic", "issue"]
+}

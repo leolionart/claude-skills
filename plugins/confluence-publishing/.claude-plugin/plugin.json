@@ -1,0 +1,10 @@
+{
+  "name": "confluence-publishing",
+  "version": "1.1.0",
+  "description": "Publish markdown deliverables to Confluence with compliant formatting, metadata syncing, and automation hooks. Use when the user wants to publish a document to Confluence, update an existing Confluence page, sync local markdown to Confluence, or mentions push to Confluence, đăng lên Confluence, or cập nhật trang Confluence.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": ["confluence", "atlassian", "documentation", "publishing", "wiki"]
+}

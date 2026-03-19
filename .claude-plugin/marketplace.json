@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Collection of Claude Code skills and plugins — tracker, integrations, and productivity workflows",
-    "version": "1.3.0"
+    "version": "1.3.3"
   },
   "plugins": [
     {
@@ -363,6 +363,60 @@
         "motion",
         "premium-ui",
         "design"
+      ],
+      "category": "delivery"
+    },
+    {
+      "name": "mcp-to-cli",
+      "source": "./plugins/mcp-to-cli",
+      "description": "Generate standalone CLIs or make one-off tool calls from MCP servers using mcporter. Use when the user wants to convert an MCP into a compiled CLI, inspect available MCP tools, import MCP definitions from Claude Code/Cursor/Codex, authenticate remote HTTP MCPs, or call MCP tools without registering the server in Claude Code.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": [
+        "mcp",
+        "cli",
+        "mcporter",
+        "automation",
+        "tooling"
+      ],
+      "category": "automation"
+    },
+    {
+      "name": "jira-task-manager",
+      "source": "./plugins/jira-task-manager",
+      "description": "Create and manage Jira tasks for the AI project, assign tasks to correct team members, assign to sprints, and link to appropriate Epics. Use when user wants to create, update, or manage Jira tickets.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": [
+        "jira",
+        "atlassian",
+        "sprint",
+        "epic",
+        "issue"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "confluence-publishing",
+      "source": "./plugins/confluence-publishing",
+      "description": "Publish markdown deliverables to Confluence with compliant formatting, metadata syncing, and automation hooks. Use when the user wants to publish a document to Confluence, update an existing Confluence page, sync local markdown to Confluence, or mentions push to Confluence, đăng lên Confluence, or cập nhật trang Confluence.",
+      "version": "1.1.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": [
+        "confluence",
+        "atlassian",
+        "documentation",
+        "publishing",
+        "wiki"
       ],
       "category": "delivery"
     }

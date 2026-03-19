@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BINARY="$SCRIPT_DIR/mcp-atlassian"
+COMPACT_JSON="${ATLASSIAN_CLI_COMPACT_JSON:-1}"
+VERBOSE="${ATLASSIAN_CLI_VERBOSE:-0}"
+
+usage() {
+  cat <<'USAGE'
+Usage: scripts/confluence-mcp <confluence-subcommand> [args]
+
+Wrapper over scripts/mcp-atlassian for Confluence commands.
+
+Wrapper-only flags:
+  --output json    Keep compatibility with existing skill docs. When jq is available,
+                   output is compacted to one-line JSON.
+
+Examples:
+  scripts/confluence-mcp confluence-search --query 'type=page AND space=BD' --limit 5 --output json
+  scripts/confluence-mcp confluence-get-page --page-id '123456' --output json
+USAGE
+}
+
+if [[ $# -eq 0 ]]; then
+  usage
+  exit 1
+fi
+
+case "$1" in
+  -h|--help)
+    usage
+    exit 0
+    ;;
+esac
+
+if [[ ! -x "$BINARY" ]]; then
+  echo "Missing compiled CLI: $BINARY" >&2
+  echo "Run ./scripts/generate_atlassian_clis.sh first." >&2
+  exit 1
+fi
+
+subcommand="$1"
+shift
+
+args=()
+output_mode=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --output)
+      [[ $# -lt 2 ]] && { echo "Missing value for --output" >&2; exit 1; }
+      output_mode="$2"
+      shift 2
+      ;;
+    *)
+      args+=("$1")
+      shift
+      ;;
+  esac
+done
+
+set +e
+if [[ "$VERBOSE" == "1" ]]; then
+  raw_output="$("$BINARY" "$subcommand" "${args[@]}")"
+else
+  raw_output="$("$BINARY" "$subcommand" "${args[@]}" 2>/dev/null)"
+fi
+status=$?
+set -e
+
+if [[ $status -ne 0 ]]; then
+  printf '%s\n' "$raw_output" >&2
+  exit $status
+fi
+
+if [[ "$output_mode" == "json" && "$COMPACT_JSON" != "0" ]] && command -v jq >/dev/null 2>&1; then
+  if printf '%s\n' "$raw_output" | jq -c . >/dev/null 2>&1; then
+    printf '%s\n' "$raw_output" | jq -c .
+    exit 0
+  fi
+fi
+
+printf '%s\n' "$raw_output"
