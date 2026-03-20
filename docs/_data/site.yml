@@ -17,7 +17,7 @@ home_intro:
 footer_summary: Built as a Jekyll-powered GitHub Pages gallery from the repo’s canonical public docs and skill references.
 footer_meta:
   - "Source docs: README, design-ui, redesign-skill"
-  - "Pages target: main + /docs"
+  - "Pages workflow builds and deploys from docs/"
 same_scenario:
   title: "Shared preview scenario"
   description: All previews use the same fictional workspace product so differences stay stylistic rather than structural.

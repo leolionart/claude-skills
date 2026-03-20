@@ -85,7 +85,7 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 Quick visual overview: [visual gallery microsite](./docs/)
 
-> Public docs now ship as a Jekyll-powered GitHub Pages gallery from `main` + `/docs`, so the site can reuse layouts, includes, and shared data without duplicating canonical copy.
+> Public docs now ship as a Jekyll-powered GitHub Pages gallery built from `docs/` via the repo's Pages workflow, so the site can reuse layouts, includes, and shared data without duplicating canonical copy.
 
 #### Recommended
 
