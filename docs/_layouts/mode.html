@@ -1,0 +1,106 @@
+---
+layout: default
+---
+{% assign mode = site.data.design_ui_modes | where: 'slug', page.mode_slug | first %}
+<section class="shell section mode-hero">
+  <div class="mode-hero-copy stack-lg">
+    <p class="section-kicker">{{ mode.mode_number }} · design-ui</p>
+    <h1><code>{{ mode.label }}</code></h1>
+    <p class="lead">{{ mode.positioning }}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#prompt">Copy the canonical prompt</a>
+      <a class="button button-secondary" href="{{ '/design-ui/' | relative_url }}">Compare all 4 modes</a>
+    </div>
+    <div class="chip-band" aria-label="Best for {{ mode.label }}">
+      {% for item in mode.best_for %}
+        <span>{{ item }}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="mode-hero-preview stack-md">
+    {% include preview-frame.html
+      src=mode.preview_asset
+      alt=mode.preview_alt
+      caption=mode.preview_caption
+      large=true
+      preview_class='preview-shell-hero'
+    %}
+  </div>
+</section>
+
+<section class="shell section section-tight">
+  <div class="detail-grid">
+    <article class="detail-card stack-md">
+      <p class="section-kicker">Use when</p>
+      <p>{{ mode.use_when }}</p>
+    </article>
+    <article class="detail-card stack-md">
+      <p class="section-kicker">Core behavior</p>
+      <p>{{ mode.core_behavior }}</p>
+    </article>
+    <article class="detail-card stack-md">
+      <p class="section-kicker">Compare note</p>
+      <p>{{ mode.compare_note }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="shell section section-tight">
+  <div class="section-heading stack-md">
+    <p class="section-kicker">Visual DNA</p>
+    <h2>One primary language, limited support, explicit avoids.</h2>
+    <p>Each mode page uses the same taxonomy structure so the differences are easy to compare.</p>
+  </div>
+  <div class="taxonomy-grid">
+    <article class="taxonomy-card stack-md">
+      <h3>Primary language</h3>
+      {% include taxonomy-chip-list.html items=mode.primary_language %}
+    </article>
+    <article class="taxonomy-card stack-md">
+      <h3>Supporting treatments</h3>
+      {% include taxonomy-chip-list.html items=mode.supporting_treatments %}
+    </article>
+    <article class="taxonomy-card stack-md">
+      <h3>Imagery mode</h3>
+      {% include taxonomy-chip-list.html items=mode.imagery_mode %}
+    </article>
+    <article class="taxonomy-card stack-md">
+      <h3>Avoid list</h3>
+      {% include taxonomy-chip-list.html items=mode.avoid_list tone='warning' %}
+    </article>
+  </div>
+</section>
+
+<section class="shell section section-tight" id="prompt">
+  <div class="section-heading stack-md">
+    <p class="section-kicker">Canonical prompt</p>
+    <h2>Copy-ready wording for this exact mode.</h2>
+  </div>
+  {% include prompt-card.html prompt_key=mode.prompt_key wide=true %}
+</section>
+
+<section class="shell section section-tight">
+  <div class="section-heading stack-md">
+    <p class="section-kicker">Related navigation</p>
+    <h2>Choose the neighboring mode—or switch workflows.</h2>
+  </div>
+  <div class="related-grid">
+    {% for related_label in mode.related %}
+      {% assign related_mode = site.data.design_ui_modes | where: 'label', related_label | first %}
+      {% if related_mode %}
+        {% include mode-card.html mode=related_mode compact=true %}
+      {% endif %}
+    {% endfor %}
+    <article class="mode-card mode-card-process compact-card">
+      <div class="mode-card-copy stack-md">
+        <p class="mode-tag">Workflow switch</p>
+        <h3><code>redesign-skill</code></h3>
+        <p>If the request is really an audit-first redesign of an existing shipped product, switch to the separate workflow instead of treating it like a style preset.</p>
+        <a class="text-link" href="{{ '/redesign-skill/' | relative_url }}">Open the redesign workflow page</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+{{ content }}

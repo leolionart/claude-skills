@@ -45,6 +45,9 @@ Fix in this order for best impact with low risk:
 - Prefer targeted improvements over sweeping rewrites.
 - Preserve functionality and content structure unless the task explicitly allows deeper redesign.
 
+## Quick visual overview
+See `../../docs/` for the Jekyll-powered visual gallery that positions `redesign-skill` as a separate audit-first workflow next to the four `design-ui` modes.
+
 ## Relationship to design-ui
 - `design-ui` = canonical skill for new UI work and style-direction requests.
 - `redesign-skill` = audit-first workflow for improving existing shipped interfaces with minimal disruption.

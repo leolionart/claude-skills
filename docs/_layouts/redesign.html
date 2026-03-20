@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{% assign workflow = site.data.redesign_workflow %}
+<section class="shell section redesign-hero">
+  <div class="hero-copy stack-lg">
+    <p class="section-kicker">Audit-first workflow</p>
+    <h1><code>redesign-skill</code></h1>
+    <p class="lead">Use this when an existing product already ships code and needs better visual quality without a rewrite. It reuses the same design brain as design-ui, but it operates through scan, diagnose, fix, and verify.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#prompt">Copy the canonical prompt</a>
+      <a class="button button-secondary" href="{{ '/design-ui/' | relative_url }}">Back to the 4-mode gallery</a>
+    </div>
+  </div>
+  <div class="mode-hero-preview stack-md">
+    {% include preview-frame.html
+      src=workflow.preview_asset
+      alt=workflow.preview_alt
+      caption='Process-oriented preview: the visual emphasis is on audit flow, not a fifth visual preset.'
+      large=true
+      preview_class='preview-shell-process'
+    %}
+  </div>
+</section>
+
+<section class="shell section section-tight">
+  <div class="section-heading stack-md">
+    <p class="section-kicker">Workflow strip</p>
+    <h2>{{ workflow.headline }}</h2>
+    <p>{{ workflow.summary }}</p>
+  </div>
+  {% include workflow-strip.html steps=workflow.steps %}
+</section>
+
+<section class="shell section section-tight">
+  <div class="detail-grid two-column-grid">
+    <article class="detail-card stack-md">
+      <p class="section-kicker">Use when</p>
+      <ul class="bullet-list compact-list">
+        <li>Improve an existing site, app, dashboard, or marketing page already present in the repo.</li>
+        <li>Keep the current framework, styling system, and feature set.</li>
+        <li>Want reviewable, low-risk visual upgrades instead of creating a new design language from scratch.</li>
+      </ul>
+    </article>
+    <article class="detail-card stack-md">
+      <p class="section-kicker">Low-risk redesign rules</p>
+      <ul class="bullet-list compact-list">
+        {% for rule in workflow.rules %}
+          <li>{{ rule }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="shell section section-tight" id="prompt">
+  <div class="section-heading stack-md">
+    <p class="section-kicker">Canonical prompt</p>
+    <h2>Use the workflow framing directly.</h2>
+  </div>
+  {% include prompt-card.html prompt_key=workflow.prompt_key wide=true %}
+</section>
+
+{{ content }}

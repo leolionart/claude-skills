@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<section class="shell section hero hero-home" id="top">
+  <div class="hero-copy stack-lg">
+    <p class="section-kicker">{{ site.data.site.home_intro.eyebrow }}</p>
+    <h1>{{ page.hero_title | default: site.data.site.hero_title }}</h1>
+    <p class="lead">{{ page.hero_summary | default: site.data.site.hero_summary }}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ site.data.site.hero_primary_cta.url | relative_url }}">{{ site.data.site.hero_primary_cta.label }}</a>
+      <a class="button button-secondary" href="{{ site.data.site.hero_secondary_cta.url | relative_url }}">{{ site.data.site.hero_secondary_cta.label }}</a>
+    </div>
+    <div class="hero-microproof" aria-label="Gallery proof points">
+      <span>4 canonical modes</span>
+      <span>Same pseudo-UI scenario</span>
+      <span>Theme-specific detail pages</span>
+    </div>
+  </div>
+
+  <div class="hero-panel split-panel" aria-label="High level overview">
+    <article class="surface-card surface-card-strong stack-md">
+      <p class="meta-label">Default recommendation</p>
+      <h2><code>design-ui</code></h2>
+      <p>Use for new UI work, polish requests, visual direction, and frontend refinement.</p>
+      <ul class="bullet-list compact-list">
+        <li>4 selectable modes</li>
+        <li>Canonical naming</li>
+        <li>Prompt-ready framing</li>
+      </ul>
+      <a class="text-link" href="{{ '/design-ui/' | relative_url }}">Browse the mode gallery</a>
+    </article>
+
+    <article class="surface-card stack-md">
+      <p class="meta-label">Separate workflow</p>
+      <h2><code>redesign-skill</code></h2>
+      <p>Use for existing products when you want scan → diagnose → fix → verify without rewriting the stack or inventing a new structure.</p>
+      <a class="text-link" href="{{ '/redesign-skill/' | relative_url }}">Open the redesign workflow</a>
+    </article>
+  </div>
+</section>
+
+{{ content }}

@@ -1,0 +1,19 @@
+title: Claude Skills Visual Gallery
+description: Visual gallery for the canonical design-ui modes and the separate redesign-skill workflow.
+baseurl: "/claude-skills"
+url: ""
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
+collections: []
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      lang: en
+      image_root: "/assets/img/previews"

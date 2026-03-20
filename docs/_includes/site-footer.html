@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <p class="eyebrow">Canonical frontend design guidance</p>
+      <p>{{ site.data.site.footer_summary }}</p>
+    </div>
+    <div class="footer-links" aria-label="Reference summary">
+      {% for item in site.data.site.footer_meta %}
+        <span>{{ item }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

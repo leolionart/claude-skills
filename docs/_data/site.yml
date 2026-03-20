@@ -1,0 +1,43 @@
+title: Claude Skills Visual Gallery
+short_title: Visual Gallery
+tagline: Browse the canonical UI modes before you prompt.
+repo_name: claude-skills
+repo_label: leolionart/claude-skills
+hero_title: See how each design-ui mode feels before you prompt.
+hero_summary: design-ui is the canonical skill for new UI work, polish passes, and style direction. redesign-skill stays separate because it is an audit-first workflow for upgrading existing products with minimal disruption.
+hero_primary_cta:
+  label: Explore the 4 modes
+  url: /design-ui/
+hero_secondary_cta:
+  label: Browse prompt cookbook
+  url: /#prompt-cookbook
+home_intro:
+  eyebrow: Canonical choice first
+  skill_label: Claude skills / frontend design
+footer_summary: Built as a Jekyll-powered GitHub Pages gallery from the repo’s canonical public docs and skill references.
+footer_meta:
+  - "Source docs: README, design-ui, redesign-skill"
+  - "Pages target: main + /docs"
+same_scenario:
+  title: "Shared preview scenario"
+  description: All previews use the same fictional workspace product so differences stay stylistic rather than structural.
+  product_name: Northstar Workspace
+  product_summary: A hybrid docs, dashboard, and workflow product with a top bar, left navigation, metrics, content modules, and a task table.
+decision_matrix:
+  - situation: Create a new UI or improve a UI in general
+    choice: design-ui
+  - situation: Want a calm minimal/editorial look
+    choice: design-ui + mode minimalist editorial
+  - situation: Want an expensive, premium, polished interface
+    choice: design-ui + mode premium polish
+  - situation: Want a clear, modular, technical visual language
+    choice: design-ui + mode structured technical
+  - situation: Need to redesign an existing product while keeping its stack and behavior
+    choice: redesign-skill
+legacy_mapping:
+  - legacy: taste-skill
+    canonical: design-ui + default high-agency
+  - legacy: minimalist-skill
+    canonical: design-ui + minimalist editorial
+  - legacy: soft-skill
+    canonical: design-ui + premium polish

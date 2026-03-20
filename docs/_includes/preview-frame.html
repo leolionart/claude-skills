@@ -1,0 +1,6 @@
+<figure class="preview-frame {% if include.large %}preview-frame-large{% endif %} {% if include.preview_class %}{{ include.preview_class }}{% endif %}">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" loading="lazy" />
+  {% if include.caption %}
+    <figcaption>{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>

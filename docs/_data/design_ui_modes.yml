@@ -1,0 +1,156 @@
+- slug: default-high-agency
+  label: default high-agency
+  short_label: Default
+  mode_number: "Mode 1"
+  summary: General premium UI work with anti-generic direction.
+  positioning: The broad default for new pages, components, dashboards, and polish passes when the user wants premium quality without forcing a narrower preset.
+  use_when: New pages, components, dashboards, or general polish requests.
+  core_behavior: "Use the taste-skill baseline: anti-generic layout, typography, motion, and design taxonomy."
+  best_for:
+    - New UI work
+    - General premium polish
+    - Asymmetric composition
+    - Strong visual hierarchy
+  signals:
+    - asymmetry
+    - high variance
+    - premium sans pairings
+    - moderate motion
+  primary_language:
+    - asymmetry
+  supporting_treatments:
+    - subtle colored shadows
+    - semi-flat depth
+  imagery_mode:
+    - abstract geometrical
+  avoid_list:
+    - purple/blue AI gradients
+    - generic centered heroes
+    - repetitive 3-card rows
+    - dead-flat motion
+  compare_note: Choose this when you want the broadest premium direction instead of a quieter editorial or more technical frame.
+  related:
+    - minimalist editorial
+    - premium polish
+  preview_asset: /assets/img/previews/default-high-agency.svg
+  preview_alt: Default high-agency preview showing an asymmetric workspace dashboard with bold hierarchy and energetic composition.
+  prompt_key: default_high_agency
+  page_class: theme-default-high-agency
+  preview_caption: Bold hierarchy, asymmetry, and premium pacing on the same workspace scenario.
+- slug: minimalist-editorial
+  label: minimalist editorial
+  short_label: Editorial
+  mode_number: "Mode 2"
+  summary: Calm, document-like, warm monochrome, typographic restraint.
+  positioning: The quiet option for workspace and document-heavy products that should feel precise, composed, and intentionally understated.
+  use_when: Workspace tools, document-oriented products, quiet brand systems, and editorial UI.
+  core_behavior: Pull in warm monochrome palette, crisp borders, restrained motion, and typographic contrast from minimalist-skill.
+  best_for:
+    - Workspace tools
+    - Document products
+    - Quiet brand systems
+    - Monochrome UI
+  signals:
+    - warm monochrome
+    - document rhythm
+    - low-shadow surfaces
+    - typographic contrast
+  primary_language:
+    - Swiss
+  supporting_treatments:
+    - muted colors
+    - hairline borders
+  imagery_mode:
+    - lineart
+  avoid_list:
+    - gradients
+    - neon
+    - heavy shadows
+    - oversized pill-heavy components
+  compare_note: Choose this when clarity should feel calm and editorial rather than cinematic or high-agency.
+  related:
+    - default high-agency
+    - structured technical
+  preview_asset: /assets/img/previews/minimalist-editorial.svg
+  preview_alt: Minimalist editorial preview showing a warm monochrome workspace screen with crisp borders and document rhythm.
+  prompt_key: minimalist_editorial
+  page_class: theme-minimalist-editorial
+  preview_caption: Warm monochrome, crisp borders, and document rhythm on the shared workspace scenario.
+- slug: premium-polish
+  label: premium polish
+  short_label: Premium
+  mode_number: "Mode 3"
+  summary: Agency-like refinement with richer depth and motion choreography.
+  positioning: The most cinematic mode for product marketing, launch surfaces, and premium-feeling interfaces that need stronger depth and materiality.
+  use_when: Marketing pages, launch surfaces, premium product storytelling, and cinematic polish passes.
+  core_behavior: Pull in nested surfaces, richer motion choreography, and premium depth from soft-skill.
+  best_for:
+    - Marketing pages
+    - Launch surfaces
+    - Premium storytelling
+    - Material depth
+  signals:
+    - nested surfaces
+    - hairlines
+    - cinematic rhythm
+    - material depth
+  primary_language:
+    - floating
+  supporting_treatments:
+    - nested surfaces
+    - subtle colored shadows
+  imagery_mode:
+    - cinematic product render
+  avoid_list:
+    - blunt borders
+    - abrupt motion
+    - repetitive template layouts
+    - harsh default shadows
+  compare_note: Choose this when the interface should feel more expensive and cinematic than the broad default mode.
+  related:
+    - default high-agency
+    - redesign-skill
+  preview_asset: /assets/img/previews/premium-polish.svg
+  preview_alt: Premium polish preview showing layered workspace surfaces with rich depth and elevated CTAs.
+  prompt_key: premium_polish
+  page_class: theme-premium-polish
+  preview_caption: Layered surfaces, richer depth, and premium CTA treatment on the shared workspace scenario.
+- slug: structured-technical
+  label: structured technical
+  short_label: Technical
+  mode_number: "Mode 4"
+  summary: Developer-facing clarity, modular layouts, and information-first design.
+  positioning: The clearest mode for docs, developer tools, dashboards, and educational interfaces where scanability and trust matter most.
+  use_when: Docs, explainers, developer tools, admin surfaces, workflow UIs, and technical dashboards.
+  core_behavior: Favor modular layouts, geometric clarity, lineart, material colors, and restrained ornament.
+  best_for:
+    - Docs surfaces
+    - Developer tools
+    - Workflow explainers
+    - Technical dashboards
+  signals:
+    - modular layouts
+    - geometric clarity
+    - lineart
+    - material colors
+  primary_language:
+    - modular layouts
+  supporting_treatments:
+    - material colors
+    - lineart
+  imagery_mode:
+    - isometric
+  avoid_list:
+    - ornamental textures
+    - decorative motion with no information value
+    - expressive art references that reduce clarity
+    - decorative noise
+  compare_note: Choose this when information clarity matters more than premium drama or editorial quietness.
+  related:
+    - minimalist editorial
+    - redesign-skill
+  preview_asset: /assets/img/previews/structured-technical.svg
+  preview_alt: Structured technical preview showing a modular workspace dashboard with geometric order and code-like accents.
+  prompt_key: structured_technical
+  page_class: theme-structured-technical
+  preview_caption: Modular grids, geometric order, and code-facing accents on the shared workspace scenario.

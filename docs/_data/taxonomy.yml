@@ -1,0 +1,87 @@
+primary_language:
+  title: Primary language
+  items:
+    - Swiss
+    - modular layouts
+    - asymmetry
+    - floating
+    - broken grid layouts
+    - geometric
+supporting_treatments:
+  title: Supporting treatments
+  items:
+    - muted colors
+    - subtle colored shadows
+    - semi-flat depth
+    - dynamic gradients
+    - duotone
+imagery_mode:
+  title: Imagery mode
+  items:
+    - lineart
+    - isometric
+    - abstract geometrical
+    - tailored illustrations
+    - authentic photography
+    - hero image
+avoid_list:
+  title: Avoid list
+  tone: warning
+  items:
+    - Inter by default
+    - purple/blue AI gradients
+    - generic centered heroes
+    - repetitive 3-card rows
+    - card spam
+    - dead-flat motion
+product_contexts:
+  - label: Calm enterprise clarity
+    use_for: B2B SaaS, dashboards, trust-first products, operations-heavy tools
+    primary:
+      - Swiss
+      - modular layouts
+    supporting:
+      - muted colors
+      - subtle colored shadows
+      - lineart
+    avoid:
+      - glitch
+      - futuristic neon
+      - decorative gradients with no structural role
+  - label: Expressive editorial technology
+    use_for: portfolios, thought leadership products, creative studios, brand-forward marketing pages
+    primary:
+      - asymmetry
+      - broken grid layouts
+    supporting:
+      - authentic photography
+      - duotone
+    avoid:
+      - rigid dashboard repetition
+      - default enterprise iconography
+      - generic centered heroes
+  - label: Airy modern startup
+    use_for: startup landing pages, onboarding flows, product marketing, feature storytelling
+    primary:
+      - floating
+      - dynamic gradients
+    supporting:
+      - abstract geometrical
+      - tailored illustrations
+    avoid:
+      - over-dense enterprise structure
+      - too many accents
+      - random style mixing
+  - label: Structured technical explainer
+    use_for: developer tools, docs, educational products, workflow explainers
+    primary:
+      - modular layouts
+      - geometric
+    supporting:
+      - lineart
+      - isometric
+      - material colors
+    avoid:
+      - ornamental textures
+      - expressive art references that reduce clarity
+      - decorative motion with no information value

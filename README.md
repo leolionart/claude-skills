@@ -83,11 +83,15 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 ### Frontend Design
 
+Quick visual overview: [visual gallery microsite](./docs/)
+
+> Public docs now ship as a Jekyll-powered GitHub Pages gallery from `main` + `/docs`, so the site can reuse layouts, includes, and shared data without duplicating canonical copy.
+
 #### Recommended
 
 | Skill | Mô tả |
 |-------|-------|
-| `design-ui` | Lựa chọn mặc định cho frontend/UI design — tạo mới, polish, style direction, và refinement theo mode như `minimalist editorial`, `premium polish`, `structured technical` |
+| `design-ui` | Lựa chọn mặc định cho frontend/UI design — tạo mới, polish, style direction, và refinement theo đúng 4 mode canonical: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical` |
 | `redesign-skill` | Workflow audit-first để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk |
 
 #### Which one should I use?
@@ -99,6 +103,11 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 | Muốn giao diện premium/polished | `design-ui` + nói rõ mode `premium polish` |
 | Muốn giao diện kỹ thuật, rõ ràng, modular | `design-ui` + nói rõ mode `structured technical` |
 | Muốn redesign project hiện có, giữ stack/chức năng | `redesign-skill` |
+
+Quick demo highlights:
+- Browse 4 `design-ui` modes visually on the same pseudo-UI scenario: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
+- Open a separate `redesign-skill` workflow lane with `Scan -> Diagnose -> Fix -> Verify`
+- Copy canonical prompts directly from the gallery pages
 
 #### Legacy compatibility
 

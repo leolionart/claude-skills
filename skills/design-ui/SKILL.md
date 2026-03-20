@@ -87,6 +87,9 @@ When design direction matters, structure response like this:
 - Motion / states:
 ```
 
+## Quick visual overview
+See `../../docs/` for the Jekyll-powered visual gallery that compares the four `design-ui` modes on the same pseudo-UI scenario and provides copy-ready prompt examples.
+
 ## Relationship to legacy skills
 - `taste-skill` = compatibility entry for `design-ui` default mode.
 - `minimalist-skill` = compatibility entry for `design-ui` + `minimalist editorial`.
