@@ -188,8 +188,8 @@
       "category": "productivity"
     },
     {
-      "name": "gws-gmail",
-      "source": "./plugins/gws-gmail",
+      "name": "google-gmail",
+      "source": "./plugins/google-gmail",
       "description": "Send, reply, triage and stream Gmail via gws CLI — full threading support, inbox triage, and realtime NDJSON streaming.",
       "version": "1.0.0",
       "author": {
@@ -205,8 +205,8 @@
       "category": "productivity"
     },
     {
-      "name": "gws-drive",
-      "source": "./plugins/gws-drive",
+      "name": "google-drive",
+      "source": "./plugins/google-drive",
       "description": "Manage Google Drive files via gws CLI — list, upload, search, share, and manage permissions.",
       "version": "1.0.0",
       "author": {
@@ -223,8 +223,8 @@
       "category": "productivity"
     },
     {
-      "name": "gws-sheets",
-      "source": "./plugins/gws-sheets",
+      "name": "google-sheets",
+      "source": "./plugins/google-sheets",
       "description": "Read, write, and manage Google Sheets via gws CLI — includes Python helper script for CSV import/export and formatted table output.",
       "version": "1.0.0",
       "author": {

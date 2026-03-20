@@ -1,5 +1,5 @@
 {
-  "name": "gws-sheets",
+  "name": "google-sheets",
   "version": "1.0.0",
   "description": "Read, write, and manage Google Sheets via gws CLI — includes Python helper script for CSV import/export and formatted table output.",
   "author": {

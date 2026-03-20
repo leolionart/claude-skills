@@ -1,10 +1,10 @@
 ---
-name: gws-sheets
+name: google-sheets
 description: Read, write, and manage Google Sheets via the Google Workspace CLI (gws). Use when users ask to read spreadsheet data, append rows, create new sheets, or automate data pipelines with Google Sheets as source/destination.
 version: 1.0.0
 ---
 
-# GWS Sheets — Spreadsheet Operations
+# Google Sheets — Spreadsheet Operations
 
 ## Khi nào dùng skill này
 - Đọc dữ liệu từ Google Sheets (specific range hoặc toàn sheet)
@@ -146,18 +146,18 @@ Dùng `scripts/sheets_helper.py` cho các tác vụ phức tạp:
 
 ```bash
 # Đọc và hiển thị dạng table đẹp
-python3 skills/gws-sheets/scripts/sheets_helper.py read \
+python3 skills/google-sheets/scripts/sheets_helper.py read \
   --sheet-id SHEET_ID \
   --range "Sheet1!A1:E20"
 
 # Import CSV vào Sheets
-python3 skills/gws-sheets/scripts/sheets_helper.py import-csv \
+python3 skills/google-sheets/scripts/sheets_helper.py import-csv \
   --sheet-id SHEET_ID \
   --range "Sheet1!A1" \
   --file data.csv
 
 # Export Sheets ra CSV
-python3 skills/gws-sheets/scripts/sheets_helper.py export-csv \
+python3 skills/google-sheets/scripts/sheets_helper.py export-csv \
   --sheet-id SHEET_ID \
   --range "Sheet1" \
   --output output.csv

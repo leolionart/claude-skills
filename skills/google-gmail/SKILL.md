@@ -1,10 +1,10 @@
 ---
-name: gws-gmail
+name: google-gmail
 description: Operate Gmail via the Google Workspace CLI (gws) — send emails, reply with threading, triage inbox, and stream new messages as NDJSON. Use when users ask to send/forward/reply emails, check inbox summary, or automate email workflows.
 version: 1.0.0
 ---
 
-# GWS Gmail — Email Operations
+# Google Gmail — Email Operations
 
 ## Khi nào dùng skill này
 - Gửi email (đơn giản hoặc với attachment)

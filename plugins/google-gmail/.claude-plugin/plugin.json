@@ -1,5 +1,5 @@
 {
-  "name": "gws-gmail",
+  "name": "google-gmail",
   "version": "1.0.0",
   "description": "Send, reply, triage and stream Gmail via gws CLI — full threading support, inbox triage, and realtime NDJSON streaming.",
   "author": {

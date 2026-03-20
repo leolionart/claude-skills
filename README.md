@@ -23,9 +23,9 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 | Skill | Mô tả |
 |-------|-------|
 | `google-workspace` | Auth setup, cross-product workflows (standup report, meeting prep, weekly digest), schema discovery |
-| `gws-gmail` | Gửi/reply/forward email, triage inbox, stream email mới realtime |
-| `gws-drive` | List, upload, tìm kiếm, share files trên Google Drive |
-| `gws-sheets` | Đọc/ghi/append Sheets data + helper script Python (CSV import/export) |
+| `google-gmail` | Gửi/reply/forward email, triage inbox, stream email mới realtime |
+| `google-drive` | List, upload, tìm kiếm, share files trên Google Drive |
+| `google-sheets` | Đọc/ghi/append Sheets data + helper script Python (CSV import/export) |
 
 > **Yêu cầu:** `npm install -g @googleworkspace/cli` + `gws auth login`
 
@@ -144,9 +144,9 @@ Plugin mở rộng hành vi của Claude Code qua hooks — chạy tự động 
 ```text
 skills/                   # Source content gốc cho từng skill
   google-workspace/
-  gws-gmail/
-  gws-drive/
-  gws-sheets/
+  google-gmail/
+  google-drive/
+  google-sheets/
   google-analytics-reader/
   lark-suite/
   diagram/

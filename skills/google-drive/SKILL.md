@@ -1,10 +1,10 @@
 ---
-name: gws-drive
+name: google-drive
 description: Manage Google Drive files via the Google Workspace CLI (gws) — list, upload, download, create, search, and share files. Use when users ask to work with Drive files, organize folders, upload documents, or manage file permissions.
 version: 1.0.0
 ---
 
-# GWS Drive — File Management
+# Google Drive — File Management
 
 ## Khi nào dùng skill này
 - List files/folders trên Drive

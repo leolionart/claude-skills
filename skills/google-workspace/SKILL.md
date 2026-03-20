@@ -12,7 +12,7 @@ version: 1.0.0
 - Chạy các workflow tổng hợp nhiều sản phẩm (standup, meeting prep, weekly digest)
 - Kiểm tra schema API hoặc debug lỗi auth
 
-Với các tác vụ đơn sản phẩm (Gmail, Drive, Sheets), dùng skill chuyên biệt: `gws-gmail`, `gws-drive`, `gws-sheets`.
+Với các tác vụ đơn sản phẩm (Gmail, Drive, Sheets), dùng skill chuyên biệt: `google-gmail`, `google-drive`, `google-sheets`.
 
 ## Cài đặt
 

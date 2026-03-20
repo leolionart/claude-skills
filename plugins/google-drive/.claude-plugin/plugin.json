@@ -1,5 +1,5 @@
 {
-  "name": "gws-drive",
+  "name": "google-drive",
   "version": "1.0.0",
   "description": "Manage Google Drive files via gws CLI — list, upload, search, share, and manage permissions.",
   "author": {
