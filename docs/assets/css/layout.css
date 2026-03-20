@@ -118,8 +118,29 @@
 
 .landing-hero-shell,
 .home-front-door-shell {
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   align-items: start;
+}
+
+.hero-copy,
+.landing-hero-copy,
+.home-front-door-copy,
+.switchboard-hero-copy,
+.mode-hero-copy,
+.workflow-handoff-copy {
+  min-width: 0;
+  max-width: 62ch;
+}
+
+.mode-hero-preview,
+.mode-hero-visual,
+.mode-hero-primary,
+.mode-hero-secondary,
+.mode-hero-motif-rail,
+.workflow-handoff-preview,
+.design-ui-chooser-note,
+.hero-stage-note {
+  min-width: 0;
 }
 
 .mode-grid,
@@ -135,10 +156,17 @@
 }
 
 .mode-hero {
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
   align-items: start;
 }
 
+.mode-hero-preview,
+.workflow-handoff-shell {
+  display: grid;
+  gap: 24px;
+}
+
+.mode-hero-visual,
 .mode-hero-asset-cluster,
 .annotated-scene-grid,
 .system-map-grid,
@@ -148,10 +176,35 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.mode-hero-visual {
+  display: grid;
+  gap: 18px;
+}
+
+.mode-hero-primary {
+  display: grid;
+  align-content: start;
+}
+
 .mode-hero-secondary-stack,
 .principles-rail,
 .editorial-columns-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mode-hero-secondary-stack {
+  align-content: start;
+}
+
+.mode-hero-motif-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+}
+
+.workflow-handoff-shell {
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
+  align-items: center;
 }
 
 .compare-band-list {
@@ -195,6 +248,8 @@
   .switchboard-grid,
   .workflow-grid,
   .mode-hero,
+  .mode-hero-preview,
+  .mode-hero-visual,
   .mode-hero-asset-cluster,
   .mode-hero-secondary-stack,
   .mode-manifesto-grid,
@@ -206,13 +261,22 @@
   .compare-band-list,
   .system-map-grid,
   .proof-strip,
-  .taxonomy-inline-grid {
+  .taxonomy-inline-grid,
+  .workflow-handoff-shell {
     grid-template-columns: 1fr;
   }
 
   .nav-shell,
   .footer-shell {
     align-items: flex-start;
+  }
+
+  .mode-hero-copy,
+  .workflow-handoff-copy,
+  .switchboard-hero-copy,
+  .landing-hero-copy,
+  .home-front-door-copy {
+    max-width: 100%;
   }
 }
 

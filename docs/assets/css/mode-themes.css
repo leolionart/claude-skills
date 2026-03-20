@@ -40,6 +40,36 @@ html[data-theme="light"] .page-shell.page-home .site-header {
   background: linear-gradient(180deg, rgba(12, 19, 38, 0.92), rgba(8, 13, 27, 0.96));
 }
 
+.page-shell.page-home .landing-hero-shell {
+  border-radius: 40px;
+}
+
+.page-shell.page-home .home-gallery-grid .mode-card {
+  background: linear-gradient(180deg, rgba(11, 18, 35, 0.96), rgba(8, 13, 25, 0.98));
+}
+
+.page-shell.page-design-ui-archive .switchboard-front-door,
+.page-shell.page-design-ui-archive .mode-card {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+}
+
+.page-shell.page-design-ui-archive .mode-card:hover,
+.page-shell.page-design-ui-archive .mode-card:focus-within {
+  transform: translateY(-2px);
+}
+
+.page-shell.page-redesign-support .workflow-step,
+.page-shell.page-redesign-support .reference-card,
+.page-shell.page-redesign-support .detail-card,
+.page-shell.page-redesign-support .prompt-card {
+  background: linear-gradient(180deg, rgba(10, 16, 31, 0.95), rgba(8, 12, 24, 0.99));
+}
+
+.page-shell.page-redesign-support .workflow-step span {
+  border: 1px solid var(--line);
+  background: rgba(59, 130, 246, 0.12);
+}
+
 html[data-theme="light"] .page-shell:not(.page-home) .mode-card,
 html[data-theme="light"] .page-shell:not(.page-home) .workflow-step,
 html[data-theme="light"] .page-shell:not(.page-home) .prompt-card,
@@ -56,6 +86,17 @@ html[data-theme="light"] .page-shell:not(.page-home) .workflow-switch-band,
 html[data-theme="light"] .page-shell:not(.page-home) .compare-band,
 html[data-theme="light"] .page-shell:not(.page-home) .proof-strip {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(246, 250, 255, 0.98));
+}
+
+html[data-theme="light"] .page-shell.page-home .home-gallery-grid .mode-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 249, 255, 0.99));
+}
+
+html[data-theme="light"] .page-shell.page-redesign-support .workflow-step,
+html[data-theme="light"] .page-shell.page-redesign-support .reference-card,
+html[data-theme="light"] .page-shell.page-redesign-support .detail-card,
+html[data-theme="light"] .page-shell.page-redesign-support .prompt-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(244, 248, 255, 1));
 }
 
 @media (max-width: 1120px) {

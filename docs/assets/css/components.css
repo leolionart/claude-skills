@@ -42,7 +42,17 @@ html[data-theme="light"] .site-header {
 .footer-links a {
   color: var(--muted);
   text-decoration: none;
-  transition: color 180ms ease, opacity 180ms ease;
+  transition: color 180ms ease, opacity 180ms ease, border-color 180ms ease, background 180ms ease;
+  overflow-wrap: anywhere;
+}
+
+.top-nav a,
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 2px;
+  border-bottom: 1px solid transparent;
 }
 
 .top-nav a:hover,
@@ -50,8 +60,15 @@ html[data-theme="light"] .site-header {
 .text-link:hover,
 .text-link:focus-visible,
 .footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-links a:focus-visible,
+.top-nav a[aria-current="page"],
+.footer-links a[aria-current="page"] {
   color: var(--text);
+}
+
+.top-nav a[aria-current="page"],
+.footer-links a[aria-current="page"] {
+  border-bottom-color: var(--line-strong);
 }
 
 .header-actions {
@@ -99,17 +116,25 @@ html[data-theme="light"] .theme-toggle-thumb {
   align-items: center;
   justify-content: center;
   min-height: 46px;
+  max-width: 100%;
   padding: 0 18px;
   border-radius: 999px;
   border: 1px solid transparent;
   text-decoration: none;
   font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+  overflow-wrap: anywhere;
 }
 
 .button:hover,
 .button:focus-visible {
   transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 .button-primary,
@@ -149,6 +174,7 @@ html[data-theme="light"] .button-secondary {
 .compare-band-item p,
 .system-node p,
 .workflow-switch-band p,
+.workflow-handoff-copy p,
 .footer-brand p {
   color: var(--muted);
 }
@@ -217,7 +243,7 @@ html[data-theme="light"] .mode-hero-stage {
 }
 
 .landing-hero-shell {
-  padding: 34px;
+  padding: 38px;
   border-radius: 36px;
   background:
     radial-gradient(circle at 16% 18%, rgba(59, 130, 246, 0.2), transparent 24%),
@@ -242,9 +268,10 @@ html[data-theme="light"] .landing-hero-shell {
 .reference-heading h2,
 .compare-band-copy h2,
 .proof-strip-copy h2,
-.workflow-switch-band h2 {
-  line-height: 0.96;
-  letter-spacing: -0.05em;
+.workflow-switch-band h2,
+.workflow-handoff-copy h2 {
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
 .landing-hero h1,
@@ -277,7 +304,8 @@ html[data-theme="light"] .landing-hero-shell {
 .compare-band-item,
 .system-node,
 .workflow-switch-copy,
-.workflow-switch-aside {
+.workflow-switch-aside,
+.workflow-handoff-copy {
   padding: 22px;
 }
 
@@ -368,6 +396,60 @@ html[data-theme="light"] .landing-hero-shell {
   align-content: start;
 }
 
+.support-link-card,
+.design-ui-chooser-note,
+.workflow-handoff-copy,
+.workflow-handoff-preview,
+.mode-hero-secondary,
+.mode-hero-primary,
+.mode-hero-motif-rail,
+.mode-card-copy,
+.top-nav a,
+.footer-links a,
+.button,
+.text-link,
+.preview-frame figcaption,
+.hero-microproof span,
+.chip-band span,
+.chip-list li,
+.mode-card-points span,
+.meta-label,
+.section-kicker,
+.mode-tag {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.lead {
+  max-width: 58ch;
+  line-height: 1.72;
+}
+
+.section-kicker,
+.meta-label,
+.mode-tag {
+  line-height: 1.5;
+}
+
+.hero-actions {
+  row-gap: 12px;
+}
+
+.hero-actions .button {
+  min-width: min(100%, 14rem);
+}
+
+.hero-microproof span,
+.chip-band span,
+.chip-list li,
+.showcase-note-chip span,
+.signature-strip-list span,
+.proof-strip-list span,
+.mode-card-points span {
+  min-height: 2.25rem;
+  line-height: 1.35;
+}
+
 .preview-frame {
   padding: 16px;
   border-radius: 22px;
@@ -381,8 +463,13 @@ html[data-theme="light"] .landing-hero-shell {
 }
 
 .preview-frame-media {
+  position: relative;
   overflow: hidden;
   border-radius: 18px;
+  min-height: 180px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(59, 130, 246, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(9, 15, 31, 0.92), rgba(16, 24, 45, 0.92));
 }
 
 .preview-frame img {
@@ -392,9 +479,34 @@ html[data-theme="light"] .landing-hero-shell {
   background: #fff;
 }
 
+.preview-frame-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  gap: 8px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(10, 16, 31, 0.2), rgba(10, 16, 31, 0.9)),
+    radial-gradient(circle at 78% 22%, rgba(59, 130, 246, 0.22), transparent 20%);
+}
+
+.preview-frame-fallback[hidden] {
+  display: none;
+}
+
+.preview-frame-fallback p:last-child {
+  max-width: 34ch;
+}
+
+.preview-frame.is-fallback img {
+  opacity: 0;
+}
+
 .preview-frame figcaption {
   margin-top: 12px;
   font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .prompt-card-head {
@@ -463,6 +575,57 @@ html[data-theme="light"] .landing-hero-shell {
   justify-content: flex-end;
 }
 
+.page-home .support-links-grid {
+  gap: 18px;
+}
+
+.page-home .support-link-card {
+  min-height: 100%;
+  background: linear-gradient(180deg, rgba(9, 15, 31, 0.84), rgba(8, 12, 24, 0.94));
+  border-style: solid;
+}
+
+.page-home .support-link-card h3 {
+  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.page-design-ui-archive .design-ui-archive-hero,
+.page-redesign-support .redesign-hero-shell {
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.24);
+}
+
+.page-design-ui-archive .switchboard-front-door {
+  background: linear-gradient(180deg, rgba(9, 14, 28, 0.88), rgba(8, 12, 24, 0.96));
+}
+
+.page-design-ui-archive .mode-card {
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+}
+
+.page-redesign-support .redesign-hero-shell {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(10, 16, 31, 0.96), rgba(8, 12, 24, 0.98));
+}
+
+.workflow-handoff-shell {
+  border-radius: 30px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10, 16, 31, 0.94), rgba(8, 12, 24, 0.98));
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.workflow-handoff-preview {
+  padding: 22px;
+}
+
+.workflow-handoff-copy .button-secondary {
+  justify-self: start;
+}
+
 .footer-meta {
   padding: 18px 0 56px;
   color: var(--muted);
@@ -503,7 +666,9 @@ html[data-theme="light"] .landing-hero-shell {
   .system-node,
   .workflow-switch-copy,
   .workflow-switch-aside,
-  .hero-stage-note {
+  .hero-stage-note,
+  .workflow-handoff-copy,
+  .workflow-handoff-preview {
     padding: 18px;
   }
 
@@ -511,10 +676,32 @@ html[data-theme="light"] .landing-hero-shell {
   .mode-hero h1,
   .redesign-hero h1 {
     font-size: clamp(2.7rem, 12vw, 4.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+
+  .section-heading h2,
+  .landing-section-heading h2,
+  .mode-block-heading h2,
+  .reference-heading h2,
+  .compare-band-copy h2,
+  .proof-strip-copy h2,
+  .workflow-switch-band h2,
+  .workflow-handoff-copy h2 {
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .lead {
+    line-height: 1.68;
   }
 
   .prompt-card-head {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: 100%;
   }
 }
