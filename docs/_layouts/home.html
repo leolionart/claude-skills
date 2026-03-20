@@ -1,41 +1,72 @@
 ---
 layout: default
 ---
-<section class="shell section hero hero-home" id="top">
-  <div class="hero-copy stack-lg">
-    <p class="section-kicker">{{ site.data.site.home_intro.eyebrow }}</p>
-    <h1>{{ page.hero_title | default: site.data.site.hero_title }}</h1>
-    <p class="lead">{{ page.hero_summary | default: site.data.site.hero_summary }}</p>
-    <div class="hero-actions">
-      <a class="button button-primary" href="{{ site.data.site.hero_primary_cta.url | relative_url }}">{{ site.data.site.hero_primary_cta.label }}</a>
-      <a class="button button-secondary" href="{{ site.data.site.hero_secondary_cta.url | relative_url }}">{{ site.data.site.hero_secondary_cta.label }}</a>
+{% assign home = site.data.site.home %}
+
+<section class="landing-hero section home-front-door" id="top">
+  <div class="shell landing-hero-shell home-front-door-shell">
+    <div class="landing-hero-copy home-front-door-copy stack-lg">
+      <div class="stack-md">
+        <p class="section-kicker">{{ home.eyebrow }}</p>
+        <h1>{{ home.title }}</h1>
+        <p class="lead">{{ home.summary }}</p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ home.primary_cta.url | relative_url }}">{{ home.primary_cta.label }}</a>
+        <a class="button button-secondary" href="{{ home.secondary_cta.url | relative_url }}">{{ home.secondary_cta.label }}</a>
+      </div>
+
+      <div class="hero-microproof" aria-label="Homepage highlights">
+        {% for item in home.highlights %}
+          <span>{{ item }}</span>
+        {% endfor %}
+      </div>
     </div>
-    <div class="hero-microproof" aria-label="Gallery proof points">
-      <span>4 canonical modes</span>
-      <span>Same pseudo-UI scenario</span>
-      <span>Theme-specific detail pages</span>
-    </div>
+
+    <aside class="hero-stage-note home-front-door-note stack-sm">
+      {% include preview-frame.html
+        src=home.featured_preview.src
+        alt=home.featured_preview.alt
+        caption=home.featured_preview.caption
+        large=true
+        preview_class='landing-preview-frame landing-preview-frame-primary'
+      %}
+      <p class="meta-label">{{ home.note.title }}</p>
+      <p>{{ home.note.body }}</p>
+    </aside>
   </div>
+</section>
 
-  <div class="hero-panel split-panel" aria-label="High level overview">
-    <article class="surface-card surface-card-strong stack-md">
-      <p class="meta-label">Default recommendation</p>
-      <h2><code>design-ui</code></h2>
-      <p>Use for new UI work, polish requests, visual direction, and frontend refinement.</p>
-      <ul class="bullet-list compact-list">
-        <li>4 selectable modes</li>
-        <li>Canonical naming</li>
-        <li>Prompt-ready framing</li>
-      </ul>
-      <a class="text-link" href="{{ '/design-ui/' | relative_url }}">Browse the mode gallery</a>
-    </article>
+<section class="section landing-section home-gallery-section" id="gallery">
+  <div class="shell">
+    <div class="section-heading stack-md landing-section-heading gallery-heading">
+      <p class="section-kicker">{{ home.gallery.eyebrow }}</p>
+      <h2>{{ home.gallery.title }}</h2>
+      <p>{{ home.gallery.summary }}</p>
+    </div>
 
-    <article class="surface-card stack-md">
-      <p class="meta-label">Separate workflow</p>
-      <h2><code>redesign-skill</code></h2>
-      <p>Use for existing products when you want scan → diagnose → fix → verify without rewriting the stack or inventing a new structure.</p>
-      <a class="text-link" href="{{ '/redesign-skill/' | relative_url }}">Open the redesign workflow</a>
-    </article>
+    <div class="mode-grid switchboard-grid home-gallery-grid">
+      {% for mode in site.data.design_ui_modes %}
+        {% include mode-card.html mode=mode showcase=true variant='landing' %}
+      {% endfor %}
+    </div>
+
+    <div class="reference-dual-grid support-links-grid">
+      <article class="detail-card stack-md reference-card support-link-card">
+        <p class="section-kicker">{{ home.support_strip.eyebrow }}</p>
+        <h3>{{ home.support_strip.archive.title }}</h3>
+        <p>{{ home.support_strip.archive.summary }}</p>
+        <a class="text-link" href="{{ home.support_strip.archive.url | relative_url }}">{{ home.support_strip.archive.cta_label }}</a>
+      </article>
+
+      <article class="detail-card stack-md reference-card support-link-card">
+        <p class="section-kicker">{{ home.support_strip.eyebrow }}</p>
+        <h3>{{ home.support_strip.redesign.title }}</h3>
+        <p>{{ home.support_strip.redesign.summary }}</p>
+        <a class="text-link" href="{{ home.support_strip.redesign.url | relative_url }}">{{ home.support_strip.redesign.cta_label }}</a>
+      </article>
+    </div>
   </div>
 </section>
 

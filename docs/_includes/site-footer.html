@@ -1,13 +1,22 @@
+{% assign footer = site.data.site.footer %}
 <footer class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <p class="eyebrow">Canonical frontend design guidance</p>
-      <p>{{ site.data.site.footer_summary }}</p>
+  <div class="shell footer-shell">
+    <div class="footer-brand stack-sm">
+      <p class="eyebrow">{{ site.data.site.brand.eyebrow }}</p>
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.site.brand.label }}</a>
+      <p>{{ footer.summary }}</p>
     </div>
-    <div class="footer-links" aria-label="Reference summary">
-      {% for item in site.data.site.footer_meta %}
-        <span>{{ item }}</span>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      {% for link in footer.links %}
+        <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
       {% endfor %}
-    </div>
+    </nav>
+  </div>
+
+  <div class="shell footer-meta">
+    {% for item in footer.meta %}
+      <span>{{ item }}</span>
+    {% endfor %}
   </div>
 </footer>

@@ -1,0 +1,43 @@
+<svg width="1440" height="980" viewBox="0 0 1440 980" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Structured technical hero</title>
+  <desc id="desc">A modular system-map workspace with rails, labels, and explicit technical hierarchy.</desc>
+  <rect width="1440" height="980" rx="44" fill="#ECF4F1"/>
+  <rect x="72" y="62" width="1296" height="856" rx="26" fill="#F7FBFA" stroke="#CFE0DB"/>
+  <rect x="104" y="94" width="1232" height="56" rx="14" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="132" y="114" width="184" height="18" rx="4" fill="#10211E" opacity="0.95"/>
+  <rect x="1138" y="110" width="96" height="24" rx="4" fill="#E0F3EC" stroke="#B6DED0"/>
+  <rect x="1248" y="110" width="58" height="24" rx="4" fill="#0F9F6E"/>
+  <line x1="330" y1="184" x2="330" y2="872" stroke="#D2E2DD" stroke-width="2"/>
+  <line x1="996" y1="184" x2="996" y2="872" stroke="#DCE9E5" stroke-width="1.5"/>
+  <rect x="104" y="176" width="206" height="696" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="132" y="212" width="112" height="12" rx="3" fill="#0F9F6E"/>
+  <rect x="132" y="244" width="152" height="10" rx="3" fill="#DCECE7"/>
+  <rect x="132" y="272" width="172" height="10" rx="3" fill="#E7F1EE"/>
+  <rect x="132" y="300" width="164" height="10" rx="3" fill="#E7F1EE"/>
+  <rect x="360" y="176" width="596" height="250" rx="14" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="388" y="204" width="148" height="12" rx="3" fill="#48625A"/>
+  <rect x="388" y="236" width="428" height="48" rx="6" fill="#F2F8F6" stroke="#DDEBE7"/>
+  <rect x="388" y="308" width="286" height="12" rx="3" fill="#D6E5E0"/>
+  <rect x="388" y="346" width="132" height="28" rx="4" fill="#10211E"/>
+  <rect x="1026" y="176" width="280" height="250" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="1056" y="206" width="124" height="12" rx="3" fill="#0F9F6E" opacity="0.9"/>
+  <rect x="1056" y="238" width="218" height="10" rx="3" fill="#D6E5E0"/>
+  <rect x="1056" y="266" width="198" height="10" rx="3" fill="#E2EEEA"/>
+  <rect x="1056" y="312" width="180" height="88" rx="8" fill="#F5FBF8" stroke="#DDEBE7"/>
+  <rect x="360" y="458" width="324" height="186" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="388" y="488" width="126" height="12" rx="3" fill="#10211E"/>
+  <rect x="388" y="524" width="94" height="48" rx="6" fill="#DCF2EA" stroke="#C8E6DC"/>
+  <rect x="492" y="524" width="94" height="48" rx="6" fill="#F3F9F7" stroke="#D6E5E0"/>
+  <rect x="716" y="458" width="590" height="186" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="744" y="488" width="148" height="12" rx="3" fill="#10211E"/>
+  <rect x="744" y="528" width="526" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="744" y="558" width="526" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="744" y="588" width="526" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="360" y="674" width="946" height="198" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="388" y="704" width="162" height="12" rx="3" fill="#10211E"/>
+  <rect x="388" y="744" width="886" height="22" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <rect x="388" y="780" width="886" height="22" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <rect x="388" y="816" width="642" height="22" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <path d="M932 550H1004" stroke="#AFCFC3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1198 704V846" stroke="#CFE0DB" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>

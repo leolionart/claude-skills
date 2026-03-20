@@ -1,0 +1,19 @@
+<section class="shell section section-showcase section-mode-block section-mode-manifesto">
+  <div class="mode-block-heading stack-md">
+    <p class="section-kicker">{{ include.section.eyebrow }}</p>
+    <h2>{{ include.section.title }}</h2>
+  </div>
+  <div class="mode-manifesto-grid">
+    <article class="showcase-copy-block showcase-copy-block-strong stack-md">
+      <p class="mode-block-lead">{{ include.section.lead }}</p>
+      <p>{{ include.section.body }}</p>
+    </article>
+    <aside class="showcase-note-rail stack-md">
+      {% for item in include.section.notes %}
+        <div class="showcase-note-chip">
+          <span>{{ item }}</span>
+        </div>
+      {% endfor %}
+    </aside>
+  </div>
+</section>

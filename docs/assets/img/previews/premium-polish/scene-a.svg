@@ -1,0 +1,29 @@
+<svg width="1280" height="860" viewBox="0 0 1280 860" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Premium polish cockpit scene</title>
+  <desc id="desc">A layered decision cockpit with nested panels, soft glows, and theatrical breathing room.</desc>
+  <rect width="1280" height="860" rx="34" fill="#F1EFFB"/>
+  <circle cx="1020" cy="176" r="180" fill="#9476FF" opacity="0.16"/>
+  <rect x="72" y="66" width="1136" height="728" rx="32" fill="#FCFBFF" stroke="#DDD4FF"/>
+  <rect x="104" y="100" width="1072" height="56" rx="18" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="134" y="118" width="164" height="18" rx="9" fill="#171226" opacity="0.95"/>
+  <rect x="134" y="188" width="238" height="552" rx="26" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="160" y="220" width="112" height="12" rx="6" fill="#7B63FF"/>
+  <rect x="160" y="254" width="184" height="12" rx="6" fill="#E3DBFF"/>
+  <rect x="160" y="286" width="168" height="12" rx="6" fill="#EEE8FF"/>
+  <rect x="404" y="178" width="734" height="214" rx="34" fill="#181028"/>
+  <rect x="444" y="214" width="156" height="14" rx="7" fill="#B6A8FF"/>
+  <rect x="444" y="248" width="318" height="62" rx="22" fill="#FFFFFF" opacity="0.96"/>
+  <rect x="850" y="228" width="220" height="110" rx="28" fill="#FFFFFF" opacity="0.12" stroke="#D6CBFF"/>
+  <rect x="378" y="438" width="284" height="230" rx="30" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="396" y="456" width="248" height="194" rx="24" fill="#F8F4FF" stroke="#ECE4FF"/>
+  <rect x="430" y="494" width="118" height="12" rx="6" fill="#171226" opacity="0.88"/>
+  <rect x="430" y="530" width="92" height="52" rx="20" fill="#7B63FF"/>
+  <rect x="538" y="530" width="92" height="52" rx="20" fill="#F1ECFF" stroke="#DED3FF"/>
+  <rect x="700" y="414" width="438" height="282" rx="32" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="718" y="432" width="402" height="246" rx="26" fill="#FBF9FF" stroke="#EEE7FF"/>
+  <rect x="754" y="470" width="148" height="12" rx="6" fill="#171226" opacity="0.88"/>
+  <rect x="754" y="508" width="330" height="18" rx="9" fill="#F1ECFF"/>
+  <rect x="754" y="538" width="330" height="18" rx="9" fill="#F1ECFF"/>
+  <rect x="754" y="568" width="330" height="18" rx="9" fill="#F1ECFF"/>
+  <circle cx="1062" cy="558" r="84" fill="#A88FFF" opacity="0.16"/>
+</svg>

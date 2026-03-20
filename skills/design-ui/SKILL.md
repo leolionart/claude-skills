@@ -88,7 +88,7 @@ When design direction matters, structure response like this:
 ```
 
 ## Quick visual overview
-See `../../docs/` for the Jekyll-powered public microsite where `design-ui` is framed as one canonical skill with four mode demos on the same pseudo-UI scenario, plus copy-ready prompt handoff for each mode.
+See `../../docs/` for the Jekyll-powered public showcase where `design-ui` is framed as one canonical skill with four art-directed mode microsites on the same pseudo-UI scenario, plus copy-ready prompt handoff for each mode.
 
 ## Relationship to redesign-skill
 - `design-ui` is the canonical skill for new UI work, polish passes, and style-direction requests.

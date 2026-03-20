@@ -1,18 +1,22 @@
 {% assign mode = include.mode %}
-<article class="mode-card {{ mode.page_class }} {% if include.compact %}compact-card{% endif %}">
+<article class="mode-card {{ mode.page_class }} {% if include.compact %}compact-card{% endif %} {% if include.showcase %}mode-card-showcase{% endif %} {% if include.variant %}mode-card-{{ include.variant }}{% endif %}">
   <div class="mode-card-preview">
-    {% include preview-frame.html src=mode.preview_asset alt=mode.preview_alt caption=mode.preview_caption preview_class='preview-shell-card' %}
+    {% include preview-frame.html src=mode.microsite.visual_kit.hero_asset.src alt=mode.microsite.visual_kit.hero_asset.alt caption=mode.preview_caption preview_class='preview-shell-card showcase-frame' %}
   </div>
   <div class="mode-card-copy stack-md">
-    <p class="mode-tag">{{ mode.mode_number }}</p>
-    <h3><code>{{ mode.label }}</code></h3>
-    <p class="mode-summary">{{ mode.summary }}</p>
-    <p>{{ mode.use_when }}</p>
-    <div class="chip-band" aria-label="Signals for {{ mode.label }}">
-      {% for signal in mode.signals %}
-        <span>{{ signal }}</span>
-      {% endfor %}
+    <div class="mode-card-head stack-sm">
+      <p class="mode-tag">{{ mode.mode_number }}</p>
+      <h3>{% if include.variant == 'landing' %}{{ mode.label }}{% else %}<code>{{ mode.label }}</code>{% endif %}</h3>
+      <p class="mode-summary">{{ mode.summary }}</p>
     </div>
+    {% unless include.compact %}
+      <div class="mode-card-points" aria-label="Key signals for {{ mode.label }}">
+        {% for signal in mode.best_for limit: 3 %}
+          <span>{{ signal }}</span>
+        {% endfor %}
+      </div>
+    {% endunless %}
+    <p>{{ mode.compare_note }}</p>
     <a class="text-link" href="{{ '/design-ui/' | append: mode.slug | append: '/' | relative_url }}">Enter demo microsite</a>
   </div>
 </article>

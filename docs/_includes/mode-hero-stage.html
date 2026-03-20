@@ -1,0 +1,54 @@
+<section class="shell section mode-showcase-shell section-showcase-top">
+  <div class="mode-hero-stage mode-hero">
+    <div class="mode-hero-copy stack-lg">
+      <p class="section-kicker">{{ include.mode.microsite.hero.eyebrow }} · {{ include.mode.mode_number }} · <code>design-ui</code></p>
+      <h1>{{ include.mode.microsite.hero.title }}</h1>
+      <p class="lead">{{ include.mode.microsite.hero.lead }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#prompt">{{ include.mode.microsite.hero.primary_cta_label }}</a>
+        <a class="button button-secondary" href="{{ '/design-ui/' | relative_url }}">{{ include.mode.microsite.hero.secondary_cta_label }}</a>
+      </div>
+      <div class="hero-microproof hero-microproof-list" aria-label="Mode framing for {{ include.mode.label }}">
+        {% for item in include.mode.microsite.hero.microproof %}
+          <span>{{ item }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="mode-hero-visual stack-md">
+      <div class="mode-hero-asset-cluster">
+        <div class="mode-hero-primary">
+          {% include preview-frame.html
+            src=include.mode.microsite.visual_kit.hero_asset.src
+            alt=include.mode.microsite.visual_kit.hero_asset.alt
+            caption=include.mode.microsite.visual_kit.hero_asset.caption
+            large=true
+            preview_class='preview-shell-hero showcase-frame'
+          %}
+        </div>
+        <div class="mode-hero-secondary-stack" aria-label="Supporting visuals for {{ include.mode.label }}">
+          {% for asset in include.mode.microsite.visual_kit.detail_assets limit:2 %}
+            <div class="mode-hero-secondary">
+              {% include preview-frame.html
+                src=asset.src
+                alt=asset.alt
+                caption=asset.caption
+                preview_class='preview-shell-card showcase-frame showcase-frame-compact'
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% if include.mode.microsite.visual_kit.motif_asset %}
+        <div class="mode-hero-motif-rail">
+          {% include preview-frame.html
+            src=include.mode.microsite.visual_kit.motif_asset.src
+            alt=include.mode.microsite.visual_kit.motif_asset.alt
+            caption=include.mode.microsite.visual_kit.motif_asset.caption
+            preview_class='preview-shell-card showcase-frame showcase-frame-motif'
+          %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

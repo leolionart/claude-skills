@@ -3,110 +3,62 @@ layout: default
 ---
 {% assign mode = site.data.design_ui_modes | where: 'slug', page.mode_slug | first %}
 
-{% include mode-microsite-hero.html mode=mode %}
+{% include mode-hero-stage.html mode=mode %}
 
-<section class="shell section section-tight">
-  <div class="mode-scenario-band stack-md">
-    <p class="section-kicker">Shared scenario reminder</p>
-    <h2>{{ site.data.site.same_scenario.title }}</h2>
-    <p>{{ site.data.site.same_scenario.description }}</p>
-    <div class="chip-band" aria-label="Compare axes across design-ui modes">
-      {% for axis in site.data.site.same_scenario.compare_axes %}
-        <span>{{ axis }}</span>
-      {% endfor %}
-    </div>
+{% for section in mode.microsite.sections %}
+  {% include mode-section-renderer.html section=section mode=mode %}
+{% endfor %}
+
+<section class="shell section section-reference" id="prompt">
+  <div class="section-heading stack-md reference-heading">
+    <p class="section-kicker">Canonical prompt handoff</p>
+    <h2>Copy-ready wording for this exact <code>design-ui</code> mode.</h2>
+    <p>The showcase above demonstrates the mode as a rendered system. The prompt below transfers that exact public naming back into a working request.</p>
   </div>
+  {% include prompt-card.html prompt_key=mode.prompt_key wide=true %}
 </section>
 
-<section class="shell section section-tight">
-  <div class="detail-grid mode-thesis-grid">
-    <article class="detail-card stack-md mode-thesis-card">
-      <p class="section-kicker">Mode thesis</p>
-      <h2>{{ mode.microsite.thesis.title }}</h2>
-      <p>{{ mode.microsite.thesis.body }}</p>
-    </article>
-    <article class="detail-card stack-md mode-thesis-card">
-      <p class="section-kicker">Product feel</p>
-      <h2>{{ mode.microsite.product_feel.title }}</h2>
-      <p>{{ mode.microsite.product_feel.intro }}</p>
-      <ul class="bullet-list compact-list">
-        {% for item in mode.microsite.product_feel.bullets %}
-          <li>{{ item }}</li>
+<section class="shell section section-reference">
+  <div class="reference-dual-grid">
+    <article class="taxonomy-card stack-md reference-card">
+      <p class="section-kicker">Shared scenario reminder</p>
+      <h3>{{ site.data.site.same_scenario.title }}</h3>
+      <p>{{ site.data.site.same_scenario.description }}</p>
+      <div class="chip-band" aria-label="Compare axes across design-ui modes">
+        {% for axis in site.data.site.same_scenario.compare_axes %}
+          <span>{{ axis }}</span>
         {% endfor %}
-      </ul>
+      </div>
     </article>
-  </div>
-</section>
-
-<section class="shell section section-tight">
-  <div class="section-heading stack-md">
-    <p class="section-kicker">Demo scenes</p>
-    <h2>One pseudo-product, shown through the lens of <code>{{ mode.label }}</code>.</h2>
-    <p>Each scene below keeps Northstar Workspace intact while changing the design language: hierarchy, spacing, depth, palette, composition, and motion cues.</p>
-  </div>
-  {% include mode-scene-grid.html mode=mode %}
-</section>
-
-{% include mode-signature-strip.html mode=mode %}
-
-<section class="shell section section-tight">
-  <div class="section-heading stack-md">
-    <p class="section-kicker">Visual taxonomy</p>
-    <h2>Translate the microsite feel into reusable design vocabulary.</h2>
-    <p>The microsite sections create the emotional read; this taxonomy section names the reusable ingredients behind it.</p>
-  </div>
-  <div class="taxonomy-grid">
-    <article class="taxonomy-card stack-md">
-      <h3>Primary language</h3>
-      {% include taxonomy-chip-list.html items=mode.primary_language %}
-    </article>
-    <article class="taxonomy-card stack-md">
-      <h3>Supporting treatments</h3>
-      {% include taxonomy-chip-list.html items=mode.supporting_treatments %}
-    </article>
-    <article class="taxonomy-card stack-md">
-      <h3>Imagery mode</h3>
-      {% include taxonomy-chip-list.html items=mode.imagery_mode %}
-    </article>
-    <article class="taxonomy-card stack-md">
-      <h3>Avoid list</h3>
-      {% include taxonomy-chip-list.html items=mode.avoid_list tone='warning' %}
-    </article>
-  </div>
-</section>
-
-<section class="shell section section-tight">
-  <div class="detail-grid mode-thesis-grid">
-    <article class="detail-card stack-md mode-thesis-card not-this-card">
-      <p class="section-kicker">Avoid framing</p>
-      <h2>{{ mode.microsite.not_this.title }}</h2>
-      <p>{{ mode.microsite.not_this.body }}</p>
-    </article>
-    <article class="detail-card stack-md mode-thesis-card">
-      <p class="section-kicker">Use when</p>
-      <p>{{ mode.use_when }}</p>
-      <div class="chip-band" aria-label="Best for {{ mode.label }}">
-        {% for item in mode.best_for %}
-          <span>{{ item }}</span>
-        {% endfor %}
+    <article class="taxonomy-card stack-md reference-card">
+      <p class="section-kicker">Mode taxonomy</p>
+      <h3>Translate the showcase feel into reusable design vocabulary.</h3>
+      <div class="taxonomy-inline-grid">
+        <div>
+          <p class="meta-label">Primary language</p>
+          {% include taxonomy-chip-list.html items=mode.primary_language %}
+        </div>
+        <div>
+          <p class="meta-label">Supporting treatments</p>
+          {% include taxonomy-chip-list.html items=mode.supporting_treatments %}
+        </div>
+        <div>
+          <p class="meta-label">Imagery mode</p>
+          {% include taxonomy-chip-list.html items=mode.imagery_mode %}
+        </div>
+        <div>
+          <p class="meta-label">Avoid list</p>
+          {% include taxonomy-chip-list.html items=mode.avoid_list tone='warning' %}
+        </div>
       </div>
     </article>
   </div>
 </section>
 
-<section class="shell section section-tight" id="prompt">
-  <div class="section-heading stack-md">
-    <p class="section-kicker">Canonical prompt handoff</p>
-    <h2>Copy-ready wording for this exact <code>design-ui</code> mode.</h2>
-    <p>The microsite demonstrates how the mode should feel; the prompt below transfers that direction back into a working request.</p>
-  </div>
-  {% include prompt-card.html prompt_key=mode.prompt_key wide=true %}
-</section>
-
 {% include mode-compare-nav.html mode=mode %}
 
-<section class="shell section section-tight">
-  <div class="workflow-switch-band">
+<section class="shell section section-reference">
+  <div class="workflow-switch-band workflow-switch-band-reference">
     <div class="workflow-switch-copy stack-md">
       <p class="section-kicker">Workflow switch</p>
       <h2>{{ site.data.site.same_scenario.workflow_handoff.title }}</h2>

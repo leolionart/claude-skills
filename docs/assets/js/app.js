@@ -3,7 +3,7 @@ const copyButtons = document.querySelectorAll('[data-copy-target]');
 copyButtons.forEach((button) => {
   button.addEventListener('click', async () => {
     const targetId = button.getAttribute('data-copy-target');
-    const source = document.getElementById(targetId);
+    const source = targetId ? document.getElementById(targetId) : null;
 
     if (!source) {
       return;
@@ -41,3 +41,29 @@ copyButtons.forEach((button) => {
     }
   });
 });
+
+const root = document.documentElement;
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const storedTheme = window.localStorage.getItem('design-skills-theme');
+const initialTheme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'dark';
+
+root.setAttribute('data-theme', initialTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', nextTheme);
+    window.localStorage.setItem('design-skills-theme', nextTheme);
+  });
+}
+
+const header = document.querySelector('[data-site-header]');
+
+if (header) {
+  const syncHeader = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, { passive: true });
+}

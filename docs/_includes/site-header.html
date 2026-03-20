@@ -1,15 +1,24 @@
-<header class="site-header">
+{% assign header = site.data.site.header %}
+<header class="site-header" data-site-header>
   <div class="shell nav-shell">
     <div class="brand-lockup">
-      <p class="eyebrow">{{ site.data.site.home_intro.skill_label }}</p>
-      <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.site.short_title }}</a>
+      <p class="eyebrow">{{ site.data.site.brand.eyebrow }}</p>
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.site.brand.label }}</a>
     </div>
+
     <nav class="top-nav" aria-label="Primary">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/design-ui/' | relative_url }}">design-ui</a>
-      <a href="{{ '/redesign-skill/' | relative_url }}">redesign-skill</a>
-      <a href="{{ '/#prompt-cookbook' | relative_url }}">Prompts</a>
-      <a href="{{ '/#taxonomy' | relative_url }}">Taxonomy</a>
+      {% for item in header.links %}
+        <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {% endfor %}
     </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+      <a class="button button-header" href="{{ header.cta.url | relative_url }}">{{ header.cta.label }}</a>
+    </div>
   </div>
 </header>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.data.site.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <meta name="description" content="{{ page.description | default: site.data.site.description | default: site.description }}" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M18 22h28M18 32h20M18 42h28' stroke='%23f8fafc' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23090f1f'/%3E%3Ccircle cx='32' cy='20' r='5' fill='%233b82f6'/%3E%3Cpath d='M18 40h28M22 30h20M26 50h12' stroke='%23f8fafc' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}" />

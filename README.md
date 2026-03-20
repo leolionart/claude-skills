@@ -85,7 +85,14 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 Quick visual overview: [visual gallery microsite](./docs/)
 
-> Public docs now ship as a Jekyll-powered GitHub Pages gallery built from `docs/` via the repo's Pages workflow, so the site can reuse layouts, includes, and shared data without duplicating canonical copy.
+> Public docs now ship as a Jekyll-powered GitHub Pages showcase built from `docs/` via the repo's Pages workflow. The site is framed as a curated front door: `design-ui` appears as one canonical skill with four art-directed mode microsites on the same scenario, while `redesign-skill` stays clearly separate as the audit-first workflow lane.
+>
+> Local preview:
+> - `npm run docs:bundle`
+> - `npm run docs:serve`
+> - or `npm run docs:build` for a one-off local build into `_site/`
+>
+> The npm scripts force Bundler to install into `vendor/bundle` locally so preview does not need sudo or write into system Ruby gems.
 
 #### Recommended
 

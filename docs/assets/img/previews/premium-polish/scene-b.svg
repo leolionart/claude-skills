@@ -1,0 +1,20 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Premium polish spotlight scene</title>
+  <desc id="desc">A spotlighted premium workspace artifact with halos, floating panels, and luxurious spacing.</desc>
+  <rect width="1280" height="760" rx="34" fill="#F1EFFB"/>
+  <circle cx="896" cy="192" r="184" fill="#9A7CFF" opacity="0.20"/>
+  <circle cx="1014" cy="214" r="122" fill="#FFFFFF" opacity="0.16"/>
+  <rect x="78" y="72" width="1124" height="616" rx="32" fill="#FCFBFF" stroke="#DDD4FF"/>
+  <rect x="112" y="108" width="1056" height="54" rx="16" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="144" y="126" width="148" height="16" rx="8" fill="#171226" opacity="0.94"/>
+  <rect x="112" y="196" width="258" height="430" rx="26" fill="#FFFFFF" stroke="#E6DEFF"/>
+  <rect x="142" y="232" width="112" height="12" rx="6" fill="#7B63FF"/>
+  <rect x="142" y="266" width="196" height="12" rx="6" fill="#E3DBFF"/>
+  <rect x="406" y="184" width="728" height="444" rx="34" fill="#181028"/>
+  <rect x="446" y="222" width="168" height="16" rx="8" fill="#B6A8FF"/>
+  <rect x="446" y="258" width="252" height="60" rx="22" fill="#FFFFFF" opacity="0.96"/>
+  <rect x="830" y="240" width="228" height="132" rx="30" fill="#FFFFFF" opacity="0.12" stroke="#D4C8FF"/>
+  <rect x="470" y="394" width="236" height="170" rx="28" fill="#FFFFFF" opacity="0.94"/>
+  <rect x="748" y="384" width="332" height="184" rx="30" fill="#FFFFFF" opacity="0.18" stroke="#D8CEFF"/>
+  <path d="M720 470H748" stroke="#D8CEFF" stroke-width="10" stroke-linecap="round"/>
+</svg>

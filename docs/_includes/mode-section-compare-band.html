@@ -1,0 +1,17 @@
+<section class="shell section section-showcase section-mode-block section-mode-compare">
+  <div class="compare-band">
+    <div class="compare-band-copy stack-md">
+      <p class="section-kicker">{{ include.section.eyebrow }}</p>
+      <h2>{{ include.section.title }}</h2>
+      <p>{{ include.section.description }}</p>
+    </div>
+    <div class="compare-band-list" aria-label="{{ include.section.title }}">
+      {% for item in include.section.items %}
+        <article class="compare-band-item stack-sm">
+          <p class="meta-label">{{ item.label }}</p>
+          <p>{{ item.body }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

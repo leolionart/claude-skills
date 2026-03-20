@@ -1,0 +1,28 @@
+<svg width="1280" height="860" viewBox="0 0 1280 860" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Structured technical workflow scene</title>
+  <desc id="desc">An explainability-first workflow panel with labeled modules, rails, and lineart connectors.</desc>
+  <rect width="1280" height="860" rx="34" fill="#ECF4F1"/>
+  <rect x="74" y="68" width="1132" height="724" rx="20" fill="#F7FBFA" stroke="#D3E3DE"/>
+  <rect x="104" y="102" width="1072" height="50" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="132" y="118" width="166" height="16" rx="4" fill="#10211E" opacity="0.95"/>
+  <line x1="382" y1="188" x2="382" y2="736" stroke="#D2E2DD" stroke-width="1.8"/>
+  <rect x="104" y="186" width="248" height="550" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="132" y="220" width="112" height="12" rx="3" fill="#0F9F6E"/>
+  <rect x="132" y="254" width="186" height="10" rx="3" fill="#DCECE7"/>
+  <rect x="132" y="282" width="172" height="10" rx="3" fill="#E7F1EE"/>
+  <rect x="414" y="186" width="340" height="238" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="442" y="216" width="132" height="12" rx="3" fill="#48625A"/>
+  <rect x="442" y="252" width="280" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="442" y="284" width="280" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="796" y="186" width="348" height="238" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="824" y="216" width="134" height="12" rx="3" fill="#0F9F6E" opacity="0.9"/>
+  <rect x="824" y="252" width="286" height="18" rx="4" fill="#F2F8F6"/>
+  <rect x="824" y="284" width="286" height="18" rx="4" fill="#F2F8F6"/>
+  <path d="M754 306H796" stroke="#9DBFB3" stroke-width="8" stroke-linecap="round"/>
+  <rect x="414" y="456" width="730" height="280" rx="12" fill="#FFFFFF" stroke="#D6E5E0"/>
+  <rect x="444" y="488" width="152" height="12" rx="3" fill="#10211E"/>
+  <rect x="444" y="528" width="664" height="20" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <rect x="444" y="562" width="664" height="20" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <rect x="444" y="596" width="664" height="20" rx="4" fill="#F4FAF8" stroke="#E2EEEA"/>
+  <rect x="444" y="646" width="196" height="34" rx="4" fill="#DCF2EA" stroke="#C8E6DC"/>
+</svg>

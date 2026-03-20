@@ -1,0 +1,13 @@
+<svg width="960" height="420" viewBox="0 0 960 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Default high-agency motif</title>
+  <desc id="desc">Directional blue ribbons, offset bars, and launch-like geometry representing momentum.</desc>
+  <rect width="960" height="420" rx="28" fill="#0F172A"/>
+  <path d="M118 304L332 112" stroke="#7CA1FF" stroke-width="22" stroke-linecap="round" opacity="0.92"/>
+  <path d="M246 348L470 152" stroke="#2457FF" stroke-width="18" stroke-linecap="round" opacity="0.88"/>
+  <path d="M412 316L618 126" stroke="#A9BFFF" stroke-width="14" stroke-linecap="round" opacity="0.64"/>
+  <rect x="566" y="94" width="214" height="118" rx="24" fill="#FFFFFF" opacity="0.08" stroke="#6D92FF"/>
+  <rect x="654" y="232" width="188" height="88" rx="24" fill="#2457FF" opacity="0.14" stroke="#7CA1FF"/>
+  <rect x="156" y="108" width="128" height="14" rx="7" fill="#B6C9FF"/>
+  <rect x="156" y="138" width="194" height="10" rx="5" fill="#7CA1FF" opacity="0.7"/>
+  <rect x="720" y="116" width="96" height="14" rx="7" fill="#FFFFFF" opacity="0.88"/>
+</svg>

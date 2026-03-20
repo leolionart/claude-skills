@@ -1,10 +1,10 @@
-<section class="shell section section-tight">
-  <div class="section-heading stack-md">
+<section class="shell section section-reference">
+  <div class="section-heading stack-md reference-heading">
     <p class="section-kicker">Compare other modes</p>
     <h2>Stay inside <code>design-ui</code>, then switch workflows only if the problem changes.</h2>
     <p>These pages are four renderings of the same skill and the same product scenario. Compare neighboring modes first; move to <code>redesign-skill</code> only for audit-first improvement of an existing shipped interface.</p>
   </div>
-  <div class="related-grid">
+  <div class="mode-grid switchboard-grid">
     {% for related_label in include.mode.related %}
       {% assign related_mode = site.data.design_ui_modes | where: 'label', related_label | first %}
       {% if related_mode %}
