@@ -109,16 +109,6 @@ Quick demo highlights:
 - Open a separate `redesign-skill` workflow lane with `Scan -> Diagnose -> Fix -> Verify`
 - Copy canonical prompts directly from the gallery pages
 
-#### Legacy compatibility
-
-| Skill | Mô tả |
-|-------|-------|
-| `taste-skill` | Legacy compatibility entry — giữ tương thích cách gọi cũ, map sang `design-ui` mode mặc định |
-| `minimalist-skill` | Legacy compatibility entry — map sang `design-ui` với preset `minimalist editorial` |
-| `soft-skill` | Legacy compatibility entry — map sang `design-ui` với preset `premium polish` |
-
----
-
 ### Release & App Updates
 
 | Skill | Mô tả |
@@ -167,10 +157,7 @@ skills/                   # Source content gốc cho từng skill
   set-up-docker-app-updates/
   set-up-macos-app-updates/
   design-ui/
-  taste-skill/
   redesign-skill/
-  minimalist-skill/
-  soft-skill/
 plugins/                  # Installable plugin roots được marketplace publish
   git-sync/
   lark-mcp/

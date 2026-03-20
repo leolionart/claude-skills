@@ -34,10 +34,3 @@ decision_matrix:
     choice: design-ui + mode structured technical
   - situation: Need to redesign an existing product while keeping its stack and behavior
     choice: redesign-skill
-legacy_mapping:
-  - legacy: taste-skill
-    canonical: design-ui + default high-agency
-  - legacy: minimalist-skill
-    canonical: design-ui + minimalist editorial
-  - legacy: soft-skill
-    canonical: design-ui + premium polish

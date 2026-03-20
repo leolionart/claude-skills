@@ -87,22 +87,6 @@ page_class: theme-home-high-agency
   </div>
 </section>
 
-<section class="shell section" id="legacy-mapping">
-  <div class="section-heading stack-md">
-    <p class="section-kicker">Legacy compatibility</p>
-    <h2>Older wrappers still map cleanly, but they are not top-level gallery choices.</h2>
-  </div>
-
-  <div class="legacy-panel stack-md">
-    <ul class="legacy-list">
-      {% for item in site.data.site.legacy_mapping %}
-        <li><code>{{ item.legacy }}</code> → <code>{{ item.canonical }}</code></li>
-      {% endfor %}
-    </ul>
-    <p class="legacy-note">Keep using the canonical names in new prompts so documentation, examples, and user guidance stay aligned.</p>
-  </div>
-</section>
-
 <section class="shell section" id="taxonomy">
   <div class="section-heading stack-md">
     <p class="section-kicker">Design vocabulary / taxonomy</p>

@@ -6,7 +6,7 @@ description: Canonical frontend design skill for new UI work, polish passes, sty
 # Design UI
 
 ## Purpose
-Provide the default design brain for most frontend/UI requests. Reuse the broad anti-generic rules from `taste-skill`, while exposing style modes that previously lived in separate top-level skills.
+Provide the canonical design brain for most frontend/UI requests. Use it for new UI work, polish passes, style direction, and mode-based refinement without splitting intent across multiple top-level skills.
 
 ## Use this skill when
 - Create a new UI, page, component, landing page, or dashboard.
@@ -23,9 +23,9 @@ Pick one mode before writing code. If user does not specify, default to `default
 
 | Mode | Use when | Core behavior |
 | --- | --- | --- |
-| `default high-agency` | General premium UI work | Use `taste-skill` baseline: anti-generic layout, typography, motion, and design taxonomy |
-| `minimalist editorial` | User wants calm, document-like, workspace, monochrome, editorial UI | Pull in warm monochrome palette, crisp borders, restrained motion, typographic contrast from `minimalist-skill` |
-| `premium polish` | User wants expensive, agency-like, cinematic refinement | Pull in nested surfaces, richer motion choreography, and premium depth from `soft-skill` |
+| `default high-agency` | General premium UI work | Favor anti-generic layout, strong typography, controlled motion, and broad design-taxonomy coverage |
+| `minimalist editorial` | User wants calm, document-like, workspace, monochrome, editorial UI | Favor warm monochrome palettes, crisp borders, restrained motion, and typographic contrast |
+| `premium polish` | User wants expensive, agency-like, cinematic refinement | Favor nested surfaces, richer motion choreography, premium depth, and stronger materiality |
 | `structured technical` | Developer tools, docs, explainers, technical dashboards | Favor modular layouts, geometric clarity, lineart, material colors, and restrained ornament |
 
 ## Shared execution rules
@@ -47,7 +47,7 @@ Use this shared taxonomy when steering output:
 
 ## Mode-specific overrides
 ### default high-agency
-- Start from `taste-skill` defaults: high variance, moderate motion, low-to-medium density.
+- Start with high variance, moderate motion, and low-to-medium density.
 - Prefer premium sans pairings, asymmetry, strong hierarchy, and anti-generic interaction states.
 
 ### minimalist editorial
@@ -90,8 +90,6 @@ When design direction matters, structure response like this:
 ## Quick visual overview
 See `../../docs/` for the Jekyll-powered visual gallery that compares the four `design-ui` modes on the same pseudo-UI scenario and provides copy-ready prompt examples.
 
-## Relationship to legacy skills
-- `taste-skill` = compatibility entry for `design-ui` default mode.
-- `minimalist-skill` = compatibility entry for `design-ui` + `minimalist editorial`.
-- `soft-skill` = compatibility entry for `design-ui` + `premium polish`.
+## Relationship to redesign-skill
+- `design-ui` is the canonical skill for new UI work, polish passes, and style-direction requests.
 - `redesign-skill` remains separate because it is an audit-first workflow, not just a style preset.

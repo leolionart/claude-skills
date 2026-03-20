@@ -5,7 +5,7 @@
   summary: General premium UI work with anti-generic direction.
   positioning: The broad default for new pages, components, dashboards, and polish passes when the user wants premium quality without forcing a narrower preset.
   use_when: New pages, components, dashboards, or general polish requests.
-  core_behavior: "Use the taste-skill baseline: anti-generic layout, typography, motion, and design taxonomy."
+  core_behavior: Favor anti-generic layout, strong typography, controlled motion, and broad design-taxonomy coverage.
   best_for:
     - New UI work
     - General premium polish
@@ -44,7 +44,7 @@
   summary: Calm, document-like, warm monochrome, typographic restraint.
   positioning: The quiet option for workspace and document-heavy products that should feel precise, composed, and intentionally understated.
   use_when: Workspace tools, document-oriented products, quiet brand systems, and editorial UI.
-  core_behavior: Pull in warm monochrome palette, crisp borders, restrained motion, and typographic contrast from minimalist-skill.
+  core_behavior: Favor warm monochrome palettes, crisp borders, restrained motion, and typographic contrast.
   best_for:
     - Workspace tools
     - Document products
@@ -83,7 +83,7 @@
   summary: Agency-like refinement with richer depth and motion choreography.
   positioning: The most cinematic mode for product marketing, launch surfaces, and premium-feeling interfaces that need stronger depth and materiality.
   use_when: Marketing pages, launch surfaces, premium product storytelling, and cinematic polish passes.
-  core_behavior: Pull in nested surfaces, richer motion choreography, and premium depth from soft-skill.
+  core_behavior: Favor nested surfaces, richer motion choreography, premium depth, and stronger materiality.
   best_for:
     - Marketing pages
     - Launch surfaces

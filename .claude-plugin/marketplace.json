@@ -339,63 +339,6 @@
       "category": "delivery"
     },
     {
-      "name": "taste-skill",
-      "source": "./plugins/taste-skill",
-      "description": "Legacy compatibility wrapper for the old taste-skill entry. Prefer design-ui for new frontend design work; this maps to design-ui default high-agency mode.",
-      "version": "1.0.0",
-      "author": {
-        "name": "leolionart"
-      },
-      "license": "MIT",
-      "keywords": [
-        "frontend",
-        "design",
-        "ui",
-        "ux",
-        "motion",
-        "legacy"
-      ],
-      "category": "delivery"
-    },
-    {
-      "name": "minimalist-skill",
-      "source": "./plugins/minimalist-skill",
-      "description": "Legacy compatibility wrapper for minimalist-skill. Prefer design-ui for new work; this maps to design-ui minimalist editorial mode.",
-      "version": "1.0.0",
-      "author": {
-        "name": "leolionart"
-      },
-      "license": "MIT",
-      "keywords": [
-        "minimalist",
-        "editorial",
-        "frontend",
-        "ui",
-        "design",
-        "legacy"
-      ],
-      "category": "delivery"
-    },
-    {
-      "name": "soft-skill",
-      "source": "./plugins/soft-skill",
-      "description": "Legacy compatibility wrapper for soft-skill. Prefer design-ui for new work; this maps to design-ui premium polish mode.",
-      "version": "1.0.0",
-      "author": {
-        "name": "leolionart"
-      },
-      "license": "MIT",
-      "keywords": [
-        "frontend",
-        "visual-design",
-        "motion",
-        "premium-ui",
-        "design",
-        "legacy"
-      ],
-      "category": "delivery"
-    },
-    {
       "name": "mcp-to-cli",
       "source": "./plugins/mcp-to-cli",
       "description": "Generate standalone CLIs or make one-off tool calls from MCP servers using mcporter. Use when the user wants to convert an MCP into a compiled CLI, inspect available MCP tools, import MCP definitions from Claude Code/Cursor/Codex, authenticate remote HTTP MCPs, or call MCP tools without registering the server in Claude Code.",
