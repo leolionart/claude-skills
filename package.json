@@ -1,6 +1,6 @@
 {
   "name": "claude-skill-tracker",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Track Claude Code skill usage to your CLIProxy Dashboard",
   "type": "module",
   "license": "MIT",
