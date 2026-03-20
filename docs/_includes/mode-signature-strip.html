@@ -1,0 +1,14 @@
+<section class="shell section section-tight">
+  <div class="signature-strip">
+    <div class="signature-strip-copy stack-md">
+      <p class="section-kicker">Signature strip</p>
+      <h2>{{ include.mode.microsite.signature_strip.title }}</h2>
+      <p>{{ include.mode.compare_note }}</p>
+    </div>
+    <div class="signature-strip-list" aria-label="Signature signals for {{ include.mode.label }}">
+      {% for item in include.mode.microsite.signature_strip.items %}
+        <span>{{ item }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>

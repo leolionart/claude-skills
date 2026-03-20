@@ -119,7 +119,11 @@
 .workflow-step,
 .legacy-panel,
 .redesign-band,
-.preview-frame {
+.preview-frame,
+.mode-scene-card,
+.mode-scenario-band,
+.signature-strip,
+.workflow-switch-band {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -133,7 +137,11 @@
 .surface-card,
 .workflow-step,
 .legacy-panel,
-.redesign-band {
+.redesign-band,
+.mode-scene-card,
+.mode-scenario-band,
+.signature-strip,
+.workflow-switch-band {
   position: relative;
 }
 
@@ -144,7 +152,11 @@
 .surface-card::before,
 .workflow-step::before,
 .legacy-panel::before,
-.redesign-band::before {
+.redesign-band::before,
+.mode-scene-card::before,
+.mode-scenario-band::before,
+.signature-strip::before,
+.workflow-switch-band::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -159,7 +171,11 @@
 .workflow-step,
 .legacy-panel,
 .redesign-band-copy,
-.mode-card-copy {
+.mode-card-copy,
+.mode-scene-card,
+.mode-thesis-card,
+.signature-strip-copy,
+.workflow-switch-copy {
   padding: 24px;
 }
 
@@ -183,7 +199,8 @@
 }
 
 .chip-list,
-.chip-band {
+.chip-band,
+.signature-strip-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -193,7 +210,8 @@
 }
 
 .chip-list li,
-.chip-band span {
+.chip-band span,
+.signature-strip-list span {
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.86);
@@ -361,6 +379,23 @@
   margin-top: 12px;
 }
 
+.mode-scene-card {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.mode-scene-card h3,
+.mode-thesis-card h2,
+.signature-strip-copy h2,
+.workflow-switch-copy h2,
+.mode-scenario-band h2 {
+  margin: 0;
+}
+
+.not-this-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 255, 0.96));
+}
+
 .redesign-band {
   padding: 0;
   overflow: hidden;
@@ -397,7 +432,11 @@
   .redesign-band-copy,
   .mode-card-copy,
   .prompt-card,
-  .preview-frame {
+  .preview-frame,
+  .mode-scene-card,
+  .mode-thesis-card,
+  .signature-strip-copy,
+  .workflow-switch-copy {
     padding: 18px;
   }
 

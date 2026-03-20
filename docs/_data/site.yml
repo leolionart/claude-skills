@@ -19,10 +19,22 @@ footer_meta:
   - "Source docs: README, design-ui, redesign-skill"
   - "Pages workflow builds and deploys from docs/"
 same_scenario:
-  title: "Shared preview scenario"
-  description: All previews use the same fictional workspace product so differences stay stylistic rather than structural.
+  eyebrow: One product, four renderings
+  title: Northstar Workspace is the shared demo product.
+  description: Every design-ui mode re-renders the same fictional workspace product so the comparison stays honest. Navigation, content modules, and product scope stay stable while typography, spacing, depth, palette, and composition shift by mode.
   product_name: Northstar Workspace
-  product_summary: A hybrid docs, dashboard, and workflow product with a top bar, left navigation, metrics, content modules, and a task table.
+  product_summary: A hybrid docs, dashboard, and workflow product with a top bar, left navigation, KPI summary, project modules, a planning view, and a task table.
+  compare_axes:
+    - Typography system
+    - Spacing rhythm
+    - Palette and surface depth
+    - Motion pacing
+    - Composition and hierarchy
+  workflow_handoff:
+    title: Switch workflows when the problem changes.
+    summary: If the task is no longer “show me a design direction” and instead becomes “upgrade an already-shipped interface carefully,” move to redesign-skill rather than treating redesign as a fifth mode.
+    cta_label: Open redesign-skill
+    cta_url: /redesign-skill/
 decision_matrix:
   - situation: Create a new UI or improve a UI in general
     choice: design-ui

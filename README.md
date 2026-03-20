@@ -91,8 +91,8 @@ Quick visual overview: [visual gallery microsite](./docs/)
 
 | Skill | Mô tả |
 |-------|-------|
-| `design-ui` | Lựa chọn mặc định cho frontend/UI design — tạo mới, polish, style direction, và refinement theo đúng 4 mode canonical: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical` |
-| `redesign-skill` | Workflow audit-first để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk |
+| `design-ui` | Skill frontend/UI canonical cho tạo mới, polish, style direction, và refinement. Public microsite của skill này là 1 hub với 4 demo modes canonical: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical` |
+| `redesign-skill` | Workflow audit-first riêng để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk; không phải mode thứ 5 của `design-ui` |
 
 #### Which one should I use?
 
@@ -105,9 +105,9 @@ Quick visual overview: [visual gallery microsite](./docs/)
 | Muốn redesign project hiện có, giữ stack/chức năng | `redesign-skill` |
 
 Quick demo highlights:
-- Browse 4 `design-ui` modes visually on the same pseudo-UI scenario: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
+- Browse one `design-ui` skill through 4 dedicated mode microsites on the same pseudo-UI scenario: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
 - Open a separate `redesign-skill` workflow lane with `Scan -> Diagnose -> Fix -> Verify`
-- Copy canonical prompts directly from the gallery pages
+- Copy canonical prompts directly from each mode microsite or workflow page
 
 ### Release & App Updates
 

@@ -21,7 +21,7 @@ page_class: theme-redesign-workflow
     <article class="detail-card stack-md">
       <p class="section-kicker">Relationship to design-ui</p>
       <p><code>design-ui</code> remains the canonical skill for new UI work and style-direction requests. <code>redesign-skill</code> is the workflow to use when the product already exists and the safest path is to audit before changing.</p>
-      <a class="text-link" href="{{ '/design-ui/' | relative_url }}">Return to the design-ui gallery</a>
+      <a class="text-link" href="{{ '/design-ui/' | relative_url }}">Return to the design-ui switchboard</a>
     </article>
   </div>
 </section>

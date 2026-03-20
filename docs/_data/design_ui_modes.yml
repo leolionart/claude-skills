@@ -37,6 +37,59 @@
   prompt_key: default_high_agency
   page_class: theme-default-high-agency
   preview_caption: Bold hierarchy, asymmetry, and premium pacing on the same workspace scenario.
+  microsite:
+    hero:
+      eyebrow: Canonical mode demo
+      title: The same workspace, rendered with a high-agency premium posture.
+      lead: "This is the broadest expression of design-ui: energetic hierarchy, asymmetric composition, and a sense that the product is already shipping with conviction."
+      primary_cta_label: Copy the canonical prompt
+      secondary_cta_label: Compare all 4 modes
+      microproof:
+        - One skill, not four separate skills
+        - Same product scope as every other mode
+        - Best when direction needs confidence without over-specializing
+    thesis:
+      title: Default high-agency is the canonical “start here” rendering.
+      body: Use it when the request needs a premium result but the brief is still broad. It should feel sharper than template UI without locking the work into editorial restraint, cinematic materiality, or technical modularity.
+    product_feel:
+      title: Product feel
+      intro: Northstar Workspace should feel decisive and alive in this mode.
+      bullets:
+        - The hero surfaces act like a confident product launch, not a static admin shell.
+        - Metrics and modules use hierarchy jumps to guide the eye through a dense workspace quickly.
+        - Motion, color accents, and surface depth support momentum instead of decoration.
+    scenes:
+      - title: Mission control hero
+        eyebrow: Scene 1
+        description: The landing area pushes the active project, KPI strip, and next-step actions into an intentionally asymmetric split so the product feels opinionated from the first screen.
+        signals:
+          - offset hero blocks
+          - bold type scale
+          - high-priority CTA lane
+      - title: Planning board with pacing shifts
+        eyebrow: Scene 2
+        description: Cards, timelines, and summaries alternate density to create rhythm. The eye should move from strategy highlights to tactical tasks without feeling trapped in a flat grid.
+        signals:
+          - alternating density
+          - layered cards
+          - momentum-driven scan path
+      - title: Executive snapshot modules
+        eyebrow: Scene 3
+        description: KPI, owners, and progress summaries use stronger contrast and size jumps so the interface reads like a premium command surface rather than a generic dashboard.
+        signals:
+          - strong hierarchy jumps
+          - premium dashboard framing
+          - controlled accent color
+    signature_strip:
+      title: Visual DNA
+      items:
+        - Bold hierarchy shifts
+        - Offset composition
+        - Premium sans tone
+        - Semi-flat depth with energy
+    not_this:
+      title: Not this mode
+      body: Do not use this page to imply a separate skill, a redesign workflow, or a loud marketing-only aesthetic. It is still the shared Northstar Workspace product—just rendered with the broadest premium stance.
 - slug: minimalist-editorial
   label: minimalist editorial
   short_label: Editorial
@@ -76,6 +129,59 @@
   prompt_key: minimalist_editorial
   page_class: theme-minimalist-editorial
   preview_caption: Warm monochrome, crisp borders, and document rhythm on the shared workspace scenario.
+  microsite:
+    hero:
+      eyebrow: Canonical mode demo
+      title: The same workspace, edited into a calm document-led product surface.
+      lead: This rendering makes Northstar Workspace feel precise, thoughtful, and typographically composed. The difference is not product scope—it is the visual tempo and restraint.
+      primary_cta_label: Copy the canonical prompt
+      secondary_cta_label: Compare all 4 modes
+      microproof:
+        - Same product as the other three pages
+        - Typography and spacing do most of the work
+        - Best when calm precision matters more than drama
+    thesis:
+      title: Minimalist editorial turns the product into a composed reading environment.
+      body: Use it when the interface should behave more like a premium document system than a cinematic dashboard. The user should feel calm, guided, and able to scan without visual noise.
+    product_feel:
+      title: Product feel
+      intro: Northstar Workspace should feel quiet, considered, and almost print-aware in this mode.
+      bullets:
+        - Modules rely on spacing rhythm and type contrast more than color contrast or material depth.
+        - Borders, captions, and section labels act like editorial scaffolding for the product.
+        - Surfaces stay close to the page so the interface feels intentional rather than ornamental.
+    scenes:
+      - title: Editorial overview spread
+        eyebrow: Scene 1
+        description: "The top view reads like an opening spread: summary, project note, and navigation arranged in a calm field with generous whitespace and clear margins."
+        signals:
+          - document rhythm
+          - warm monochrome palette
+          - restrained focal point
+      - title: Reading-first work area
+        eyebrow: Scene 2
+        description: Notes, docs, and activity blocks align to crisp rules so the product feels suited to deep reading and review, not just fast dashboard scanning.
+        signals:
+          - typographic contrast
+          - hairline separators
+          - low-shadow surfaces
+      - title: Quiet planning ledger
+        eyebrow: Scene 3
+        description: "Tasks and schedules are framed like an organized ledger: precise labels, measured density, and soft accents that never overpower the reading flow."
+        signals:
+          - ledger-like ordering
+          - sparse accent color
+          - calm scan path
+    signature_strip:
+      title: Visual DNA
+      items:
+        - Warm monochrome field
+        - Crisp hairline borders
+        - Typographic contrast first
+        - Quiet motion and restraint
+    not_this:
+      title: Not this mode
+      body: Do not pitch this as “less capable” or as a separate content product. It is the same workspace demo, simply rendered with editorial calm instead of premium force.
 - slug: premium-polish
   label: premium polish
   short_label: Premium
@@ -109,12 +215,65 @@
   compare_note: Choose this when the interface should feel more expensive and cinematic than the broad default mode.
   related:
     - default high-agency
-    - redesign-skill
+    - minimalist editorial
   preview_asset: /assets/img/previews/premium-polish.svg
   preview_alt: Premium polish preview showing layered workspace surfaces with rich depth and elevated CTAs.
   prompt_key: premium_polish
   page_class: theme-premium-polish
   preview_caption: Layered surfaces, richer depth, and premium CTA treatment on the shared workspace scenario.
+  microsite:
+    hero:
+      eyebrow: Canonical mode demo
+      title: The same workspace, staged like a premium launch surface.
+      lead: This rendering gives Northstar Workspace richer materiality, more choreography, and a stronger sense of designed luxury—without turning it into a different product or a fifth workflow.
+      primary_cta_label: Copy the canonical prompt
+      secondary_cta_label: Compare all 4 modes
+      microproof:
+        - Same functional scope as every other mode
+        - Premium depth and pacing are the main variables
+        - Best when the interface should feel expensive and cinematic
+    thesis:
+      title: Premium polish is where product storytelling becomes more staged and tactile.
+      body: Use it when the design brief asks for a stronger sense of refinement, launch energy, or material depth. The product should still feel usable, but every surface should suggest intentional craftsmanship.
+    product_feel:
+      title: Product feel
+      intro: Northstar Workspace should feel elevated and layered in this mode.
+      bullets:
+        - Panels stack with more depth so the user perceives hierarchy through materiality, not just type size.
+        - Calls to action feel staged and premium, like they belong in a launch-ready interface.
+        - Motion language should imply polish and choreography rather than speed alone.
+    scenes:
+      - title: Launch-grade product hero
+        eyebrow: Scene 1
+        description: "The opening section frames the workspace like a premium release moment: nested panels, elevated CTAs, and selective glow that makes the product feel newly unveiled."
+        signals:
+          - nested surfaces
+          - cinematic CTA treatment
+          - premium reveal pacing
+      - title: Layered operating surface
+        eyebrow: Scene 2
+        description: Project modules, activity, and context cards overlap with deliberate depth so the workspace feels tactile instead of flat.
+        signals:
+          - material hierarchy
+          - layered cards
+          - premium depth cues
+      - title: Decision cockpit
+        eyebrow: Scene 3
+        description: Metrics, approvals, and next actions are presented as a refined cockpit with stronger lighting, softer transitions, and more theatrical breathing room.
+        signals:
+          - theatrical spacing
+          - richer shadow language
+          - elevated action zones
+    signature_strip:
+      title: Visual DNA
+      items:
+        - Nested premium surfaces
+        - Hairlines and glow accents
+        - Richer motion choreography
+        - Cinematic rhythm
+    not_this:
+      title: Not this mode
+      body: Do not treat this as a marketing-only skill or as permission to add noisy effects. The point is expensive clarity on the same workspace product, not decorative spectacle.
 - slug: structured-technical
   label: structured technical
   short_label: Technical
@@ -148,9 +307,62 @@
   compare_note: Choose this when information clarity matters more than premium drama or editorial quietness.
   related:
     - minimalist editorial
-    - redesign-skill
+    - premium polish
   preview_asset: /assets/img/previews/structured-technical.svg
   preview_alt: Structured technical preview showing a modular workspace dashboard with geometric order and code-like accents.
   prompt_key: structured_technical
   page_class: theme-structured-technical
   preview_caption: Modular grids, geometric order, and code-facing accents on the shared workspace scenario.
+  microsite:
+    hero:
+      eyebrow: Canonical mode demo
+      title: The same workspace, rendered as a trustworthy technical operating system.
+      lead: This mode makes Northstar Workspace feel modular, legible, and scan-friendly. The scenario stays the same; the visual language shifts toward clarity, structure, and developer-facing trust.
+      primary_cta_label: Copy the canonical prompt
+      secondary_cta_label: Compare all 4 modes
+      microproof:
+        - Same workspace scenario as the other demos
+        - Information architecture becomes more explicit here
+        - Best when trust and scanability outrank cinematic flourish
+    thesis:
+      title: Structured technical reframes the product around clarity and verification.
+      body: Use it when the interface supports docs, workflows, dashboards, or technical teams who need composure and precise information cues more than emotional drama.
+    product_feel:
+      title: Product feel
+      intro: Northstar Workspace should feel dependable, modular, and information-first in this mode.
+      bullets:
+        - Layout blocks should read like a system map with explicit relationships between panels.
+        - Labels, numbers, and supporting metadata should feel first-class rather than secondary decoration.
+        - Accent color and ornament exist to improve legibility, not to create mood.
+    scenes:
+      - title: System overview console
+        eyebrow: Scene 1
+        description: The opening frame lays out navigation, release status, and summary modules with a clear geometric spine so the user can parse system state instantly.
+        signals:
+          - modular grid
+          - explicit labels
+          - geometric order
+      - title: Workflow explainability panel
+        eyebrow: Scene 2
+        description: Task states, documentation snippets, and supporting diagrams are arranged like a technical explainer, helping the interface teach as it operates.
+        signals:
+          - explainability-first blocks
+          - lineart support
+          - structured metadata
+      - title: Metrics and audit readout
+        eyebrow: Scene 3
+        description: Tables, status chips, and operational metrics are rendered with trust-building restraint so the product feels clear under scrutiny.
+        signals:
+          - audit-friendly tables
+          - restrained accents
+          - information-first hierarchy
+    signature_strip:
+      title: Visual DNA
+      items:
+        - Modular geometry
+        - Lineart and labels
+        - Material accents for clarity
+        - Trust-first scanability
+    not_this:
+      title: Not this mode
+      body: Do not frame this as a fifth workflow or as a boring fallback. It is still a design-ui mode—just one optimized for trust, explainability, and operational clarity.
