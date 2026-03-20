@@ -1,10 +1,14 @@
 {
   "name": "claude-skill-tracker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Track Claude Code skill usage to your CLIProxy Dashboard",
   "type": "module",
   "license": "MIT",
-  "keywords": ["claude-code-plugin", "analytics", "skills"],
+  "keywords": [
+    "claude-code-plugin",
+    "analytics",
+    "skills"
+  ],
   "scripts": {
     "docs:bundle": "BUNDLE_GEMFILE=Gemfile BUNDLE_PATH=vendor/bundle BUNDLE_APP_CONFIG=.bundle BUNDLE_DISABLE_SHARED_GEMS=true bundle install",
     "docs:build": "BUNDLE_GEMFILE=Gemfile BUNDLE_PATH=vendor/bundle BUNDLE_APP_CONFIG=.bundle BUNDLE_DISABLE_SHARED_GEMS=true bundle exec jekyll build --source docs --destination _site --config docs/_config.yml,docs/_config.local.yml",
