@@ -1,0 +1,17 @@
+{
+  "description": "telegram-permission-alert — notify Telegram when Claude Code requests approval",
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-permission-request.mjs",
+            "timeout": 8,
+            "statusMessage": "Sending Telegram approval alert..."
+          }
+        ]
+      }
+    ]
+  }
+}

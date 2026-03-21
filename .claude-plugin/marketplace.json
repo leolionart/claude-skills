@@ -397,6 +397,24 @@
         "wiki"
       ],
       "category": "delivery"
+    },
+    {
+      "name": "telegram-permission-alert",
+      "source": "./plugins/telegram-permission-alert",
+      "description": "Send Telegram alerts when Claude Code shows a permission dialog, so you can come back and approve blocked work quickly. Sends metadata only, not raw pending command content.",
+      "version": "1.0.0",
+      "author": {
+        "name": "leolionart"
+      },
+      "license": "MIT",
+      "keywords": [
+        "telegram",
+        "notifications",
+        "approval",
+        "permissions",
+        "workflow"
+      ],
+      "category": "automation"
     }
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "name": "telegram-permission-alert",
+  "version": "1.0.0",
+  "description": "Send Telegram alerts when Claude Code shows a permission dialog, so you can come back and approve blocked work quickly.",
+  "author": {
+    "name": "leolionart"
+  },
+  "license": "MIT",
+  "keywords": [
+    "telegram",
+    "notifications",
+    "approval",
+    "permissions",
+    "workflow"
+  ],
+  "env": {
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Telegram bot token used to send permission alerts",
+      "required": true,
+      "sensitive": true
+    },
+    "TELEGRAM_CHAT_ID": {
+      "description": "Telegram chat ID that receives alerts for all projects",
+      "required": true
+    },
+    "TELEGRAM_ALERT_PREFIX": {
+      "description": "Optional message prefix for Telegram alerts",
+      "required": false,
+      "default": "Claude Code needs approval"
+    },
+    "TELEGRAM_NOTIFY_ON": {
+      "description": "Notification mode label for docs and troubleshooting",
+      "required": false,
+      "default": "permission-request"
+    }
+  },
+  "hooks": "./hooks/hooks.json"
+}
