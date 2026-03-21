@@ -4,10 +4,10 @@ import { createHash } from 'node:crypto';
 import { request as httpsRequest } from 'node:https';
 import { basename } from 'node:path';
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const ALERT_PREFIX = process.env.TELEGRAM_ALERT_PREFIX || 'Claude Code needs approval';
-const NOTIFY_ON = process.env.TELEGRAM_NOTIFY_ON || 'permission-request';
+const BOT_TOKEN = process.env.CC_TELEGRAM_ALERT_BOT_TOKEN;
+const CHAT_ID = process.env.CC_TELEGRAM_ALERT_CHAT_ID;
+const ALERT_PREFIX = process.env.CC_TELEGRAM_ALERT_PREFIX || 'Claude Code needs approval';
+const NOTIFY_ON = process.env.CC_TELEGRAM_ALERT_NOTIFY_ON || 'permission-request';
 const REQUEST_TIMEOUT_MS = 5000;
 
 function sha1(value) {

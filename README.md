@@ -67,14 +67,27 @@ scripts/          # helper scripts
 
 - `skills/` không được publish trực tiếp; Marketplace cài các package dưới `plugins/`.
 - Plugin `claude-skill-tracker` dùng hooks để gửi telemetry về CLIProxy Dashboard khi skill được gọi.
-- `telegram-permission-alert` cần `TELEGRAM_BOT_TOKEN` và `TELEGRAM_CHAT_ID`. Plugin chỉ gửi metadata tối thiểu như project/tool/session để tránh đẩy raw command hoặc nội dung pending lên Telegram.
+- `telegram-permission-alert` cần `CC_TELEGRAM_ALERT_BOT_TOKEN` và `CC_TELEGRAM_ALERT_CHAT_ID`. Plugin chỉ gửi metadata tối thiểu như project/tool/session để tránh đẩy raw command hoặc nội dung pending lên Telegram.
 - Cài nhanh:
 
 ```claude
 /plugin install telegram-permission-alert
 ```
 
-Sau khi cài, cấu hình env cho plugin theo prompt của Claude Code. Hook dùng `PermissionRequest`, nên timing bám theo permission dialog native của Claude Code.
+- Cấu hình global cho mọi project bằng cách paste các lệnh này vào Claude Code rồi thay giá trị thật trước khi chạy:
+
+```bash
+!cat <<'EOF' >> ~/.zshrc
+export CC_TELEGRAM_ALERT_BOT_TOKEN='123456:ABCDEF'
+export CC_TELEGRAM_ALERT_CHAT_ID='123456789'
+# Optional:
+# export CC_TELEGRAM_ALERT_PREFIX='Claude Code needs approval'
+# export CC_TELEGRAM_ALERT_NOTIFY_ON='permission-request'
+EOF
+source ~/.zshrc
+```
+
+Hook dùng `PermissionRequest`, nên timing bám theo permission dialog native của Claude Code. Sau khi `source ~/.zshrc`, mở session Claude Code mới nếu session hiện tại chưa thấy env mới.
 
 ## License
 

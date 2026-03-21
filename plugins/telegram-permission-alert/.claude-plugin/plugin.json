@@ -14,22 +14,22 @@
     "workflow"
   ],
   "env": {
-    "TELEGRAM_BOT_TOKEN": {
-      "description": "Telegram bot token used to send permission alerts",
+    "CC_TELEGRAM_ALERT_BOT_TOKEN": {
+      "description": "Telegram bot token used only by this Claude Code alert plugin",
       "required": true,
       "sensitive": true
     },
-    "TELEGRAM_CHAT_ID": {
-      "description": "Telegram chat ID that receives alerts for all projects",
+    "CC_TELEGRAM_ALERT_CHAT_ID": {
+      "description": "Telegram chat ID that receives Claude Code permission alerts",
       "required": true
     },
-    "TELEGRAM_ALERT_PREFIX": {
-      "description": "Optional message prefix for Telegram alerts",
+    "CC_TELEGRAM_ALERT_PREFIX": {
+      "description": "Optional message prefix for Claude Code Telegram alerts",
       "required": false,
       "default": "Claude Code needs approval"
     },
-    "TELEGRAM_NOTIFY_ON": {
-      "description": "Notification mode label for docs and troubleshooting",
+    "CC_TELEGRAM_ALERT_NOTIFY_ON": {
+      "description": "Notification mode label for Claude Code Telegram alert docs and troubleshooting",
       "required": false,
       "default": "permission-request"
     }
