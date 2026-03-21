@@ -9,9 +9,4 @@
     "analytics",
     "skills"
   ],
-  "scripts": {
-    "docs:bundle": "BUNDLE_GEMFILE=Gemfile BUNDLE_PATH=vendor/bundle BUNDLE_APP_CONFIG=.bundle BUNDLE_DISABLE_SHARED_GEMS=true bundle install",
-    "docs:build": "BUNDLE_GEMFILE=Gemfile BUNDLE_PATH=vendor/bundle BUNDLE_APP_CONFIG=.bundle BUNDLE_DISABLE_SHARED_GEMS=true bundle exec jekyll build --source docs --destination _site --config docs/_config.yml,docs/_config.local.yml",
-    "docs:serve": "BUNDLE_GEMFILE=Gemfile BUNDLE_PATH=vendor/bundle BUNDLE_APP_CONFIG=.bundle BUNDLE_DISABLE_SHARED_GEMS=true bundle exec jekyll serve --source docs --destination _site --config docs/_config.yml,docs/_config.local.yml --host 127.0.0.1 --port 4000"
-  }
 }

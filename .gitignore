@@ -1,11 +1,3 @@
-# Jekyll local build artifacts
-_site/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
-vendor/bundle/
-.bundle/
-
 # Claude / Playwright debug artifacts
 .playwright-mcp/
 debug-screenshots/
