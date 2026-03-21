@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Design Skills
-description: Gallery-first front door for the repo’s public frontend design demos and supporting workflow route.
+title: Design Styles
+description: Homepage listing the available design styles, each leading to a dedicated demo detail page.
 page_class: page-home
 ---

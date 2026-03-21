@@ -4,8 +4,8 @@
     <h1>{{ include.mode.microsite.hero.title }}</h1>
     <p class="lead">{{ include.mode.microsite.hero.lead }}</p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#prompt">{{ include.mode.microsite.hero.primary_cta_label }}</a>
-      <a class="button button-secondary" href="{{ '/design-ui/' | relative_url }}">{{ include.mode.microsite.hero.secondary_cta_label }}</a>
+      <a class="button button-primary" href="#demo-overview">Jump to demo overview</a>
+      <a class="button button-secondary" href="{{ '/' | relative_url }}#gallery">Back to styles</a>
     </div>
     <div class="hero-microproof" aria-label="Mode framing for {{ include.mode.label }}">
       {% for item in include.mode.microsite.hero.microproof %}

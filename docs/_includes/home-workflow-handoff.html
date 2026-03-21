@@ -1,21 +1,4 @@
-{% assign handoff = site.data.site.same_scenario.workflow_handoff %}
-{% assign workflow = site.data.redesign_workflow %}
-
-<section class="shell section section-reference home-workflow-handoff" id="workflow-lane">
-  <div class="workflow-handoff-shell">
-    <div class="workflow-handoff-copy stack-md">
-      <p class="section-kicker">Workflow handoff</p>
-      <h2>{{ handoff.title }}</h2>
-      <p>{{ handoff.summary }}</p>
-      <a class="button button-secondary" href="{{ handoff.cta_url | relative_url }}">{{ handoff.cta_label }}</a>
-    </div>
-    <div class="workflow-handoff-preview">
-      {% include preview-frame.html
-        src=workflow.preview_asset
-        alt=workflow.preview_alt
-        caption=workflow.headline
-        preview_class='preview-shell-process reference-frame'
-      %}
-    </div>
-  </div>
-</section>
+{% comment %}
+Legacy include retained after simplifying public IA to homepage style list + dedicated detail pages.
+This include is intentionally unused.
+{% endcomment %}

@@ -1,8 +1,8 @@
 <section class="shell section section-reference">
   <div class="section-heading stack-md reference-heading">
-    <p class="section-kicker">Compare other modes</p>
-    <h2>Stay inside <code>design-ui</code>, then switch workflows only if the problem changes.</h2>
-    <p>These pages are four renderings of the same skill and the same product scenario. Compare neighboring modes first; move to <code>redesign-skill</code> only for audit-first improvement of an existing shipped interface.</p>
+    <p class="section-kicker">Compare other styles</p>
+    <h2>Browse neighboring directions, then return to the homepage for the full style list.</h2>
+    <p>These pages re-render the same product scenario through different visual languages. Use the related cards below to compare nearby directions without leaving the style demo system.</p>
   </div>
   <div class="mode-grid switchboard-grid">
     {% for related_label in include.mode.related %}
@@ -11,13 +11,5 @@
         {% include mode-card.html mode=related_mode compact=true %}
       {% endif %}
     {% endfor %}
-    <article class="mode-card mode-card-process compact-card">
-      <div class="mode-card-copy stack-md">
-        <p class="mode-tag">Workflow switch</p>
-        <h3><code>redesign-skill</code></h3>
-        <p>{{ site.data.site.same_scenario.workflow_handoff.summary }}</p>
-        <a class="text-link" href="{{ site.data.site.same_scenario.workflow_handoff.cta_url | relative_url }}">{{ site.data.site.same_scenario.workflow_handoff.cta_label }}</a>
-      </div>
-    </article>
   </div>
 </section>

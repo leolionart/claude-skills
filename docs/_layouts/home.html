@@ -14,7 +14,6 @@ layout: default
 
       <div class="hero-actions">
         <a class="button button-primary" href="{{ home.primary_cta.url | relative_url }}">{{ home.primary_cta.label }}</a>
-        <a class="button button-secondary" href="{{ home.secondary_cta.url | relative_url }}">{{ home.secondary_cta.label }}</a>
       </div>
 
       <div class="hero-microproof" aria-label="Homepage highlights">
@@ -51,25 +50,7 @@ layout: default
         {% include mode-card.html mode=mode showcase=true variant='landing' %}
       {% endfor %}
     </div>
-
-    <div class="reference-dual-grid support-links-grid">
-      <article class="detail-card stack-md reference-card support-link-card">
-        <p class="section-kicker">{{ home.support_strip.eyebrow }}</p>
-        <h3>{{ home.support_strip.archive.title }}</h3>
-        <p>{{ home.support_strip.archive.summary }}</p>
-        <a class="text-link" href="{{ home.support_strip.archive.url | relative_url }}">{{ home.support_strip.archive.cta_label }}</a>
-      </article>
-
-      <article class="detail-card stack-md reference-card support-link-card">
-        <p class="section-kicker">{{ home.support_strip.eyebrow }}</p>
-        <h3>{{ home.support_strip.redesign.title }}</h3>
-        <p>{{ home.support_strip.redesign.summary }}</p>
-        <a class="text-link" href="{{ home.support_strip.redesign.url | relative_url }}">{{ home.support_strip.redesign.cta_label }}</a>
-      </article>
-    </div>
   </div>
 </section>
-
-{% include home-workflow-handoff.html %}
 
 {{ content }}

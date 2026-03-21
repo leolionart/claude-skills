@@ -243,8 +243,8 @@
     {
       "name": "save-and-release",
       "source": "./plugins/save-and-release",
-      "description": "Save your work safely, push it when ready, and prepare clear release notes when it's time to ship.",
-      "version": "1.0.0",
+      "description": "Save your work safely, push it when ready, and handle GitHub releases with version bumps, tags, release notes, and advisory gitleaks checks.",
+      "version": "1.0.1",
       "author": {
         "name": "leolionart"
       },

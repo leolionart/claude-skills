@@ -1,102 +1,46 @@
 title: Design Skills
-short_title: Design Skills
-repo_name: claude-skills
-repo_label: leolionart/claude-skills
-description: Curated gallery-first front door for the repo’s public frontend design demos.
+description: Public gallery of design styles with dedicated detail demos for each direction.
 brand:
   eyebrow: Claude Code design intelligence
   label: Design Skills
 header:
   links:
-    - label: Gallery
+    - label: Styles
       url: /
-    - label: Archive
-      url: /design-ui/
-    - label: Workflow
-      url: /redesign-skill/
-  cta:
-    label: Compare modes
-    url: /design-ui/
 home:
-  eyebrow: Curated public gallery
-  title: Four canonical UI demos, one compact front door.
-  summary: "The homepage now does one job: get visitors into the design-ui microsites quickly, with just enough framing to make the gallery feel intentional."
+  eyebrow: Style library
+  title: Pick a design style, then open its full demo page.
+  summary: The homepage is now a clean index of visual directions. Each card leads straight into a dedicated detail page showing the same product rendered in a distinct style.
   primary_cta:
-    label: Browse the gallery
+    label: Browse styles
     url: /#gallery
-  secondary_cta:
-    label: Open archive view
-    url: /design-ui/
   highlights:
-    - 4 canonical design-ui microsites
-    - 1 shared Northstar Workspace scenario
-    - 1 audit-first redesign workflow
+    - 4 distinct design directions
+    - 1 shared product scenario
+    - Detail pages with full visual demos
   featured_preview:
     src: /assets/img/previews/premium-polish/hero.svg
-    alt: Curated gallery preview showing a premium workspace hero from the premium polish mode.
-    caption: The front door stays compact because the deeper proof already lives inside the microsites.
+    alt: Featured preview of a premium workspace interface from one of the design style demos.
+    caption: Start from the style list, then go deeper inside the dedicated demo page for each direction.
   note:
-    title: Curated, not exhaustive
-    body: Start with the four design-ui directions below. Use the archive when you want the same set in a quieter support view, and switch to redesign-skill only when the product already exists in code.
+    title: One homepage, four style routes
+    body: Use the homepage to compare directions at a glance, then open a style page to inspect its hero, sections, visual rhythm, and demo artifacts.
   gallery:
-    eyebrow: Canonical mode gallery
-    title: Choose the visual direction, then open the microsite.
-    summary: Each card routes into the full mode page for the same Northstar Workspace scenario, so the comparison stays about visual language rather than product scope.
-  support_strip:
-    eyebrow: Supporting routes
-    archive:
-      title: design-ui archive
-      summary: A lean support view of the same four canonical mode cards, useful when you want the gallery without the homepage framing.
-      url: /design-ui/
-      cta_label: Open archive
-    redesign:
-      title: redesign-skill workflow
-      summary: The audit-first lane for improving an existing shipped interface without turning redesign into another style preset.
-      url: /redesign-skill/
-      cta_label: Open workflow
+    eyebrow: Design styles
+    title: Choose a direction.
+    summary: Every card opens a dedicated detail page for the same Northstar Workspace scenario, making the comparison about style rather than product scope.
 footer:
-  summary: Gallery-first public docs for the repo’s premium frontend design demos.
+  summary: Public gallery for the repo’s design style demos.
   links:
-    - label: Gallery
+    - label: Styles
       url: /
-    - label: design-ui archive
-      url: /design-ui/
-    - label: redesign-skill
-      url: /redesign-skill/
   meta:
-    - Mode inventory comes from design_ui_modes.yml.
-    - Supporting routes stay secondary to the homepage gallery.
-support_pages:
-  design_ui:
-    eyebrow: Supporting archive
-    title: The canonical mode archive.
-    summary: This route mirrors the same four design-ui demos in a quieter support-page format. Use it when you want the gallery without the homepage framing.
-    primary_cta:
-      label: Back to gallery
-      url: /
-    secondary_cta:
-      label: Open workflow lane
-      url: /redesign-skill/
-    note_title: Archive role
-    note_body: The homepage is the curated front door. This page stays useful as a lean archive and comparison route, not as a second landing page.
-  redesign:
-    eyebrow: Supporting workflow lane
-    title: redesign-skill keeps shipped products on a low-risk path.
-    summary: Use this route when the interface already exists and the right move is to audit, improve, and verify without swapping frameworks or inventing a new visual language.
-    primary_cta:
-      label: Back to gallery
-      url: /
-    secondary_cta:
-      label: Browse design-ui modes
-      url: /design-ui/
-    highlights:
-      - Audit the current surface before changing it.
-      - Improve the highest-impact issues with reviewable edits.
-      - Keep the existing stack and interaction model intact.
+    - Each style detail page is rendered from design_ui_modes.yml.
+    - The homepage only lists styles and routes into their demos.
 same_scenario:
   eyebrow: One product, four renderings
   title: Northstar Workspace is the shared demo product.
-  description: Every design-ui mode re-renders the same fictional workspace product so the comparison stays honest. Navigation, content modules, and product scope stay stable while typography, spacing, depth, palette, and composition shift by mode.
+  description: Every style page re-renders the same fictional workspace product so the comparison stays honest. Navigation, content modules, and product scope stay stable while typography, spacing, depth, palette, and composition shift by style.
   product_name: Northstar Workspace
   product_summary: A hybrid docs, dashboard, and workflow product with a top bar, left navigation, KPI summary, project modules, a planning view, and a task table.
   compare_axes:
@@ -106,8 +50,3 @@ same_scenario:
     - Typography posture
     - Artifact staging
     - Scene layout
-  workflow_handoff:
-    title: Need an audit-first pass instead?
-    summary: When the interface already ships code, move to redesign-skill instead of treating redesign as a fifth design-ui mode.
-    cta_label: Open redesign-skill
-    cta_url: /redesign-skill/

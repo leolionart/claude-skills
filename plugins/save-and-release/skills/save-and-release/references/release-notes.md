@@ -9,6 +9,8 @@ Release notes nên giúp người đọc trả lời nhanh 4 câu hỏi:
 
 ## Cấu trúc khuyến nghị
 
+Template này có thể dùng trực tiếp làm body cho GitHub release, ví dụ với `gh release create vX.Y.Z --notes-file release-notes.md`. Title/tag của release nên khớp `vX.Y.Z` để dễ scan.
+
 ```md
 # vX.Y.Z
 

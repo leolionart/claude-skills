@@ -85,7 +85,7 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 Quick visual overview: [visual gallery microsite](./docs/)
 
-> Public docs now ship as a Jekyll-powered GitHub Pages showcase built from `docs/` via the repo's Pages workflow. The site is framed as a curated front door: `design-ui` appears as one canonical skill with four art-directed mode microsites on the same scenario, while `redesign-skill` stays clearly separate as the audit-first workflow lane.
+> Public docs now ship as a Jekyll-powered GitHub Pages showcase built from `docs/` via the repo's Pages workflow. The public IA is intentionally simple: the homepage lists the available `design-ui` styles, and each card opens a dedicated detail page showing the same scenario rendered in that style.
 >
 > Local preview:
 > - `npm run docs:bundle`
@@ -98,8 +98,8 @@ Quick visual overview: [visual gallery microsite](./docs/)
 
 | Skill | Mô tả |
 |-------|-------|
-| `design-ui` | Skill frontend/UI canonical cho tạo mới, polish, style direction, và refinement. Public microsite của skill này là 1 hub với 4 demo modes canonical: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical` |
-| `redesign-skill` | Workflow audit-first riêng để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk; không phải mode thứ 5 của `design-ui` |
+| `design-ui` | Skill frontend/UI canonical cho tạo mới, polish, style direction, và refinement. Public docs của skill này là homepage style list dẫn vào 4 demo detail pages canonical: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical` |
+| `redesign-skill` | Workflow audit-first riêng để nâng cấp project đang có mà không rewrite — giữ stack/chức năng, cải thiện giao diện theo hướng low-risk; không nằm trong public style gallery của docs |
 
 #### Which one should I use?
 
@@ -112,15 +112,15 @@ Quick visual overview: [visual gallery microsite](./docs/)
 | Muốn redesign project hiện có, giữ stack/chức năng | `redesign-skill` |
 
 Quick demo highlights:
-- Browse one `design-ui` skill through 4 dedicated mode microsites on the same pseudo-UI scenario: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
-- Open a separate `redesign-skill` workflow lane with `Scan -> Diagnose -> Fix -> Verify`
-- Copy canonical prompts directly from each mode microsite or workflow page
+- Browse the homepage style list for the 4 canonical `design-ui` directions: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
+- Open a dedicated detail page for each style on the same pseudo-UI scenario
+- Compare how typography, spacing, hierarchy, and artifact staging shift from one style to another
 
 ### Release & App Updates
 
 | Skill | Mô tả |
 |-------|-------|
-| `save-and-release` | Lưu thay đổi, đẩy branch lên remote, chuẩn bị checklist phát hành và release notes |
+| `save-and-release` | Lưu thay đổi, đẩy branch lên remote, và hỗ trợ GitHub release với version bump, tag, release notes, cùng advisory gitleaks check |
 | `set-up-docker-app-updates` | Thiết lập một lần để app Docker có thể build/publish version mới và rollout update an toàn |
 | `set-up-macos-app-updates` | Thiết lập một lần để app macOS hiển thị version hiện tại và báo khi có bản cập nhật |
 
