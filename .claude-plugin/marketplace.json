@@ -297,8 +297,8 @@
     {
       "name": "design-ui",
       "source": "./plugins/design-ui",
-      "description": "Canonical frontend design skill for new UI work, polish passes, style direction, and mode-based refinement including minimalist and premium presets.",
-      "version": "1.0.0",
+      "description": "Canonical frontend design skill for creating, reviewing, or restyling UI across 6 design families and 20 exemplars, from editorial and SaaS clarity to premium, tactile, and experimental directions.",
+      "version": "1.1.0",
       "author": {
         "name": "leolionart"
       },
@@ -310,12 +310,18 @@
         "ux",
         "frontend design",
         "ui design",
-        "taste",
-        "minimalist",
+        "style direction",
         "editorial",
-        "premium",
+        "saas",
         "premium-ui",
-        "motion"
+        "motion",
+        "glassmorphism",
+        "bento grid",
+        "neo brutalism",
+        "y2k",
+        "tactile ui",
+        "design review",
+        "restyling"
       ],
       "category": "delivery"
     },
