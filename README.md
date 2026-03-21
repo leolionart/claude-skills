@@ -85,7 +85,7 @@ Tương tác với toàn bộ Google Workspace qua [`gws` CLI](https://github.co
 
 Quick visual overview: [visual gallery microsite](./docs/)
 
-> Public docs now ship as a Jekyll-powered GitHub Pages showcase built from `docs/` via the repo's Pages workflow. The public IA is intentionally simple: the homepage lists the available `design-ui` styles, and each card opens a dedicated detail page showing the same scenario rendered in that style.
+> Public docs now ship as a Jekyll-powered GitHub Pages showcase built from `docs/` via the repo's Pages workflow. The public IA stays intentionally simple, but the presentation is now gallery-first: the homepage behaves like a visual wall of `design-ui` directions, and each card opens a dedicated detail page staged like a case study for the same shared scenario.
 >
 > Local preview:
 > - `npm run docs:bundle`
@@ -112,9 +112,9 @@ Quick visual overview: [visual gallery microsite](./docs/)
 | Muốn redesign project hiện có, giữ stack/chức năng | `redesign-skill` |
 
 Quick demo highlights:
-- Browse the homepage style list for the 4 canonical `design-ui` directions: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
-- Open a dedicated detail page for each style on the same pseudo-UI scenario
-- Compare how typography, spacing, hierarchy, and artifact staging shift from one style to another
+- Browse a gallery-style homepage wall for the 4 canonical `design-ui` directions: `default high-agency`, `minimalist editorial`, `premium polish`, `structured technical`
+- Open a dedicated showcase page for each style on the same pseudo-UI scenario
+- Compare how typography, spacing, hierarchy, material treatment, and artifact staging shift from one style to another
 
 ### Release & App Updates
 

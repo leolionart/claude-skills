@@ -1,16 +1,29 @@
 <section class="shell section mode-showcase-shell section-showcase-top">
   <div class="mode-hero-stage mode-hero">
     <div class="mode-hero-copy stack-lg">
-      <p class="section-kicker">{{ include.mode.microsite.hero.eyebrow }} · {{ include.mode.mode_number }} · <code>design-ui</code></p>
-      <h1>{{ include.mode.microsite.hero.title }}</h1>
-      <p class="lead">{{ include.mode.microsite.hero.lead }}</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#demo-overview">Jump to demo overview</a>
-        <a class="button button-secondary" href="{{ '/' | relative_url }}#gallery">Back to styles</a>
+      <div class="stack-md">
+        <p class="section-kicker">{{ include.mode.microsite.hero.eyebrow }} · {{ include.mode.mode_number }}</p>
+        <p class="mode-hero-selected">Direction selected · {{ include.mode.label }}</p>
+        <h1>{{ include.mode.microsite.hero.title }}</h1>
+        <p class="lead">{{ include.mode.microsite.hero.lead }}</p>
       </div>
+
+      <p class="mode-hero-note">{{ include.mode.compare_note }}</p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#demo-overview">Explore the case study</a>
+        <a class="button button-secondary" href="{{ '/' | relative_url }}#gallery">Back to gallery</a>
+      </div>
+
       <div class="hero-microproof hero-microproof-list" aria-label="Mode framing for {{ include.mode.label }}">
         {% for item in include.mode.microsite.hero.microproof %}
           <span>{{ item }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="chip-band mode-hero-signals" aria-label="Signature cues for {{ include.mode.label }}">
+        {% for signal in include.mode.signals %}
+          <span>{{ signal }}</span>
         {% endfor %}
       </div>
     </div>

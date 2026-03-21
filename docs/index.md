@@ -1,6 +1,6 @@
 ---
 layout: home
 title: Design Styles
-description: Homepage listing the available design styles, each leading to a dedicated demo detail page.
+description: Gallery-style homepage listing the available design directions, each leading to a dedicated showcase detail page.
 page_class: page-home
 ---

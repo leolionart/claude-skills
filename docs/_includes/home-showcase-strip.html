@@ -1,12 +1,15 @@
-<section class="shell section section-showcase home-showcase-strip" id="mode-strip">
-  <div class="section-heading stack-md home-section-heading">
-    <p class="section-kicker">{{ site.data.site.home_showcase.eyebrow }}</p>
-    <h2>{{ site.data.site.home_showcase.title }}</h2>
-    <p>{{ site.data.site.home_showcase.description }}</p>
-  </div>
-  <div class="home-mode-strip" aria-label="Featured design-ui mode gallery">
-    {% for mode in site.data.design_ui_modes %}
-      {% include mode-card.html mode=mode showcase=true %}
-    {% endfor %}
+<section class="section home-showcase-strip" id="shared-scenario">
+  <div class="shell home-showcase-band">
+    <div class="home-showcase-copy stack-sm">
+      <p class="section-kicker">{{ site.data.site.same_scenario.eyebrow }}</p>
+      <h2>{{ site.data.site.same_scenario.product_name }}</h2>
+      <p>{{ site.data.site.same_scenario.product_summary }}</p>
+    </div>
+
+    <div class="home-showcase-metrics" aria-label="Comparison axes across the style gallery">
+      {% for axis in site.data.site.same_scenario.compare_axes %}
+        <span>{{ axis }}</span>
+      {% endfor %}
+    </div>
   </div>
 </section>

@@ -48,7 +48,11 @@
 .system-node,
 .workflow-switch-band,
 .proof-strip,
-.compare-band {
+.compare-band,
+.mode-case-study-card,
+.home-showcase-band,
+.home-featured-shot,
+.home-style-rail-item {
   position: relative;
 }
 
@@ -65,7 +69,9 @@
 .footer-links,
 .footer-meta,
 .hero-microproof,
-.chip-band {
+.chip-band,
+.home-style-rail,
+.home-showcase-metrics {
   display: flex;
 }
 
@@ -83,7 +89,9 @@
 .footer-links,
 .footer-meta,
 .hero-microproof,
-.chip-band {
+.chip-band,
+.home-style-rail,
+.home-showcase-metrics {
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -111,15 +119,21 @@
 .compare-band-list,
 .system-map-grid,
 .proof-strip,
-.taxonomy-inline-grid {
+.taxonomy-inline-grid,
+.mode-case-study-grid,
+.mode-case-study-stack {
   display: grid;
   gap: 24px;
 }
 
 .landing-hero-shell,
 .home-front-door-shell {
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 1.02fr);
   align-items: start;
+}
+
+.home-masthead-shell {
+  gap: 32px;
 }
 
 .hero-copy,
@@ -127,7 +141,8 @@
 .home-front-door-copy,
 .switchboard-hero-copy,
 .mode-hero-copy,
-.workflow-handoff-copy {
+.workflow-handoff-copy,
+.home-showcase-copy {
   min-width: 0;
   max-width: 62ch;
 }
@@ -139,15 +154,25 @@
 .mode-hero-motif-rail,
 .workflow-handoff-preview,
 .design-ui-chooser-note,
-.hero-stage-note {
+.hero-stage-note,
+.home-masthead-gallery,
+.home-featured-link,
+.mode-card-link,
+.mode-case-study-stack {
   min-width: 0;
 }
 
 .mode-grid,
 .switchboard-grid,
 .reference-dual-grid,
-.taxonomy-inline-grid {
+.taxonomy-inline-grid,
+.mode-related-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-gallery-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: start;
 }
 
 .workflow-grid {
@@ -156,12 +181,13 @@
 }
 
 .mode-hero {
-  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
   align-items: start;
 }
 
 .mode-hero-preview,
-.workflow-handoff-shell {
+.workflow-handoff-shell,
+.home-masthead-gallery {
   display: grid;
   gap: 24px;
 }
@@ -172,7 +198,8 @@
 .system-map-grid,
 .artifact-stage-grid,
 .compare-band,
-.proof-strip {
+.proof-strip,
+.mode-case-study-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -202,6 +229,18 @@
   align-content: start;
 }
 
+.mode-case-study-grid {
+  align-items: stretch;
+}
+
+.mode-case-study-card-primary {
+  min-height: 100%;
+}
+
+.mode-case-study-stack {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .workflow-handoff-shell {
   grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
   align-items: center;
@@ -222,7 +261,8 @@
 .annotated-scene-notes,
 .artifact-stage-aside,
 .showcase-note-rail,
-.hero-stage-note {
+.hero-stage-note,
+.home-featured-copy {
   display: grid;
   gap: 18px;
 }
@@ -238,6 +278,21 @@
 .mode-showcase-shell,
 .section-showcase-top {
   padding-top: 40px;
+}
+
+@media (min-width: 1121px) {
+  .home-gallery-grid .mode-card-slot-1 {
+    grid-row: span 2;
+  }
+
+  .home-gallery-grid .mode-card-slot-1 .mode-card-preview .preview-frame-media {
+    min-height: 420px;
+  }
+
+  .home-gallery-grid .mode-card-slot-3,
+  .home-gallery-grid .mode-card-slot-4 {
+    transform: translateY(28px);
+  }
 }
 
 @media (max-width: 1120px) {
@@ -262,7 +317,9 @@
   .system-map-grid,
   .proof-strip,
   .taxonomy-inline-grid,
-  .workflow-handoff-shell {
+  .workflow-handoff-shell,
+  .home-gallery-grid,
+  .mode-case-study-grid {
     grid-template-columns: 1fr;
   }
 
@@ -275,7 +332,8 @@
   .workflow-handoff-copy,
   .switchboard-hero-copy,
   .landing-hero-copy,
-  .home-front-door-copy {
+  .home-front-door-copy,
+  .home-showcase-copy {
     max-width: 100%;
   }
 }
