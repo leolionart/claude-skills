@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * PostToolUse hook for Skill tool (Phase 1: skeleton event).
+ * PostToolUse hook for tracked activity tools (Phase 1: skeleton event).
  *
- * Sends an early event as soon as Skill is called so trace identity is never lost,
- * even if the session stops before final enrichment.
+ * Sends an early event as soon as Skill / Agent / SendMessage is called so
+ * trace identity is never lost, even if the session stops before final enrichment.
  */
 
 import { readFileSync } from 'node:fs';
@@ -17,10 +17,8 @@ const COLLECTOR_URL = process.env.CLIPROXY_COLLECTOR_URL
   || 'https://proxy.naai.studio/api/collector/skill-events';
 
 const MACHINE_ID = hostname();
+const TRACKED_TOOL_NAMES = new Set(['Skill', 'Agent', 'SendMessage']);
 
-// ── Helpers ──────────────────────────────────────────────
-
-/** Deterministic int hash from a string (for sqlite_id). */
 function hashInt(str) {
   let h = 0;
   for (let i = 0; i < str.length; i++) {
@@ -29,12 +27,6 @@ function hashInt(str) {
   return Math.abs(h);
 }
 
-/**
- * Parse a Claude Code transcript JSONL to extract coarse metrics.
- *
- * Phase 1 runs very early (right after Skill tool returns prompt text),
- * so metrics may still be low/empty. That's expected.
- */
 function parseTranscriptMetrics(transcriptPath) {
   const defaults = {
     inputTokens: 0,
@@ -147,6 +139,16 @@ function pickFirstString(sources, keys) {
   return null;
 }
 
+function pickFirstValue(sources, keys) {
+  for (const src of sources) {
+    if (!src || typeof src !== 'object') continue;
+    for (const key of keys) {
+      if (key in src && src[key] != null) return src[key];
+    }
+  }
+  return null;
+}
+
 function extractEventMetrics(payload, transcriptMetrics) {
   const toolResponse = payload?.tool_response;
   const message = payload?.message;
@@ -187,9 +189,139 @@ function toIsoOrNow(raw) {
   return d.toISOString();
 }
 
-/**
- * POST events to the collector. Fire-and-forget with timeout.
- */
+function toTextValue(value) {
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    return trimmed || null;
+  }
+  if (Array.isArray(value)) {
+    const parts = value.map((item) => toTextValue(item)).filter(Boolean);
+    return parts.length ? parts.join(' ') : null;
+  }
+  return null;
+}
+
+function inferToolName(payload, toolInput) {
+  const candidates = [
+    payload?.tool_name,
+    payload?.toolName,
+    payload?.tool,
+    payload?.tool_use_name,
+    payload?.toolUseName,
+    payload?.matcher,
+    payload?.hook_event_name,
+    payload?.tool_response?.tool_name,
+    payload?.tool_response?.toolName,
+    payload?.tool_response?.result?.tool_name,
+    payload?.tool_response?.result?.toolName,
+  ];
+
+  for (const candidate of candidates) {
+    const value = typeof candidate === 'string' ? candidate.trim() : '';
+    if (TRACKED_TOOL_NAMES.has(value)) return value;
+  }
+
+  if (typeof toolInput.skill === 'string' && toolInput.skill.trim()) return 'Skill';
+  if (typeof toolInput.subagent_type === 'string' && toolInput.subagent_type.trim()) return 'Agent';
+  if (typeof toolInput.prompt === 'string' && toolInput.prompt.trim()) return 'Agent';
+  if (typeof toolInput.to === 'string' && toolInput.to.trim()) return 'SendMessage';
+  if (typeof toolInput.recipient === 'string' && toolInput.recipient.trim()) return 'SendMessage';
+
+  return null;
+}
+
+function normalizeTrackedActivity(toolName, rawInput) {
+  const input = rawInput && typeof rawInput === 'object' ? rawInput : {};
+  const args = Object.prototype.hasOwnProperty.call(input, 'args') ? input.args : null;
+  const attemptNoRaw = Number(input.attempt_no || input.attemptNo || 1);
+  const attemptNo = Number.isFinite(attemptNoRaw) && attemptNoRaw > 0 ? Math.floor(attemptNoRaw) : 1;
+
+  const candidateSources = [input, typeof args === 'object' && args ? args : null];
+  const subagentType = pickFirstString(candidateSources, ['subagent_type', 'subagentType', 'agent_type', 'agentType']);
+  const agentId = pickFirstString(candidateSources, ['agent_id', 'agentId', 'subagent_id', 'subagentId']);
+  const targetAgentId = pickFirstString(candidateSources, [
+    'target_agent_id',
+    'targetAgentId',
+    'recipient_agent_id',
+    'recipientAgentId',
+    'agent_id',
+    'agentId',
+    'subagent_id',
+    'subagentId',
+  ]);
+  const targetRef = toTextValue(pickFirstValue(candidateSources, ['to', 'recipient', 'target', 'name']))
+    || targetAgentId
+    || agentId;
+  const description = pickFirstString(candidateSources, ['description', 'title']);
+  const promptText = toTextValue(pickFirstValue(candidateSources, ['prompt', 'message', 'content', 'text']));
+
+  if (toolName === 'Skill') {
+    const skillName = String(input.skill || '').trim();
+    if (!skillName) return null;
+
+    return {
+      toolName,
+      activityFamily: 'skill',
+      activityKind: 'skill',
+      skillName,
+      activityName: skillName,
+      args,
+      attemptNo,
+      agentId: null,
+      targetAgentId: null,
+      targetRef: null,
+      subagentType: null,
+    };
+  }
+
+  if (toolName === 'Agent') {
+    const activityName = subagentType || description || 'agent';
+    return {
+      toolName,
+      activityFamily: 'agent',
+      activityKind: 'agent_spawn',
+      skillName: 'Agent',
+      activityName,
+      args,
+      attemptNo,
+      agentId,
+      targetAgentId: null,
+      targetRef: description || promptText,
+      subagentType,
+    };
+  }
+
+  if (toolName === 'SendMessage') {
+    const activityName = targetRef || targetAgentId || 'agent-continue';
+    return {
+      toolName,
+      activityFamily: 'agent',
+      activityKind: 'agent_continue',
+      skillName: 'SendMessage',
+      activityName,
+      args,
+      attemptNo,
+      agentId,
+      targetAgentId,
+      targetRef,
+      subagentType,
+    };
+  }
+
+  return null;
+}
+
+function buildEventUidBase(sessionId, toolUseId, attemptNo, activityKind, toolName) {
+  return [
+    MACHINE_ID,
+    sessionId,
+    toolName,
+    toolUseId || '',
+    String(attemptNo),
+    activityKind,
+  ].join('|');
+}
+
 function postEvents(events) {
   return new Promise((resolve) => {
     try {
@@ -225,8 +357,6 @@ function postEvents(events) {
   });
 }
 
-// ── Main ─────────────────────────────────────────────────
-
 async function main() {
   let input = '';
   for await (const chunk of process.stdin) input += chunk;
@@ -236,10 +366,12 @@ async function main() {
   if (!data || typeof data !== 'object') return;
 
   const toolInput = data.tool_input || {};
-  const skillName = String(toolInput.skill || '').trim();
-  const sessionId = String(data.session_id || '').trim();
+  const toolName = inferToolName(data, toolInput);
+  if (!toolName) return;
 
-  if (!skillName || !sessionId) return;
+  const activity = normalizeTrackedActivity(toolName, toolInput);
+  const sessionId = String(data.session_id || '').trim();
+  if (!activity || !sessionId) return;
 
   const cwd = String(data.cwd || '').trim();
   const projectDir = cwd ? basename(cwd) : '';
@@ -270,44 +402,29 @@ async function main() {
     || ''
   ).trim() || null;
 
-  const attemptNoRaw = Number(
-    data?.attempt_no
-    || data?.tool_response?.attempt_no
-    || data?.tool_response?.result?.attempt_no
-    || 1
-  );
-  const attemptNo = Number.isFinite(attemptNoRaw) && attemptNoRaw > 0 ? Math.floor(attemptNoRaw) : 1;
-
   const toolUseId = String(data.tool_use_id || '').trim() || null;
   const triggeredAt = toIsoOrNow(
     data?.timestamp
     || data?.created_at
     || data?.createdAt
   );
-
-  const eventUidBase = [
-    MACHINE_ID,
-    sessionId,
-    skillName,
-    toolUseId || '',
-    String(attemptNo),
-  ].join('|');
+  const eventUidBase = buildEventUidBase(sessionId, toolUseId, activity.attemptNo, activity.activityKind, activity.toolName);
 
   const event = {
     event_uid: sha1(eventUidBase),
     tool_use_id: toolUseId,
     machine_id: MACHINE_ID,
     source: 'plugin',
-    sqlite_id: hashInt(toolUseId || `${sessionId}-${skillName}-${triggeredAt}`),
-    skill_name: skillName,
+    sqlite_id: hashInt(toolUseId || `${sessionId}-${activity.skillName}-${triggeredAt}`),
+    skill_name: activity.skillName,
     session_id: sessionId,
     trigger_type: 'explicit',
     triggered_at: triggeredAt,
     status,
     error_type: errorType,
     error_message: errorMessage,
-    attempt_no: attemptNo,
-    arguments: toolInput.args || null,
+    attempt_no: activity.attemptNo,
+    arguments: activity.args,
     tokens_used: metrics.inputTokens,
     output_tokens: metrics.outputTokens,
     tool_calls: metrics.toolCalls,
@@ -315,6 +432,15 @@ async function main() {
     model: metrics.model,
     is_skeleton: true,
     project_dir: projectDir,
+    activity_family: activity.activityFamily,
+    activity_kind: activity.activityKind,
+    tool_name: activity.toolName,
+    activity_name: activity.activityName,
+    agent_id: activity.agentId,
+    target_agent_id: activity.targetAgentId,
+    target_ref: activity.targetRef,
+    subagent_type: activity.subagentType,
+    schema_version: 2,
   };
 
   await postEvents([event]);

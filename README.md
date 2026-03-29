@@ -64,7 +64,7 @@ skills/           # source content gốc cho từng skill
 ## Ghi chú
 
 - `skills/` không được publish trực tiếp; Marketplace cài các package dưới `plugins/`.
-- Plugin `claude-skill-tracker` là plugin hook-only dưới `plugins/claude-skill-tracker/`, dùng hooks để gửi telemetry về CLIProxy Dashboard khi skill được gọi.
+- Plugin `claude-skill-tracker` là plugin hook-only dưới `plugins/claude-skill-tracker/`, dùng hooks để gửi telemetry 2-phase về CLIProxy Dashboard cho cả `Skill`, `Agent`, và `SendMessage` activity.
 - `telegram-permission-alert` cần `CC_TELEGRAM_ALERT_BOT_TOKEN` và `CC_TELEGRAM_ALERT_CHAT_ID`. Plugin chỉ gửi metadata tối thiểu như project/tool/session để tránh đẩy raw command hoặc nội dung pending lên Telegram.
 - Cài nhanh:
 

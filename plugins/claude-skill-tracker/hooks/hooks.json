@@ -1,9 +1,29 @@
 {
-  "description": "CLIProxy Skill Tracker — sends 2-phase skill telemetry (skeleton + final enrich) to your dashboard",
+  "description": "CLIProxy activity tracker — sends 2-phase telemetry for skills and agents (skeleton + final enrich) to your dashboard",
   "hooks": {
     "PostToolUse": [
       {
         "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-skill-use.mjs",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/on-skill-use.mjs",
+            "timeout": 8
+          }
+        ]
+      },
+      {
+        "matcher": "SendMessage",
         "hooks": [
           {
             "type": "command",

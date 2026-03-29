@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * Stop hook for Skill telemetry (Phase 2: final enrichment).
+ * Stop hook for tracked activity telemetry (Phase 2: final enrichment).
  *
- * On Stop, transcript usually contains the completed skill execution turn.
- * This script finds the latest Skill tool call in current session, rebuilds
- * the same event identity, then sends an enriched final payload.
+ * On Stop, transcript usually contains the completed tracked execution turn.
+ * This script finds the latest Skill / Agent / SendMessage tool call in the
+ * current session, rebuilds the same event identity, then sends an enriched
+ * final payload.
  */
 
 import { readFileSync } from 'node:fs';
@@ -18,6 +19,7 @@ const COLLECTOR_URL = process.env.CLIPROXY_COLLECTOR_URL
   || 'https://proxy.naai.studio/api/collector/skill-events';
 
 const MACHINE_ID = hostname();
+const TRACKED_TOOL_NAMES = new Set(['Skill', 'Agent', 'SendMessage']);
 
 function hashInt(str) {
   let h = 0;
@@ -85,7 +87,132 @@ function getContentBlocks(entry) {
   return Array.isArray(content) ? content : [];
 }
 
-function extractSkillCalls(entries) {
+function pickFirstString(sources, keys) {
+  for (const src of sources) {
+    if (!src || typeof src !== 'object') continue;
+    for (const key of keys) {
+      const value = src[key];
+      if (typeof value === 'string' && value.trim()) return value.trim();
+    }
+  }
+  return null;
+}
+
+function pickFirstValue(sources, keys) {
+  for (const src of sources) {
+    if (!src || typeof src !== 'object') continue;
+    for (const key of keys) {
+      if (key in src && src[key] != null) return src[key];
+    }
+  }
+  return null;
+}
+
+function toTextValue(value) {
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    return trimmed || null;
+  }
+  if (Array.isArray(value)) {
+    const parts = value.map((item) => toTextValue(item)).filter(Boolean);
+    return parts.length ? parts.join(' ') : null;
+  }
+  return null;
+}
+
+function normalizeTrackedActivity(toolName, rawInput) {
+  const input = rawInput && typeof rawInput === 'object' ? rawInput : {};
+  const args = Object.prototype.hasOwnProperty.call(input, 'args') ? input.args : null;
+  const attemptNoRaw = Number(input.attempt_no || input.attemptNo || 1);
+  const attemptNo = Number.isFinite(attemptNoRaw) && attemptNoRaw > 0 ? Math.floor(attemptNoRaw) : 1;
+
+  const candidateSources = [input, typeof args === 'object' && args ? args : null];
+  const subagentType = pickFirstString(candidateSources, ['subagent_type', 'subagentType', 'agent_type', 'agentType']);
+  const agentId = pickFirstString(candidateSources, ['agent_id', 'agentId', 'subagent_id', 'subagentId']);
+  const targetAgentId = pickFirstString(candidateSources, [
+    'target_agent_id',
+    'targetAgentId',
+    'recipient_agent_id',
+    'recipientAgentId',
+    'agent_id',
+    'agentId',
+    'subagent_id',
+    'subagentId',
+  ]);
+  const targetRef = toTextValue(pickFirstValue(candidateSources, ['to', 'recipient', 'target', 'name']))
+    || targetAgentId
+    || agentId;
+  const description = pickFirstString(candidateSources, ['description', 'title']);
+  const promptText = toTextValue(pickFirstValue(candidateSources, ['prompt', 'message', 'content', 'text']));
+
+  if (toolName === 'Skill') {
+    const skillName = String(input.skill || '').trim();
+    if (!skillName) return null;
+
+    return {
+      toolName,
+      activityFamily: 'skill',
+      activityKind: 'skill',
+      skillName,
+      activityName: skillName,
+      args,
+      attemptNo,
+      agentId: null,
+      targetAgentId: null,
+      targetRef: null,
+      subagentType: null,
+    };
+  }
+
+  if (toolName === 'Agent') {
+    const activityName = subagentType || description || 'agent';
+    return {
+      toolName,
+      activityFamily: 'agent',
+      activityKind: 'agent_spawn',
+      skillName: 'Agent',
+      activityName,
+      args,
+      attemptNo,
+      agentId,
+      targetAgentId: null,
+      targetRef: description || promptText,
+      subagentType,
+    };
+  }
+
+  if (toolName === 'SendMessage') {
+    const activityName = targetRef || targetAgentId || 'agent-continue';
+    return {
+      toolName,
+      activityFamily: 'agent',
+      activityKind: 'agent_continue',
+      skillName: 'SendMessage',
+      activityName,
+      args,
+      attemptNo,
+      agentId,
+      targetAgentId,
+      targetRef,
+      subagentType,
+    };
+  }
+
+  return null;
+}
+
+function buildEventUidBase(sessionId, toolUseId, attemptNo, activityKind, toolName) {
+  return [
+    MACHINE_ID,
+    sessionId,
+    toolName,
+    toolUseId || '',
+    String(attemptNo),
+    activityKind,
+  ].join('|');
+}
+
+function extractTrackedToolCalls(entries) {
   const calls = [];
 
   for (let i = 0; i < entries.length; i++) {
@@ -96,26 +223,28 @@ function extractSkillCalls(entries) {
     const blocks = getContentBlocks(entry);
     for (const block of blocks) {
       if (block?.type !== 'tool_use') continue;
-      if (String(block?.name || '').trim() !== 'Skill') continue;
 
-      const input = block?.input && typeof block.input === 'object' ? block.input : {};
-      const skillName = String(input.skill || '').trim();
-      if (!skillName) continue;
+      const toolName = String(block?.name || '').trim();
+      if (!TRACKED_TOOL_NAMES.has(toolName)) continue;
 
-      const attemptNoRaw = Number(
-        input.attempt_no
-        || input.attemptNo
-        || 1
-      );
-      const attemptNo = Number.isFinite(attemptNoRaw) && attemptNoRaw > 0 ? Math.floor(attemptNoRaw) : 1;
+      const activity = normalizeTrackedActivity(toolName, block?.input);
+      if (!activity) continue;
 
       calls.push({
         idx: i,
         timestamp: pickEntryTimestamp(entry),
         toolUseId: String(block?.id || '').trim() || null,
-        skillName,
-        attemptNo,
-        args: input.args ?? null,
+        toolName: activity.toolName,
+        activityFamily: activity.activityFamily,
+        activityKind: activity.activityKind,
+        activityName: activity.activityName,
+        skillName: activity.skillName,
+        attemptNo: activity.attemptNo,
+        args: activity.args,
+        agentId: activity.agentId,
+        targetAgentId: activity.targetAgentId,
+        targetRef: activity.targetRef,
+        subagentType: activity.subagentType,
       });
     }
   }
@@ -123,11 +252,11 @@ function extractSkillCalls(entries) {
   return calls;
 }
 
-function hasSkillToolUse(entry) {
+function hasTrackedToolUse(entry) {
   const blocks = getContentBlocks(entry);
   for (const block of blocks) {
     if (block?.type !== 'tool_use') continue;
-    if (String(block?.name || '').trim() === 'Skill') return true;
+    if (TRACKED_TOOL_NAMES.has(String(block?.name || '').trim())) return true;
   }
   return false;
 }
@@ -146,17 +275,17 @@ function findExecutionWindow(entries, callIdx) {
     return { start: callIdx, endExclusive: entries.length };
   }
 
-  let nextSkillCallAssistantIdx = entries.length;
+  let nextTrackedCallAssistantIdx = entries.length;
   for (let i = executionAssistantIdx + 1; i < entries.length; i++) {
     const role = entries[i]?.role || entries[i]?.type;
     if (role !== 'assistant') continue;
-    if (hasSkillToolUse(entries[i])) {
-      nextSkillCallAssistantIdx = i;
+    if (hasTrackedToolUse(entries[i])) {
+      nextTrackedCallAssistantIdx = i;
       break;
     }
   }
 
-  return { start: executionAssistantIdx, endExclusive: nextSkillCallAssistantIdx };
+  return { start: executionAssistantIdx, endExclusive: nextTrackedCallAssistantIdx };
 }
 
 function extractMetricsFromWindow(entries, start, endExclusive) {
@@ -295,10 +424,10 @@ async function main() {
   const entries = readTranscriptEntries(data.transcript_path);
   if (!entries.length) return;
 
-  const skillCalls = extractSkillCalls(entries);
-  if (!skillCalls.length) return;
+  const trackedCalls = extractTrackedToolCalls(entries);
+  if (!trackedCalls.length) return;
 
-  const latestCall = skillCalls[skillCalls.length - 1];
+  const latestCall = trackedCalls[trackedCalls.length - 1];
   const { start, endExclusive } = findExecutionWindow(entries, latestCall.idx);
 
   const metrics = extractMetricsFromWindow(entries, start, endExclusive);
@@ -308,13 +437,13 @@ async function main() {
   const projectDir = cwd ? basename(cwd) : '';
 
   const triggeredAt = toIsoOrNow(latestCall.timestamp || data.timestamp || data.created_at || data.createdAt);
-  const eventUidBase = [
-    MACHINE_ID,
+  const eventUidBase = buildEventUidBase(
     sessionId,
-    latestCall.skillName,
-    latestCall.toolUseId || '',
-    String(latestCall.attemptNo),
-  ].join('|');
+    latestCall.toolUseId,
+    latestCall.attemptNo,
+    latestCall.activityKind,
+    latestCall.toolName,
+  );
 
   const status = normalizeStatus(data.status || windowStatus.status);
   const errorType = String(data.error_type || windowStatus.errorType || '').trim() || null;
@@ -342,6 +471,15 @@ async function main() {
     model: metrics.model,
     is_skeleton: false,
     project_dir: projectDir,
+    activity_family: latestCall.activityFamily,
+    activity_kind: latestCall.activityKind,
+    tool_name: latestCall.toolName,
+    activity_name: latestCall.activityName,
+    agent_id: latestCall.agentId,
+    target_agent_id: latestCall.targetAgentId,
+    target_ref: latestCall.targetRef,
+    subagent_type: latestCall.subagentType,
+    schema_version: 2,
   };
 
   await postEvents([event]);
