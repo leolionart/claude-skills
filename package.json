@@ -1,12 +1,12 @@
 {
-  "name": "claude-skill-tracker",
+  "name": "aitran-skills",
   "version": "1.3.0",
-  "description": "Track Claude Code skill usage to your CLIProxy Dashboard",
+  "description": "Collection of Claude Code skills and plugins for Claude Marketplace",
   "type": "module",
   "license": "MIT",
   "keywords": [
     "claude-code-plugin",
     "analytics",
     "skills"
-  ],
+  ]
 }

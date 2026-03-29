@@ -11,6 +11,9 @@ Xác nhận các điểm sau:
 - Commit message phản ánh **vì sao** thay đổi tồn tại
 - Branch hiện tại là branch đúng để push
 - Remote/upstream đúng, đặc biệt nếu branch mới tạo
+- Sau khi các điểm trên pass thì push luôn; chỉ dừng nếu xuất hiện bất thường như upstream lạ, divergence, hoặc nhu cầu force push
+- Nếu release notes là một phần workflow này, phải xác định rõ phạm vi commit/tag trước khi soạn notes
+- Nếu publish release thật là một phần workflow này, phải xác nhận version/tag/gh auth pass trước khi sang bước publish
 
 ## Trước khi phát hành
 
